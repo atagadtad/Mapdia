@@ -33,3 +33,6 @@ $(function() {
 
   // });
 });
+$(".ui.search").search({
+  source: content
+});
