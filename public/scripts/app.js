@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // const userItemView = user => {
 //   const $item = $(`<div class='user'>${user.email}</div>`);
 //   $item.on("click", () => alert("hello" + user.email));
@@ -34,7 +33,6 @@
 //     }
 //   });
 // });
-=======
 function appendMap() {
   return `<div>
   <script type="text/javascript" src="/scripts/map.js"></script>
@@ -69,4 +67,3 @@ $(function() {
   // });
 });
 
->>>>>>> 13bc3aba4eed04054f5c4d7076f5247b994acb42
