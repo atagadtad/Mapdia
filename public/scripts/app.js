@@ -7,4 +7,13 @@ $(() => {
       $("<div>").text(user.name).appendTo($("body"));
     }
   });;
+
+  // $.ajax({
+  //   method: "GET",
+  //   url: "/"
+  // }).done(() => {
+  //   for(user of users) {
+  //     $("<div>").text(user.name).appendTo($("body"));
+  //   }
+  // });;
 });
