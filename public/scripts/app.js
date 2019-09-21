@@ -46,9 +46,13 @@ $(function() {
         .appendTo($("body"));
     }
   });
-  
-  $("body").append(appendMap());
-  $("body").append(appendSearch());
+  let map = appendMap();
+  $("body").append(map);
+  $('#searchPlace').click(function() {
+    appendSearch(map);
+
+  })
+ // $("body").append(appendSearch());
 
 
   // $.ajax({
