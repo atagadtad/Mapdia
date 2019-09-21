@@ -35,7 +35,7 @@ import { appendMap, appendSearch, addMarker } from './helpers.js';
 //   });
 // });
 
-$(function() {
+$(function () {
   $.ajax({
     method: "GET",
     url: "/api/users"
@@ -47,18 +47,14 @@ $(function() {
     }
   });
   $("body").append(appendMap());
-  $("#searchPlace").click(function() {
+  $("#searchPlace").click(function () {
     appendSearch();
 
   })
-
- // $("body").append(appendSearch());
-google.maps.event.addListener(map, "rightclick", function(event) {
-  var lat = event.latLng.lat();
-  var lng = event.latLng.lng();
-  // populate yor box/field with lat, lng
-  alert("Lat=" + lat + "; Lng=" + lng);
-});
+  let $map = document.getElementById('map');
+  let map = document.getElementById('map').gMap;
+ 
+ 
 
   // $.ajax({
   //   method: "GET",
@@ -68,11 +64,22 @@ google.maps.event.addListener(map, "rightclick", function(event) {
   // });
 });
 
-$(document).ready(function() {
-  addMarker();
-})
+jQuery(document).ready(function () {
 
+  $('#map').click(function () {
+    // $("body").append(appendSearch());
+    let map = document.getElementById('map').gMap;
+    console.log(map);
+    google.maps.event.addListener(map, "rightclick", function (event) {
+      console.log(map);
+      var lat = event.latLng.lat();
+      var lng = event.latLng.lng();
+      // populate yor box/field with lat, lng
+      alert("Lat=" + lat + "; Lng=" + lng);
+    });
+  })
+});
 
-$(".buttons .login").click(function() {
+$(".buttons .login").click(function () {
   $("#login-form").css("display", "block");
 });
