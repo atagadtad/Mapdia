@@ -73,6 +73,7 @@ function appendSearch() {
 }
 
 function addMarker() {
+  console.log(`i am here`);
   let map = document.getElementById('map').gMap;
   //click on map to add marker
   google.maps.event.addListener(map, 'click', function(e) {

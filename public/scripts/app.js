@@ -46,15 +46,19 @@ $(function() {
         .appendTo($("body"));
     }
   });
-  let map = appendMap();
-  $("body").append(map);
-  $('#searchPlace').click(function() {
-    appendSearch(map);
+  $("body").append(appendMap());
+  $("#searchPlace").click(function() {
+    appendSearch();
 
   })
-  addMarker();
- // $("body").append(appendSearch());
 
+ // $("body").append(appendSearch());
+google.maps.event.addListener(map, "rightclick", function(event) {
+  var lat = event.latLng.lat();
+  var lng = event.latLng.lng();
+  // populate yor box/field with lat, lng
+  alert("Lat=" + lat + "; Lng=" + lng);
+});
 
   // $.ajax({
   //   method: "GET",
@@ -63,6 +67,10 @@ $(function() {
 
   // });
 });
+
+$(document).ready(function() {
+  addMarker();
+})
 $(".ui.search").search({
   source: content
 });
