@@ -71,6 +71,8 @@ google.maps.event.addListener(map, "rightclick", function(event) {
 $(document).ready(function() {
   addMarker();
 })
-$(".ui.search").search({
-  source: content
+
+
+$(".buttons .login").click(function() {
+  $("#login-form").css("display", "block");
 });
