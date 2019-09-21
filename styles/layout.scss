@@ -8,5 +8,10 @@ body {
   }
   #map {
     height: 300px;
+
+    #search-input {
+      width: 30%;
+      height: 10%;
+    }
   }
 }
