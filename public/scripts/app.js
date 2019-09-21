@@ -60,6 +60,10 @@ $(function() {
 
   // });
 });
-$(".ui.search").search({
-  source: content
+// $(".ui.search").search({
+//   source: content
+// });
+
+$(".buttons .login").click(function() {
+  $("#login-form").css("display", "block");
 });
