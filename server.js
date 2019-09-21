@@ -66,7 +66,9 @@ app.use("/login", loginRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-
+app.post("/login", (req, res) => {
+  res.render("user");
+})
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
