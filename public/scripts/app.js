@@ -1,4 +1,4 @@
-import { appendMap, appendSearch } from './helpers.js';
+import { appendMap, appendSearch } from "./helpers.js";
 // const userItemView = user => {
 //   const $item = $(`<div class='user'>${user.email}</div>`);
 //   $item.on("click", () => alert("hello" + user.email));
@@ -48,12 +48,10 @@ $(function() {
   });
   let map = appendMap();
   $("body").append(map);
-  $('#searchPlace').click(function() {
+  $("#searchPlace").click(function() {
     appendSearch(map);
-
-  })
- // $("body").append(appendSearch());
-
+  });
+  // $("body").append(appendSearch());
 
   // $.ajax({
   //   method: "GET",
@@ -62,6 +60,10 @@ $(function() {
 
   // });
 });
-$(".ui.search").search({
-  source: content
+// $(".ui.search").search({
+//   source: content
+// });
+
+$(".buttons .login").click(function() {
+  $("#login-form").css("display", "block");
 });
