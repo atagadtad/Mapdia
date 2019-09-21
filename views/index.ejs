@@ -15,7 +15,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
     />
     <!-- SEMANTIC UI -->
-    <link
+    <!-- <link
       rel="stylesheet"
       type="text/css"
       href="semantic/dist/semantic.min.css"
@@ -25,7 +25,7 @@
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous"
     ></script>
-    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script> -->
     <!-- BOOTSTRAP -->
 
     <link
@@ -39,23 +39,20 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <!-- change type from "text/jsvascript" to "module" client code helpers function module-->
     <script type="module" src="/scripts/app.js"></script>
-
   </head>
 
   <body>
     <nav>
       <div class="search">
-        <div class="ui search">
-          <div class="ui icon input">
-            <input
-              class="prompt"
-              type="text"
-              placeholder="Search countries..."
-            />
-            <i class="search icon"></i>
-          </div>
-          <div class="results"></div>
-        </div>
+        <form class="form-inline md-form form-sm active-cyan-2 mt-2">
+          <input
+            class="form-control form-control-sm mr-3 w-75"
+            type="text"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </form>
       </div>
       <div class="buttons">
         <button type="button" class="btn login" disabled>

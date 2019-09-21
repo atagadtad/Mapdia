@@ -11,5 +11,11 @@ body {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    height: 300px;
+
+    #search-input {
+      width: 30%;
+      height: 10%;
+    }
   }
 }
