@@ -14,7 +14,7 @@ module.exports = db => {
       .then(data => {
         console.log(data)
         const users = data.rows;
-        res.json({ users });
+        res.render(users);
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
