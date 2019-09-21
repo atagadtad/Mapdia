@@ -1,3 +1,4 @@
+import { appendMap, appendSearch } from "./helpers.js";
 // const userItemView = user => {
 //   const $item = $(`<div class='user'>${user.email}</div>`);
 //   $item.on("click", () => alert("hello" + user.email));
@@ -33,14 +34,6 @@
 //     }
 //   });
 // });
-function appendMap() {
-  return `<div>
-  <script type="text/javascript" src="/scripts/map.js"></script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA&callback=initMap">
-  </script>
-  </div>`;
-}
 
 $(function() {
   $.ajax({
@@ -53,13 +46,12 @@ $(function() {
         .appendTo($("body"));
     }
   });
-  // console.log('do i work??');
-  // // appendMap();
-  // let $map = appendMap();
-  // console.log($map);
-  // let $body = $("body");
-  // console.log($body);
-  // $body.append($map);
+  let map = appendMap();
+  $("body").append(map);
+  $("#searchPlace").click(function() {
+    appendSearch(map);
+  });
+  // $("body").append(appendSearch());
 
   // $.ajax({
   //   method: "GET",
@@ -67,4 +59,7 @@ $(function() {
   // }).done(() => {
 
   // });
+});
+$(".ui.search").search({
+  source: content
 });
