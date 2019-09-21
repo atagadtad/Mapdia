@@ -53,8 +53,17 @@ $(function () {
   })
   let $map = document.getElementById('map');
   let map = document.getElementById('map').gMap;
- 
- 
+ //showing user page
+  $.ajax({
+    method: "GET",
+    url: "/login"
+  }).done(() => {
+    $("body").append(appendMap());
+    $("#searchPlace").click(function () {
+      appendSearch();
+  
+    })
+  });
 
   // $.ajax({
   //   method: "GET",
