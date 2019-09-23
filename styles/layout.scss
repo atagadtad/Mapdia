@@ -12,18 +12,25 @@ body {
     justify-content: space-between;
     margin: 2em;
   }
-.mapCollection {
-  display: flex;
-  flex-direction: column;
-  width:30%;
-  height: 600px;
-  float: left;
-}
+  .mapCollection {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 600px;
+    float: left;
+  }
   #map {
     height: 600px;
     width: 60%;
     float: right;
     margin-right: auto;
+
+    .searchPlace {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
 
     #search-input {
       width: 30%;
@@ -40,6 +47,10 @@ body {
     display: none;
   }
 
+  #singup {
+    margin: 5em;
+    display: none;
+  }
   nav .search {
     margin-left: 3em;
   }

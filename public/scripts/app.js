@@ -104,9 +104,22 @@ $("#map1").click(function() {
 });
 // });
 
-// $(".buttons .login").click(function () {
-//   $("#login-form").css("display", "block");
-// });
+$("#buttons .login").click(function() {
+  if ($("#login-form").css("display") == "none") {
+    $("#login-form").slideDown();
+  } else {
+    $("#login-form").slideUp();
+  }
+});
+
+$("#buttons .signup").click(function() {
+  // alert("hiiii");
+  if ($("#singup").css("display") == "none") {
+    $("#singup").slideDown();
+  } else {
+    $("#singup").slideUp();
+  }
+});
 
 // $.ajax({
 //   method: "GET",
@@ -115,21 +128,12 @@ $("#map1").click(function() {
 
 // });
 
-$("#buttons .login").click(function() {
-  $("#login-form").css("display", "block");
-});
-
 // });
 $(".item").click(function() {
   let url = $(this).attr("href");
   alert(url);
   $("#right").load(url);
   return false;
-});
-
-$("i").click(function() {
-  // alert("hiihi");
-  $("#login-form").css("display", "none");
 });
 
 jQuery(document).ready(function() {

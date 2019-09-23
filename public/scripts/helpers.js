@@ -1,12 +1,7 @@
 function appendMap() {
-  let $map = `<div>
-  <script type="text/javascript" src="/scripts/map.js"></script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA&libraries=places&callback=initMap">
-  </script>
-  </div>
+  let $map = `
   <div>
-  <button id = 'searchPlace'>Find place</button>
+  <button id="searchPlace" class="ui basic button searchPlace">Find place</button>
   </div>`;
   return $map;
 }
@@ -16,8 +11,11 @@ function appendSearch() {
   let map = document.getElementById("map").gMap;
   let searchInput = document.getElementById("search-input");
   if (!searchInput) {
+    //
     $("body").append(
-      `<input id="search-input" class="controls" type="text" placeholder="Search Box" autocomplete='on'></input>`
+      `
+      <input id="search-input" class="controls" type="text" placeholder="Search Box" autocomplete='on'></input>
+      `
     );
     searchInput = document.getElementById("search-input");
     let searchBox = new google.maps.places.SearchBox(searchInput);

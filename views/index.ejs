@@ -24,6 +24,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+    />
     <!-- BOOTSTRAP  -->
 
     <link
@@ -42,11 +46,12 @@
 
   <body>
     <% include ./partials/_header%>
-
+    <!-- <div>
+      <button class="ui basic button searchPlace">Find place</button>
+    </div> -->
     <main>
       <div id="login-form" class="mainform">
         <form class="ui form" action="/login" method="POST">
-          <i class="window close outline icon"></i>
           <div class="field">
             <label>Email</label>
             <input type="text" name="email" placeholder="Email" />
@@ -61,15 +66,40 @@
               <label>I agree to the Terms and Conditions</label>
             </div>
           </div>
-          <button class="ui button" type="submit">Submit</button>
+          <button class="ui basic button" type="submit">Submit</button>
+        </form>
+      </div>
+      <div id="singup">
+        <form class="ui form">
+          <div class="field">
+            <label>Eamil</label>
+            <input type="text" name="first-name" placeholder="First Name" />
+          </div>
+          <div class="field">
+            <label>password</label>
+            <input type="text" name="last-name" placeholder="Last Name" />
+          </div>
+
+          <button class="ui basic button" type="submit">Submit</button>
         </form>
       </div>
       <section class="mapCollection">
-        <div class="mapCollection" id = "map1">map1</div>
-        <div class="mapCollection" id = 'map2'>map2</div>
-        <div class="mapCollection" id = 'map3'>map3</div>
+        <div class="mapCollection" id="map1">map1</div>
+        <div class="mapCollection" id="map2">map2</div>
+        <div class="mapCollection" id="map3">map3</div>
       </section>
-      <section id="map"></section>
+
+      <section id="map">
+        <div>
+          <script type="text/javascript" src="/scripts/map.js"></script>
+          <script
+            async
+            defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA&libraries=places&callback=initMap"
+          ></script>
+        </div>
+      </section>
+
       <form id="map_submission" method="POST" action="/pinsCollection">
         <button>Submit Pins</button>
       </form>
