@@ -5,15 +5,17 @@ const app = express();
 
 module.exports = db => {
   router.post("/", (req, res) => {
-    const values = [`${req.body.email}`]
+    userEmail = req.body.email;
+    userPassword = req.body.password;
+    const values = [userEmail, userPassword]
     db.query(`
     SELECT *
     FROM users
-    WHERE users.email = $1;
+    WHERE users.email = $1 AND users.password = $2;
     `, values)
       .then(data => {
         const users = data.rows;
-        console.log(users)
+        console.log(users[0].email)
         res.render("user");
       })
       .catch(err => {
