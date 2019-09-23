@@ -1,4 +1,4 @@
-const db = require('../lib')
+const db = require('../lib/db')
 
 
 /// Users
