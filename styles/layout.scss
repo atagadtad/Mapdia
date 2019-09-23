@@ -11,11 +11,17 @@ body {
     display: flex;
     justify-content: space-around;
   }
-
+.mapCollection {
+  display: flex;
+  flex-direction: column;
+  width:30%;
+  height: 600px;
+  float: left;
+}
   #map {
     height: 600px;
-    width: 90%;
-    margin-left: auto;
+    width: 60%;
+    float: right;
     margin-right: auto;
 
     #search-input {

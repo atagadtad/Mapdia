@@ -33,11 +33,11 @@
     <div id="login-form" class="mainform">
       <form class="ui form" action="/login" method="POST">
         <div class="field">
-          <label>First Name</label>
+          <label>Email</label>
           <input type="text" name="first-name" placeholder="First Name" />
         </div>
         <div class="field">
-          <label>Last Name</label>
+          <label>Password</label>
           <input type="text" name="last-name" placeholder="Last Name" />
         </div>
         <div class="field">
@@ -49,8 +49,16 @@
         <button class="ui button" type="submit">Submit</button>
       </form>
     </div>
+    <section class='mapCollection'>
+        <div class="mapCollection">map1</div>
+        <div class="mapCollection">map2</div>
+        <div class="mapCollection">map3</div>
+    </section>
+    <section class="map">
+
+    </section>
   </main>
-  <div id="map1">map1</div>
+
   <% include ./partials/_footer%>
 </body>
 
