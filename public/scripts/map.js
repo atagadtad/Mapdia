@@ -1,6 +1,6 @@
 let map;
 let markers = [];
-let map1 = [];
+let pinMap = [];
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
@@ -16,9 +16,9 @@ function initMap() {
     position: { lat: 43.9, lng: -79.4 },
     draggable: true
   });
-  map1.push(marker);
-  map1.push(marker1);
-  map1.forEach(item => item.setMap(map));
+  // map1.push(marker);
+  // map1.push(marker1);
+  // map1.forEach(item => item.setMap(map));
   const placeService = new google.maps.places.PlacesService(map);
   const request = {
     query: 'ottawa',
@@ -99,23 +99,36 @@ function setContentString(marker) {
 }
 
 
-<<<<<<< HEAD
-$( () => {
+$(() => {
   console.log('loaded');
 
   //ajax request to GET
-  $.ajax({ 
+  $.ajax({
     url: '/pins',
     success: (data) => {
-      console.log(data)
+      let lat = data.data[0].latitude;
+      let lng = data.data[0].longitude;
+      console.log(lat, lng);
+      let marker1 = new google.maps.Marker({
+        position: { lat: lat, lng: lng },
+        draggable: true
+      });
+      pinMap.push(marker1);
+      console.log(marker1);
+      pinMap.forEach(item => item.setMap(map));
     }
   });
 
   $('#map_submission').on('submit', evt => {
     evt.preventDefault();
-    console.log(markers)
     //ajax request to /maps with markers
+    $.ajax({
+      url: '/pins',
+      method: 'POST',
+      data: markers,
+      success: function () {
+        console.log("hello");
+      }
+    })
   })
 });
-=======
->>>>>>> e868eeed3995a8ac78e432b2500ab9952ba1f11e
