@@ -47,11 +47,7 @@ $(function($) {
         .appendTo($("body"));
     }
   });
-  $("body").append(appendMap());
-  $("#searchPlace").click(function() {
-    appendSearch();
-
-  })
+ 
   let $map = document.getElementById('map');
   let map = document.getElementById('map').gMap;
   //showing user page
@@ -59,8 +55,21 @@ $(function($) {
     method: "GET",
     url: "/login"
   }).done(() => {
-    $("#right").append(appendMap());
+    $("#map").append(appendMap());
+    $("#searchPlace").click(function() {
+      appendSearch();
 
+    })
+  });
+  // $("#map").append(appendMap());
+  // $("#searchPlace").click(function() {
+  //   appendSearch();
+  // });
+  $.ajax({
+    method: "GET",
+    url: "/"
+  }).done(() => {
+    $("#map").append(appendMap());
     $("#searchPlace").click(function() {
       appendSearch();
 
