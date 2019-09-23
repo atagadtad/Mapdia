@@ -4,17 +4,16 @@ const app = express();
 
 
 module.exports = db => {
-  router.post("/", (req, res) => {
+  router.get("/", (req, res) => {
     db.query(`
     SELECT longitude, latitude
     FROM pins
-    JOIN maps ON map_id = maps.id;
+    JOIN maps ON map_id = maps.id
+    WHERE map_id = 1;
     `)
-      .then(data => {
-        const users = data.rows;
-        if (users[0].email === userEmail && users[0].password === userPassword) {
-          res.render("user");
-        }
+      .then(pins => {
+        const coords = pins.rows;
+        res.json({ coords });
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
