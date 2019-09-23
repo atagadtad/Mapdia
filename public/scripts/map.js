@@ -48,7 +48,7 @@ function initMap() {
       // title: "Hello World!"
       draggable: true
     });
-    markers.push({lat: marker.position.lat(), lng: marker.position.lng()});
+    markers.push({ lat: marker.position.lat(), lng: marker.position.lng() });
     marker.setMap(map);
     console.log(marker.position);
     //    const contentString = setContentString(markers.length);
@@ -57,13 +57,13 @@ function initMap() {
     google.maps.event.addListener(marker, "click", function () {
       infowindow.setContent(contentString);
       infowindow.open(map, this);
- 
+
     });
     google.maps.event.addListener(marker, "rightclick", function () {
       marker.setMap(null);
       markers.push(marker);
       console.log("APPLES")
-      
+
     });
   });
   let divMap = document.getElementById("map");
@@ -104,7 +104,7 @@ $(() => {
   console.log('loaded');
 
   //ajax request to GET
-  $("#map1").click(()=>{
+  $("#map1").click(() => {
     $.ajax({
       url: '/pins',
       success: (data) => {
@@ -121,16 +121,16 @@ $(() => {
       }
     });
   })
-  
+
 
   $("#map_submission").on("submit", evt => {
-  //  var dataString = JSON.parse(markers);
+    //  var dataString = JSON.parse(markers);
     evt.preventDefault();
     //ajax request to /maps with markers
     $.ajax({
       url: '/pinsCollection',
       method: 'POST',
-      data: {data: markers},
+      data: { data: markers },
       dataType: "json",
       success: function (status) {
         console.log(status);
