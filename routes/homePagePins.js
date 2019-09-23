@@ -26,7 +26,7 @@ module.exports = db => {
   router.post("/pinsCollection", (req, res) => {
     let coords = req.body.data[0]
     console.log(coords.lat, coords.lng)
-    const values = [`${coords.lng}`, `${coords.lat}`, '1'];
+    const values = [`${coords.lng}`, `${coords.lat}`, '2'];
     return db.query(`
     INSERT INTO pins (longitude, latitude, map_id)
     VALUES ($1, $2, $3)
