@@ -119,18 +119,17 @@ $("#buttons .login").click(function() {
   $("#login-form").css("display", "block");
 });
 
-$(".item").click(function() {
-  let url = $(this).attr("href");
-  alert(url);
-  $("#right").load(url + " #right >*");
-  return false;
-});
 // });
 $(".item").click(function() {
   let url = $(this).attr("href");
   alert(url);
   $("#right").load(url);
   return false;
+});
+
+$("i").click(function() {
+  // alert("hiihi");
+  $("#login-form").css("display", "none");
 });
 
 jQuery(document).ready(function() {
