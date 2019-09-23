@@ -117,6 +117,7 @@ $(() => {
         });
         pinMap.push(marker1);
         pinMap.forEach(item => item.setMap(map));
+        map.setCenter(marker1.getPosition());
       }
     });
   })
