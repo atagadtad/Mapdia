@@ -110,18 +110,3 @@ $(function($) {
     return false;
   });
 
-
-jQuery(document).ready(function() {
-  $("#map").click(function() {
-    // $("body").append(appendSearch());
-    let map = document.getElementById("map").gMap;
-    console.log(map);
-    google.maps.event.addListener(map, "rightclick", function(event) {
-      console.log(map);
-      var lat = event.latLng.lat();
-      var lng = event.latLng.lng();
-      // populate yor box/field with lat, lng
-      alert("Lat=" + lat + "; Lng=" + lng);
-    });
-  });
-});

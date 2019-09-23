@@ -50,7 +50,8 @@ function initMap() {
     });
     markers.push(marker)
     marker.setMap(map);
-    const contentString = setContentString(markers.length);
+//    const contentString = setContentString(markers.length);
+  const contentString = setContentString(marker);
     var infowindow = new google.maps.InfoWindow();
     google.maps.event.addListener(marker, 'click', function () {
       infowindow.setContent(contentString);
@@ -84,11 +85,11 @@ function createMarker() {
   return marker;
 }
 
-function setContentString(id) {
-  const contentString = `<div id=${id}>
+function setContentString(marker) {
+  const contentString = `<div id=${marker}>
             <div id="siteNotice">
             </div>
-            <h1 id="firstHeading" class="firstHeading">${id}</h1>
+            <h1 id="firstHeading" class="firstHeading">${marker.position}</h1>
             <div id="bodyContent">
             <p><b></b>
             </p>
