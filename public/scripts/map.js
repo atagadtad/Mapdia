@@ -48,18 +48,22 @@ function initMap() {
       // title: "Hello World!"
       draggable: true
     });
-    markers.push(marker);
+    markers.push({lat: marker.position.lat(), lng: marker.position.lng()});
     marker.setMap(map);
+    console.log(marker.position);
     //    const contentString = setContentString(markers.length);
     const contentString = setContentString(marker);
     var infowindow = new google.maps.InfoWindow();
     google.maps.event.addListener(marker, "click", function () {
       infowindow.setContent(contentString);
       infowindow.open(map, this);
+ 
     });
     google.maps.event.addListener(marker, "rightclick", function () {
       marker.setMap(null);
       markers.push(marker);
+      console.log("APPLES")
+      
     });
   });
   let divMap = document.getElementById("map");
@@ -100,31 +104,36 @@ $(() => {
   console.log('loaded');
 
   //ajax request to GET
-  $.ajax({
-    url: '/pins',
-    success: (data) => {
-      let lat = data.data[0].latitude;
-      let lng = data.data[0].longitude;
-      console.log(lat, lng);
-      let marker1 = new google.maps.Marker({
-        position: { lat: lat, lng: lng },
-        draggable: true
-      });
-      pinMap.push(marker1);
-      console.log(marker1);
-      pinMap.forEach(item => item.setMap(map));
-    }
-  });
+  $("#map1").click(()=>{
+    $.ajax({
+      url: '/pins',
+      success: (data) => {
+        let lat = data.data[0].latitude;
+        let lng = data.data[0].longitude;
+        console.log(lat, lng);
+        let marker1 = new google.maps.Marker({
+          position: { lat: lat, lng: lng },
+          draggable: true
+        });
+        pinMap.push(marker1);
+        pinMap.forEach(item => item.setMap(map));
+      }
+    });
+  })
+  
 
   $("#map_submission").on("submit", evt => {
+  //  var dataString = JSON.parse(markers);
     evt.preventDefault();
     //ajax request to /maps with markers
     $.ajax({
-      url: '/pins',
+      url: '/pinsCollection',
       method: 'POST',
-      data: markers,
-      success: function () {
-        console.log("hello");
+      data: {data: markers},
+      dataType: "json",
+      success: function (status) {
+        console.log(status);
+        // markers=[];
       }
     })
   })
