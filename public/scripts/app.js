@@ -40,6 +40,7 @@ $(function () {
     method: "GET",
     url: "/api/users"
   }).done(users => {
+    console.log("getting users");
     for (user of users) {
       $("<div>")
         .text(user.name)
@@ -53,7 +54,7 @@ $(function () {
   })
   let $map = document.getElementById('map');
   let map = document.getElementById('map').gMap;
- //showing user page
+  //showing user page
   $.ajax({
     method: "GET",
     url: "/login"
@@ -61,34 +62,21 @@ $(function () {
     $("body").append(appendMap());
     $("#searchPlace").click(function () {
       appendSearch();
-  
+
     })
   });
 
-  // $.ajax({
-  //   method: "GET",
-  //   url: "/"
-  // }).done(() => {
-
-  // });
-});
-
-jQuery(document).ready(function () {
-
-  $('#map').click(function () {
-    // $("body").append(appendSearch());
-    let map = document.getElementById('map').gMap;
-    console.log(map);
-    google.maps.event.addListener(map, "rightclick", function (event) {
-      console.log(map);
-      var lat = event.latLng.lat();
-      var lng = event.latLng.lng();
-      // populate yor box/field with lat, lng
-      alert("Lat=" + lat + "; Lng=" + lng);
-    });
+  $('#map1').click(function() {
+    getAllReservations()
+      .then(function(json) {
+        propertyListings.addProperties(json.reservations, true);
+        views_manager.show('listings');
+      })
+      .catch(error => console.error(error));
   })
 });
 
-$(".buttons .login").click(function () {
-  $("#login-form").css("display", "block");
-});
+
+// $(".buttons .login").click(function () {
+//   $("#login-form").css("display", "block");
+// });
