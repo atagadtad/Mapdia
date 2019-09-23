@@ -26,9 +26,3 @@ module.exports = db => {
   return router;
 };
 
-
-
-
-// app.post("/login", (req, res) => {
-//   res.render("user");
-//  })
