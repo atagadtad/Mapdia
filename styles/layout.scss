@@ -9,7 +9,8 @@ body {
 
   nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 2em;
   }
 
   #map {
@@ -21,6 +22,50 @@ body {
     #search-input {
       width: 30%;
       height: 10%;
+    }
+  }
+
+  .fa-search-location {
+    margin-left: 1em;
+  }
+
+  #login-form {
+    margin: 5em;
+    display: none;
+  }
+
+  nav .search {
+    margin-left: 3em;
+  }
+
+  nav #buttons {
+    margin-right: 3em;
+  }
+}
+
+#user {
+  .loginpage {
+    display: flex;
+    justify-content: space-between;
+    margin: 3em;
+    #left {
+      width: 30%;
+
+      height: 600px;
+    }
+    #right {
+      width: 65%;
+
+      height: 600px;
+    }
+  }
+  #personal-page {
+    // background-color: red;
+    h1 {
+      margin: 2em 0 0 2em;
+    }
+    #left {
+      margin: 3em 0 0 3em;
     }
   }
 }
