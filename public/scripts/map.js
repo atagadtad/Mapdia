@@ -6,8 +6,10 @@ function initMap() {
   // The location of Uluru
   var toronto = { lat: 43.7, lng: -79.4 };
   // The map, centered at Uluru
-  map = new google.maps.Map(
-    document.getElementById('map'), { zoom: 8, center: toronto });
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 8,
+    center: toronto
+  });
   var marker = new google.maps.Marker({
     position: toronto,
     draggable: true
@@ -21,17 +23,15 @@ function initMap() {
   map1.forEach(item => item.setMap(map));
   const placeService = new google.maps.places.PlacesService(map);
   const request = {
-    query: 'ottawa',
-    fields: ['place_id', 'name', 'formatted_address', 'icon', 'geometry']
-  }
+    query: "ottawa",
+    fields: ["place_id", "name", "formatted_address", "icon", "geometry"]
+  };
   placeService.findPlaceFromQuery(request, (results, status) => {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      results.forEach((item) => {
+      results.forEach(item => {
         // console.log(item)
         // place_id, name, formatted_address, geometry.location, icon
-
       });
-
     }
   });
   //   google.maps.event.addListener(map, "rightclick", function(event) {
@@ -48,25 +48,22 @@ function initMap() {
       // title: "Hello World!"
       draggable: true
     });
-    markers.push(marker)
+    markers.push(marker);
     marker.setMap(map);
     //    const contentString = setContentString(markers.length);
     const contentString = setContentString(marker);
     var infowindow = new google.maps.InfoWindow();
-    google.maps.event.addListener(marker, 'click', function () {
+    google.maps.event.addListener(marker, "click", function () {
       infowindow.setContent(contentString);
       infowindow.open(map, this);
     });
-    google.maps.event.addListener(marker, 'rightclick', function () {
+    google.maps.event.addListener(marker, "rightclick", function () {
       marker.setMap(null);
       markers.push(marker);
     });
-
-
   });
-  let divMap = document.getElementById('map');
+  let divMap = document.getElementById("map");
   divMap.gMap = map;
-
 }
 
 function createMarker() {
@@ -78,10 +75,10 @@ function createMarker() {
     draggable: true
   });
   var infowindow = new google.maps.InfoWindow();
-  google.maps.event.addListener(marker, 'click', function () {
+  google.maps.event.addListener(marker, "click", function () {
     infowindow.setContent(contentString);
     infowindow.open(map, this);
-  })
+  });
   return marker;
 }
 
@@ -94,7 +91,7 @@ function setContentString(marker) {
             <p><b></b>
             </p>
             </div>
-            </div>`
+            </div>`;
   return contentString;
 }
 
@@ -110,9 +107,9 @@ $(() => {
     }
   });
 
-  $('#map_submission').on('submit', evt => {
+  $("#map_submission").on("submit", evt => {
     evt.preventDefault();
-    console.log(markers)
+    console.log(markers);
     //ajax request to /maps with markers
-  })
+  });
 });
