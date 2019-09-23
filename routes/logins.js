@@ -15,8 +15,9 @@ module.exports = db => {
     `, values)
       .then(data => {
         const users = data.rows;
-        console.log(users[0].email)
-        res.render("user");
+        if (users[0].email === userEmail && users[0].password === userPassword) {
+          res.render("user");
+        }
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
