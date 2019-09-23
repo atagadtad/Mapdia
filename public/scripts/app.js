@@ -1,4 +1,4 @@
-import { appendMap, appendSearch, addMarker } from './helpers.js';
+import { appendMap, appendSearch, addMarker } from "./helpers.js";
 // const userItemView = user => {
 //   const $item = $(`<div class='user'>${user.email}</div>`);
 //   $item.on("click", () => alert("hello" + user.email));
@@ -35,7 +35,7 @@ import { appendMap, appendSearch, addMarker } from './helpers.js';
 //   });
 // });
 
-$(function () {
+$(function($) {
   $.ajax({
     method: "GET",
     url: "/api/users"
@@ -48,7 +48,7 @@ $(function () {
     }
   });
   $("body").append(appendMap());
-  $("#searchPlace").click(function () {
+  $("#searchPlace").click(function() {
     appendSearch();
 
   })
@@ -59,8 +59,9 @@ $(function () {
     method: "GET",
     url: "/login"
   }).done(() => {
-    $("body").append(appendMap());
-    $("#searchPlace").click(function () {
+    $("#right").append(appendMap());
+
+    $("#searchPlace").click(function() {
       appendSearch();
 
     })
@@ -80,3 +81,38 @@ $(function () {
 // $(".buttons .login").click(function () {
 //   $("#login-form").css("display", "block");
 // });
+ 
+
+  // $.ajax({
+  //   method: "GET",
+  //   url: "/"
+  // }).done(() => {
+
+  // });
+
+  $("#buttons .login").click(function() {
+    $("#login-form").css("display", "block");
+  });
+
+  $(".item").click(function() {
+    let url = $(this).attr("href");
+    alert(url);
+    $("#right").load(url);
+    return false;
+  });
+
+
+jQuery(document).ready(function() {
+  $("#map").click(function() {
+    // $("body").append(appendSearch());
+    let map = document.getElementById("map").gMap;
+    console.log(map);
+    google.maps.event.addListener(map, "rightclick", function(event) {
+      console.log(map);
+      var lat = event.latLng.lat();
+      var lng = event.latLng.lng();
+      // populate yor box/field with lat, lng
+      alert("Lat=" + lat + "; Lng=" + lng);
+    });
+  });
+});
