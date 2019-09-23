@@ -13,33 +13,35 @@ function appendMap() {
 
 function appendSearch() {
   //pass map instance with html attribute
-  let map = document.getElementById('map').gMap;
-  let searchInput = document.getElementById('search-input');
+  let map = document.getElementById("map").gMap;
+  let searchInput = document.getElementById("search-input");
   if (!searchInput) {
-    $("body").append(`<input id="search-input" class="controls" type="text" placeholder="Search Box" autocomplete='on'></input>`);
-    searchInput = document.getElementById('search-input');
+    $("body").append(
+      `<input id="search-input" class="controls" type="text" placeholder="Search Box" autocomplete='on'></input>`
+    );
+    searchInput = document.getElementById("search-input");
     let searchBox = new google.maps.places.SearchBox(searchInput);
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(searchInput);
-    map.addListener('bounds_changed', function () {
+    map.addListener("bounds_changed", function() {
       searchBox.setBounds(map.getBounds());
     });
     //after put in search locations
     let mapMarkers = [];
-    searchBox.addListener('places_changed', function () {
+    searchBox.addListener("places_changed", function() {
       let places = searchBox.getPlaces();
       if (places.length === 0) {
         return;
       }
 
       //Clear out the old markers
-      mapMarkers.forEach(function (marker) {
+      mapMarkers.forEach(function(marker) {
         marker.setMap(null);
       });
       mapMarkers = [];
 
       // For each place, get the icon, name and location.
       var bounds = new google.maps.LatLngBounds();
-      places.forEach(function (place) {
+      places.forEach(function(place) {
         if (!place.geometry) {
           console.log("Returned place contains no geometry");
           return;
@@ -74,15 +76,14 @@ function appendSearch() {
 
 function addMarker() {
   console.log(`i am here`);
-  let map = document.getElementById('map').gMap;
+  let map = document.getElementById("map").gMap;
   //click on map to add marker
-  google.maps.event.addListener(map, 'click', function(e) {
+  google.maps.event.addListener(map, "click", function(e) {
     console.log(`i am here`);
     var lat = event.latLng.lat();
     var lng = event.latLng.lng();
     // populate yor box/field with lat, lng
     alert("Lat=" + lat + "; Lng=" + lng);
-  })
-
+  });
 }
 export { appendMap, appendSearch, addMarker };

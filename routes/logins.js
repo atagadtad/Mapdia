@@ -5,13 +5,19 @@ const app = express();
 
 module.exports = db => {
   router.post("/", (req, res) => {
-    const values = [`${'hai'}`]
-    console.log(req.body)
-    db.query(`SELECT * FROM users;`)
+    userEmail = req.body.email;
+    userPassword = req.body.password;
+    const values = [userEmail, userPassword]
+    db.query(`
+    SELECT *
+    FROM users
+    WHERE users.email = $1 AND users.password = $2;
+    `, values)
       .then(data => {
         const users = data.rows;
-        console.log(users)
-        res.render("user");
+        if (users[0].email === userEmail && users[0].password === userPassword) {
+          res.render("user");
+        }
       })
       .catch(err => {
         res.status(500).json({ error: err.message });

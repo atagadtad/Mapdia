@@ -89,7 +89,7 @@ $("#buttons .login").click(function() {
 $(".item").click(function() {
   let url = $(this).attr("href");
   alert(url);
-  $("#right").load(url);
+  $("#right").load(url + " #right >*");
   return false;
 });
 // });
