@@ -5,13 +5,17 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
+<<<<<<< HEAD
 const express = require("express");
+=======
+const express = require('express');
+>>>>>>> e8cd9f092ca87a3847975c8386dd756a71f45956
 const router = express.Router();
 
 module.exports = db => {
   router.get("/", (req, res) => {
     let query = `SELECT * FROM widgets`;
-    console.log(query);
+    // console.log(query);
     db.query(query)
       .then(data => {
         const widgets = data.rows;
