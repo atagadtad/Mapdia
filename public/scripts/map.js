@@ -50,8 +50,8 @@ function initMap() {
     });
     markers.push(marker)
     marker.setMap(map);
-//    const contentString = setContentString(markers.length);
-  const contentString = setContentString(marker);
+    //    const contentString = setContentString(markers.length);
+    const contentString = setContentString(marker);
     var infowindow = new google.maps.InfoWindow();
     google.maps.event.addListener(marker, 'click', function () {
       infowindow.setContent(contentString);
@@ -99,6 +99,7 @@ function setContentString(marker) {
 }
 
 
+<<<<<<< HEAD
 $( () => {
   console.log('loaded');
 
@@ -116,3 +117,5 @@ $( () => {
     //ajax request to /maps with markers
   })
 });
+=======
+>>>>>>> e868eeed3995a8ac78e432b2500ab9952ba1f11e
