@@ -89,5 +89,5 @@ function addMarker() {
     // populate yor box/field with lat, lng
     alert("Lat=" + lat + "; Lng=" + lng);
   });
-}
+})
 export { appendMap, appendSearch, addMarker };
