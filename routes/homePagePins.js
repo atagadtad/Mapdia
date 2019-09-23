@@ -4,20 +4,16 @@ const app = express();
 
 
 module.exports = db => {
-  router.post("/", (req, res) => {
-    userEmail = req.body.email;
-    userPassword = req.body.password;
-    const values = [userEmail, userPassword]
+  router.get("/", (req, res) => {
     db.query(`
     SELECT *
-    FROM users
-    WHERE users.email = $1 AND users.password = $2;
-    `, values)
+    FROM pins;
+    `)
       .then(data => {
-        const users = data.rows;
-        if (users[0].email === userEmail && users[0].password === userPassword) {
-          res.render("user");
-        }
+        const pins = data.rows;
+        console.log(pins)
+        res.render("index");
+
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
