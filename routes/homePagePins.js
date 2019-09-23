@@ -5,6 +5,7 @@ const app = express();
 
 module.exports = db => {
   router.get("/", (req, res) => {
+
     res.render("index");
   });
   router.get("/pins", (req, res) => {
