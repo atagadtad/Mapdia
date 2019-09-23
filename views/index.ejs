@@ -69,7 +69,12 @@
         <div class="mapCollection" id = 'map3'>map3</div>
       </section>
       <section id="map">
-
+        <div>
+          <script type="text/javascript" src="/scripts/map.js"></script>
+          <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA&libraries=places&callback=initMap">
+          </script>
+          </div>
       </section>
       <form id="map_submission" method="POST" action="/pinsCollection">
         <button>Submit Pins</button>

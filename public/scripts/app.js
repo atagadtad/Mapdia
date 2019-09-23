@@ -69,10 +69,10 @@ $.ajax({
 
   $("#searchPlace").click(function() {
     appendSearch();
-    $("#map").append(appendMap());
-    $("#searchPlace").click(function() {
-      appendSearch();
-    });
+    // $("#map").append(appendMap());
+    // $("#searchPlace").click(function() {
+    //   appendSearch();
+    // });
   });
   // $("#map").append(appendMap());
   // $("#searchPlace").click(function() {

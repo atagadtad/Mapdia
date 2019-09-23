@@ -32,6 +32,13 @@ cursor: grab;
       width: 90%;
       height: 10%;
     }
+
+    #searchPlace {
+      z-index: 100;
+      position: fixed;
+      left:0;
+      top:0;
+    }
   }
 
   .fa-search-location {
