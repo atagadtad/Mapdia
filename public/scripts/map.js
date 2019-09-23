@@ -97,3 +97,22 @@ function setContentString(marker) {
             </div>`
   return contentString;
 }
+
+
+$( () => {
+  console.log('loaded');
+
+  //ajax request to GET
+  $.ajax({ 
+    url: '/pins',
+    success: (data) => {
+      console.log(data)
+    }
+  });
+
+  $('#map_submission').on('submit', evt => {
+    evt.preventDefault();
+    console.log(markers)
+    //ajax request to /maps with markers
+  })
+});
