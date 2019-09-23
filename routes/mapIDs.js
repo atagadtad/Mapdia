@@ -9,7 +9,7 @@ module.exports = db => {
     SELECT longitude, latitude
     FROM pins
     JOIN maps ON map_id = maps.id
-    WHERE map_id = 1;
+    WHERE map_id = 2;
     `)
       .then(pins => {
         const coords = pins.rows;
