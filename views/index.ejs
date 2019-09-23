@@ -1,63 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foodify</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+    />
+    <!-- SEMANTIC UI -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"
+    />
+
+    <!-- BOOTSTRAP  -->
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
 
     <!-- JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-<head>
-  <title>Foodify</title>
-  <!-- CSS -->
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
-  <!-- SEMANTIC UI -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css" />
 
-  <!-- BOOTSTRAP  -->
+    <!-- change type from "text/jsvascript" to "module" client code helpers function module-->
+    <script type="module" src="/scripts/app.js"></script>
+  </head>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+  <body>
+    <% include ./partials/_header%>
 
-  <!-- JS -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
-  <!-- change type from "text/jsvascript" to "module" client code helpers function module-->
-  <script type="module" src="/scripts/app.js"></script>
-
-</head>
-
-<body>
-  <% include ./partials/_header%>
-
-  <main>
-    <div id="login-form" class="mainform">
-      <form class="ui form" action="/login" method="POST">
-        <div class="field">
-          <label>Email</label>
-          <input type="text" name="email" placeholder="Email" />
-        </div>
-        <div class="field">
-          <label>Password</label>
-          <input type="text" name="password" placeholder="Password" />
-        </div>
-        <div class="field">
-          <div class="ui checkbox">
-            <input type="checkbox" tabindex="0" class="hidden" />
-            <label>I agree to the Terms and Conditions</label>
+    <main>
+      <div id="login-form" class="mainform">
+        <form class="ui form" action="/login" method="POST">
+          <div class="field">
+            <label>Email</label>
+            <input type="text" name="email" placeholder="Email" />
           </div>
-          <button class="ui button" type="submit">Submit</button>
+          <div class="field">
+            <label>Password</label>
+            <input type="text" name="password" placeholder="Password" />
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" tabindex="0" class="hidden" />
+              <label>I agree to the Terms and Conditions</label>
+            </div>
+          </div>
+          <!-- <button class="ui button" type="submit">Submit</button> -->
         </form>
       </div>
+      <section class="mapCollection">
+        <div class="mapCollection">map1</div>
+        <div class="mapCollection">map2</div>
+        <div class="mapCollection">map3</div>
+      </section>
+      <section id="map"></section>
     </main>
-    <div id="right"></div>
+
+    <% include ./partials/_footer%>
   </body>
-        </div>
-        <!-- <button class="ui button" type="submit">Submit</button> -->
-      </form>
-    </div>
-  </main>
-
-</body>
-
 </html>
