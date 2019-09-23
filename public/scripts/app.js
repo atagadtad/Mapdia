@@ -57,31 +57,42 @@ $(function($) {
     method: "GET",
     url: "/login"
   }).done(() => {
-    $("#right").append(appendMap());
-
-    $("#searchPlace").click(function() {
-      appendSearch();
-    });
-  });
-
-  // $.ajax({
-  //   method: "GET",
-  //   url: "/"
-  // }).done(() => {
-
-  // });
-
-  $("#buttons .login").click(function() {
-    $("#login-form").css("display", "block");
-  });
-
-  $(".item").click(function() {
-    let url = $(this).attr("href");
-    alert(url);
-    $("#right").load(url);
-    return false;
+    // $("#right").append(appendMap());
+    // $("#searchPlace").click(function() {
+    //   appendSearch();
   });
 });
+
+$.ajax({
+  method: "GET",
+  url: "/map"
+}).done(() => {
+  console.log("hihihihi");
+  $("#right").append(appendMap());
+
+  $("#searchPlace").click(function() {
+    appendSearch();
+  });
+});
+
+// $.ajax({
+//   method: "GET",
+//   url: "/"
+// }).done(() => {
+
+// });
+
+$("#buttons .login").click(function() {
+  $("#login-form").css("display", "block");
+});
+
+$(".item").click(function() {
+  let url = $(this).attr("href");
+  alert(url);
+  $("#right").load(url);
+  return false;
+});
+// });
 
 jQuery(document).ready(function() {
   $("#map").click(function() {
