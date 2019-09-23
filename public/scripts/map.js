@@ -119,10 +119,11 @@ $(() => {
   $("#map_submission").on("submit", evt => {
     evt.preventDefault();
     //ajax request to /maps with markers
+    console.log('markers: ', arrayMarkers)
     $.ajax({
-      url: '/pins',
+      url: '/pinsCollection',
       method: 'POST',
-      data: markers,
+      data: { data: markers },
       success: function () {
         console.log("hello");
       }
