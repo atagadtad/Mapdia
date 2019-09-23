@@ -106,11 +106,11 @@ $(() => {
     $.ajax({
       url: '/mapID',
       success: (data) => {
-        pinMap=[];
+        pinMap = [];
         for (marker of data.coords) {
           // console.log(marker);
           let marker1 = new google.maps.Marker({
-            position: { lng: parseInt(marker.longitude), lat: parseInt(marker.latitude) },
+            position: { lat: parseInt(marker.latitude), lng: parseInt(marker.longitude) },
             draggable: true
           });
           pinMap.push(marker1);
