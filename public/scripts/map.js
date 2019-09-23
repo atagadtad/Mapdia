@@ -99,12 +99,11 @@ function setContentString(marker) {
 }
 
 
-<<<<<<< HEAD
-$( () => {
+$(() => {
   console.log('loaded');
 
   //ajax request to GET
-  $.ajax({ 
+  $.ajax({
     url: '/pins',
     success: (data) => {
       console.log(data)
@@ -117,5 +116,3 @@ $( () => {
     //ajax request to /maps with markers
   })
 });
-=======
->>>>>>> e868eeed3995a8ac78e432b2500ab9952ba1f11e
