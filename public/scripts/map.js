@@ -126,7 +126,6 @@ $(() => {
     //  var dataString = JSON.parse(markers);
     evt.preventDefault();
     //ajax request to /maps with markers
-    console.log('markers: ', arrayMarkers)
     $.ajax({
       url: '/pinsCollection',
       method: 'POST',
