@@ -95,24 +95,20 @@ function setContentString(marker) {
   return contentString;
 }
 
-
-<<<<<<< HEAD
-$( () => {
-  console.log('loaded');
+$(() => {
+  console.log("loaded");
 
   //ajax request to GET
-  $.ajax({ 
-    url: '/pins',
-    success: (data) => {
-      console.log(data)
+  $.ajax({
+    url: "/pins",
+    success: data => {
+      console.log(data);
     }
   });
 
-  $('#map_submission').on('submit', evt => {
+  $("#map_submission").on("submit", evt => {
     evt.preventDefault();
-    console.log(markers)
+    console.log(markers);
     //ajax request to /maps with markers
-  })
+  });
 });
-=======
->>>>>>> e868eeed3995a8ac78e432b2500ab9952ba1f11e

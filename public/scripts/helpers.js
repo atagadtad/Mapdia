@@ -75,19 +75,13 @@ function appendSearch() {
 }
 
 function addMarker() {
-  console.log(`i am here`);
   let map = document.getElementById("map").gMap;
   //click on map to add marker
   google.maps.event.addListener(map, "click", function(e) {
-    console.log(`i am here`);
-  let map = document.getElementById('map').gMap;
-  //click on map to add marker
-  google.maps.event.addListener(map, 'click', function(e) {
-
     var lat = event.latLng.lat();
     var lng = event.latLng.lng();
     // populate yor box/field with lat, lng
     alert("Lat=" + lat + "; Lng=" + lng);
   });
-})
+}
 export { appendMap, appendSearch, addMarker };
