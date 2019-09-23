@@ -9,12 +9,14 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
-const cookieSession = require('cookie-session');
+const cookieSession = require("cookie-session");
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
-}));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"]
+  })
+);
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -47,7 +49,7 @@ const widgetsRoutes = require("./routes/widgets");
 const pinsRoutes = require("./routes/pins");
 const mapsRoutes = require("./routes/maps");
 const favoritesRoutes = require("./routes/favorites");
-const loginRoutes = require("./routes/logins")
+const loginRoutes = require("./routes/logins");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -67,6 +69,21 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/login", (req, res) => {
+  res.render("user");
+});
+
+app.get("/collections", (req, res) => {
+  res.render("collections");
+});
+
+app.get("/map", (req, res) => {
+  res.render("map");
+});
+
+app.post("/login", (req, res) => {
+  res.render("user");
+});
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
