@@ -5,9 +5,12 @@ const app = express();
 
 module.exports = db => {
   router.post("/", (req, res) => {
-    const values = [`${'hai'}`]
-    console.log(req.body)
-    db.query(`SELECT * FROM users;`)
+    const values = [`${req.body.email}`]
+    db.query(`
+    SELECT *
+    FROM users
+    WHERE users.email = $1;
+    `, values)
       .then(data => {
         const users = data.rows;
         console.log(users)
