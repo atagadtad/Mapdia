@@ -6,7 +6,7 @@ const app = express();
 module.exports = db => {
   router.get("/", (req, res) => {
     db.query(`
-    SELECT longitude, latitude
+    SELECT latitude, longitude
     FROM pins
     JOIN maps ON map_id = maps.id
     WHERE map_id = 2;

@@ -106,7 +106,7 @@ $(() => {
     $.ajax({
       url: '/mapID',
       success: (data) => {
-        pinMap=[];
+        pinMap = [];
         for (marker of data.coords) {
           // console.log(marker);
           let marker1 = new google.maps.Marker({
