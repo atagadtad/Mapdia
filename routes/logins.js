@@ -13,6 +13,7 @@ module.exports = db => {
   router.post("/", (req, res) => {
     let userEmail = req.body.email;
     let userPassword = req.body.password;
+    console.log(userEmail)
     const values = [userEmail, userPassword];
     db.query(
       `
@@ -30,7 +31,7 @@ module.exports = db => {
         ) {
           req.session.user_id = users[0].id;
           console.log(req.session.user_id);
-          res.render("user");
+          res.render("homepage");
         }
       })
       .catch(err => {
