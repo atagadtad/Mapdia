@@ -62,16 +62,6 @@ function appendSearch() {
 }
 function checkMapCollections(id) {
 
-  // ($(`#${id}map`).css('display') == 'none') {
-
-
-  //   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-  //     <div class="card-body">
-  //       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-  //     </div>
-  //   </div>
-  // </div>
-  // }
 
   $(`#${id}`).click(function () {
     $(`#${id}map`).toggle(this.checked);
@@ -80,24 +70,41 @@ function checkMapCollections(id) {
       method: "GET",
       url: "/maps"
     }).done((data) => {
-      $(`#${id}map`).append(`<div class="accordion" id="accordionExample">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              camping map
-            </button>
-          </h2>
+      $(`#${id}map`).append(`<div class="ui basic vertical accordion menu">
+        <div class="active title">
+          <i class="dropdown icon"></i>
+          camping map
+        </div>
+        <div class="active content menu">
+        description
+        img
         </div>`)
       for (let map of data.maps) {
-  //    const img = 
-      $(`#${id}map`).append(`<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-       <div class="card-body"><p>${map.description}</p>`).append(`<img src="https://cdn.vox-cdn.com/thumbor/1j72cfH6ka3baNiIvbstiHQbnfo=/0x0:5225x3479/920x613/filters:focal(2195x1322:3031x2158):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/54137643/camping_tents.0.jpg" height= "150px" width="150px" > </div>
-          </div></div></div></div>`);
-      // $(`#${id}map`).append(`<img src="${data.maps.url}" height= "150px" width="150px" >`);
+        //    const img = 
+        $(`#${id}map`)
+          .append(` <div class="active content menu">${map.description}</div>`)
+          .append(`<img src="${map.url}" height= "150px" width="150px" ></div>`);
+
       }
+
     });
   });
+  <div class="ui basic vertical accordion menu">
+  <div class="active title">
+    <i class='dropdown icon'></i>
+    capming site
+  </div>
+  <div class="active content">
+    camp1
+  </div>
+  <div class="title">
+      <i class='dropdown icon'></i>
+      capming site
+    </div>
+    <div class="content">
+      camp1
+    </div>
+        </div>
   //   if ($('.new-tweet').css('display') == 'none') {
   //     $('.new-tweet').slideDown('slow', function() {
   //         $('textArea').focus();
