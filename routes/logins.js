@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const app = express();
 const cookieSession = require('cookie-session');
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
+router.use(cookieSession({
+  name: 'user_id',
+  keys: ['id']
 }));
 
 
@@ -22,6 +21,8 @@ module.exports = db => {
       .then(data => {
         const users = data.rows;
         if (users[0].email === userEmail && users[0].password === userPassword) {
+          req.session.user_id = users[0].id;
+          console.log(req.session.user_id)
           res.render("user");
         }
       })

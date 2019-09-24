@@ -9,12 +9,7 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
-//const cookieSession = require('cookie-session');
 
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: ['key1']
-// }));
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -50,7 +45,8 @@ const favoritesRoutes = require("./routes/favorites");
 const loginRoutes = require("./routes/logins");
 const homePagePinsRoutes = require("./routes/homePagePins");
 const mapIDsRoutes = require("./routes/mapIDs");
-const registrationRoutes = require("./routes/registrations")
+const registrationRoutes = require("./routes/registrations");
+const logoutRoutes = require("./routes/logouts");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -64,6 +60,7 @@ app.use("/login", loginRoutes(db));
 app.use("/", homePagePinsRoutes(db));
 app.use("/mapID", mapIDsRoutes(db));
 app.use("/registration", registrationRoutes(db));
+app.use("/logout", logoutRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
