@@ -1,7 +1,7 @@
 function appendMap() {
   let $map = `
   <div>
-  <button id="searchPlace" class="ui basic button searchPlace">Find place</button>
+  <button id="searchPlace" class="ui button searchPlace">Find place</button>
   </div>`;
   return $map;
 }
@@ -11,11 +11,8 @@ function appendSearch() {
   let map = document.getElementById("map").gMap;
   let searchInput = document.getElementById("search-input");
   if (!searchInput) {
-    //
-    $("body").append(
-      `
-      <input id="search-input" class="controls" type="text" placeholder="Search Box" autocomplete='on'></input>
-      `
+    $("#map").append(
+      `<input id="search-input" class="controls" type="text" placeholder="Search Box" autocomplete='on'></input>`
     );
     searchInput = document.getElementById("search-input");
     let searchBox = new google.maps.places.SearchBox(searchInput);

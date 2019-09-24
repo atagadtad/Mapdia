@@ -19,6 +19,9 @@ body {
     height: 600px;
     float: left;
   }
+  .mapCollection:hover {
+    cursor: grab;
+  }
   #map {
     height: 600px;
     width: 60%;
@@ -33,8 +36,15 @@ body {
     }
 
     #search-input {
-      width: 30%;
-      height: 10%;
+      width: 50%;
+      height: 5%;
+    }
+
+    #searchPlace {
+      z-index: 100;
+      position: fixed;
+      left: 0;
+      top: 0;
     }
   }
 

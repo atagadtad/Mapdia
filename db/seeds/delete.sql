@@ -1,3 +1,4 @@
+DELETE FROM pins;
 INSERT INTO pins
   (longitude, latitude, map_id)
 VALUES
@@ -22,3 +23,4 @@ INSERT INTO pins
   (longitude, latitude, map_id)
 VALUES
   (46.643470, 79.399206, 1);
+

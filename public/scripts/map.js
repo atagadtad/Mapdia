@@ -10,14 +10,14 @@ function initMap() {
     zoom: 8,
     center: toronto
   });
-  var marker = new google.maps.Marker({
-    position: toronto,
-    draggable: true
-  });
-  let marker1 = new google.maps.Marker({
-    position: { lat: 43.9, lng: -79.4 },
-    draggable: true
-  });
+  // var marker = new google.maps.Marker({
+  //   position: toronto,
+  //   draggable: true
+  // });
+  // let marker1 = new google.maps.Marker({
+  //   position: { lat: 43.9, lng: -79.4 },
+  //   draggable: true
+  // });
   // map1.push(marker);
   // map1.push(marker1);
   // map1.forEach(item => item.setMap(map));
@@ -48,7 +48,7 @@ function initMap() {
       // title: "Hello World!"
       draggable: true
     });
-    markers.push({lat: marker.position.lat(), lng: marker.position.lng()});
+    markers.push({ lat: marker.position.lat(), lng: marker.position.lng() });
     marker.setMap(map);
     console.log(marker.position);
     //    const contentString = setContentString(markers.length);
@@ -57,13 +57,11 @@ function initMap() {
     google.maps.event.addListener(marker, "click", function () {
       infowindow.setContent(contentString);
       infowindow.open(map, this);
- 
+
     });
     google.maps.event.addListener(marker, "rightclick", function () {
       marker.setMap(null);
       markers.push(marker);
-      console.log("APPLES")
-      
     });
   });
   let divMap = document.getElementById("map");
@@ -104,32 +102,33 @@ $(() => {
   console.log('loaded');
 
   //ajax request to GET
-  $("#map1").click(()=>{
+  $("#map1").click(() => {
     $.ajax({
-      url: '/pins',
+      url: '/mapID',
       success: (data) => {
-        let lat = data.data[0].latitude;
-        let lng = data.data[0].longitude;
-        console.log(lat, lng);
-        let marker1 = new google.maps.Marker({
-          position: { lat: lat, lng: lng },
-          draggable: true
-        });
-        pinMap.push(marker1);
+        pinMap=[];
+        for (marker of data.coords) {
+          // console.log(marker);
+          let marker1 = new google.maps.Marker({
+            position: { lng: parseInt(marker.longitude), lat: parseInt(marker.latitude) },
+            draggable: true
+          });
+          pinMap.push(marker1);
+          map.setCenter(marker1.getPosition());
+          map.setZoom(6);
+        }
         pinMap.forEach(item => item.setMap(map));
+        console.log(pinMap.length);
       }
     });
   })
-  
-
   $("#map_submission").on("submit", evt => {
-  //  var dataString = JSON.parse(markers);
     evt.preventDefault();
     //ajax request to /maps with markers
     $.ajax({
       url: '/pinsCollection',
       method: 'POST',
-      data: {data: markers},
+      data: { data: markers },
       dataType: "json",
       success: function (status) {
         console.log(status);

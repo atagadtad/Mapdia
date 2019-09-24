@@ -65,43 +65,34 @@ $.ajax({
   method: "GET",
   url: "/map"
 }).done(() => {
-  console.log("hihihihi");
   $("#right").append(appendMap());
 
   $("#searchPlace").click(function() {
     appendSearch();
-    $("#map").append(appendMap());
-    $("#searchPlace").click(function() {
-      appendSearch();
-    });
+    // $("#map").append(appendMap());
+    // $("#searchPlace").click(function() {
+    //   appendSearch();
+    // });
   });
   // $("#map").append(appendMap());
   // $("#searchPlace").click(function() {
   //   appendSearch();
   // });
-  $.ajax({
-    method: "GET",
-    url: "/"
-  }).done(() => {
-    $("#map").append(appendMap());
-    $("#searchPlace").click(function() {
-      appendSearch();
-    });
-  });
+  // $.ajax({
+  //   method: "GET",
+  //   url: "/"
+  // }).done(() => {
+  //   $("#map").append(appendMap());
+  //   $("#searchPlace").click(function() {
+  //     appendSearch();
+  //   });
+  // });
 });
 
 // $.ajax({
 //   method: "GET",
 //   url: "/"
 // }).done(() => {
-$("#map1").click(function() {
-  getAllReservations()
-    .then(function(json) {
-      propertyListings.addProperties(json.reservations, true);
-      views_manager.show("listings");
-    })
-    .catch(error => console.error(error));
-});
 // });
 
 $("#buttons .login").click(function() {
@@ -136,17 +127,17 @@ $(".item").click(function() {
   return false;
 });
 
-jQuery(document).ready(function() {
-  $("#map").click(function() {
-    // $("body").append(appendSearch());
-    let map = document.getElementById("map").gMap;
-    console.log(map);
-    google.maps.event.addListener(map, "rightclick", function(event) {
-      console.log(map);
-      var lat = event.latLng.lat();
-      var lng = event.latLng.lng();
-      // populate yor box/field with lat, lng
-      alert("Lat=" + lat + "; Lng=" + lng);
-    });
-  });
-});
+// jQuery(document).ready(function() {
+//   $("#map").click(function() {
+//     // $("body").append(appendSearch());
+//     let map = document.getElementById("map").gMap;
+//     console.log(map);
+//     google.maps.event.addListener(map, "rightclick", function(event) {
+//       console.log(map);
+//       var lat = event.latLng.lat();
+//       var lng = event.latLng.lng();
+//       // populate yor box/field with lat, lng
+//       alert("Lat=" + lat + "; Lng=" + lng);
+//     });
+//   });
+// });

@@ -24,11 +24,20 @@ module.exports = db => {
       });
   });
   router.post("/pinsCollection", (req, res) => {
-    console.log(req.body);
-    res.send({ status: 'ok'})
+    // console.log(req.body.data)
+    let length = req.body.data.length;
+    // console.log(length)
+
+    for (coord of req.body.data) {
+      console.log('coord: ', coord)
+      const values = [`${coord.lng}`, `${coord.lat}`, '2'];
+      db.query(`
+      INSERT INTO pins (longitude, latitude, map_id)
+      VALUES ($1, $2, $3)
+      RETURNING *;
+      `, values)
+        .then(res => { res.rows[0] })
+    }
   });
-  // router.get('/pins', (req, res) => {
-  //   res.send({markers:  [{lat: 21.213213, ling: 43.4345}, {lat: 42.2323, ling: 12.344}]})
-  // })
   return router;
 };
