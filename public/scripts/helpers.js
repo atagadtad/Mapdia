@@ -48,15 +48,6 @@ function appendSearch() {
           anchor: new google.maps.Point(17, 34),
           scaledSize: new google.maps.Size(25, 25)
         };
-
-        // Create a marker for each place.
-        // mapMarkers.push(new google.maps.Marker({
-        //   map: map,
-        //   icon: icon,
-        //   title: place.name,
-        //   position: place.geometry.location
-        // }));
-        //     mapMarkers.forEach(marker => createMarker(marker));
         if (place.geometry.viewport) {
           // Only geocodes have viewport.
           bounds.union(place.geometry.viewport);

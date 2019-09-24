@@ -24,15 +24,12 @@ module.exports = db => {
       });
   });
   router.post("/pinsCollection", (req, res) => {
-    // console.log(req.body.data)
-    let length = req.body.data.length;
-    // console.log(length)
 
     for (coord of req.body.data) {
       console.log('coord: ', coord)
-      const values = [`${coord.lng}`, `${coord.lat}`, '2'];
+      const values = [`${coord.lat}`, `${coord.lng}`, '2'];
       db.query(`
-      INSERT INTO pins (longitude, latitude, map_id)
+      INSERT INTO pins (latitude, longitude, map_id)
       VALUES ($1, $2, $3)
       RETURNING *;
       `, values)

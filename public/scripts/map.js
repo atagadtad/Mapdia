@@ -106,19 +106,23 @@ $(() => {
     $.ajax({
       url: '/mapID',
       success: (data) => {
-        pinMap=[];
+        pinMap = [];
         for (marker of data.coords) {
           // console.log(marker);
           let marker1 = new google.maps.Marker({
-            position: { lng: parseInt(marker.longitude), lat: parseInt(marker.latitude) },
+            position: { lng: Number(marker.longitude), lat: Number(marker.latitude) },
             draggable: true
           });
           pinMap.push(marker1);
           map.setCenter(marker1.getPosition());
           map.setZoom(6);
         }
-        pinMap.forEach(item => item.setMap(map));
-        console.log(pinMap.length);
+        var bounds = new google.maps.LatLngBounds();
+        pinMap.forEach(item => {
+          item.setMap(map);
+          bounds.extend(item.getPosition());
+        });
+        map.fitBounds(bounds);
       }
     });
   })
