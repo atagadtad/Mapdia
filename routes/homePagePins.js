@@ -24,9 +24,6 @@ module.exports = db => {
       });
   });
   router.post("/pinsCollection", (req, res) => {
-    // console.log(req.body.data)
-    let length = req.body.data.length;
-    // console.log(length)
 
     for (coord of req.body.data) {
       console.log('coord: ', coord)
