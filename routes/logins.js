@@ -1,6 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const app = express();
+const cookieSession = require('cookie-session');
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
 
 
 module.exports = db => {
