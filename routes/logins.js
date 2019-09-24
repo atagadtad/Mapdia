@@ -30,7 +30,7 @@ module.exports = db => {
         ) {
           req.session.user_id = users[0].id;
           console.log(req.session.user_id);
-          res.render("user");
+          res.render("homege");
         }
       })
       .catch(err => {

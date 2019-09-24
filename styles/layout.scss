@@ -54,7 +54,7 @@ body {
   }
 }
 .mapCollection > img:hover {
-cursor: grab;
+  cursor: grab;
 }
 #newmap {
   height: 600px;
@@ -69,55 +69,54 @@ cursor: grab;
   #searchPlace {
     z-index: 100;
     position: fixed;
-    left:0;
-    top:0;
+    left: 0;
+    top: 0;
   }
 }
-  #map {
-    height: 600px;
-    width: 96%;
-    margin: 2%;
+#map {
+  height: 600px;
+  width: 96%;
+  margin: 2%;
 
-    .searchPlace {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 100;
-    }
-
-    #search-input {
-      width: 50%;
-      height: 5%;
-    }
-
-    #searchPlace {
-      z-index: 100;
-      position: fixed;
-      left: 0;
-      top: 0;
-    }
+  .searchPlace {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
   }
 
-  .fa-search-location {
-    margin-left: 1em;
+  #search-input {
+    width: 50%;
+    height: 5%;
   }
 
-  // #login-form {
-  //   margin: 5em;
-  //   display: none;
-  // }
-  // #singup {
-  //   margin: 5em;
-  //   display: none;
-  // }
-  nav .search {
-    margin-left: 3em;
+  #searchPlace {
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    top: 0;
   }
+}
 
-  nav #buttons {
-    margin-right: 3em;
-  }
+.fa-search-location {
+  margin-left: 1em;
+}
 
+// #login-form {
+//   margin: 5em;
+//   display: none;
+// }
+// #singup {
+//   margin: 5em;
+//   display: none;
+// }
+nav .search {
+  margin-left: 3em;
+}
+
+nav #buttons {
+  margin-right: 3em;
+}
 
 #user {
   .loginpage {
@@ -148,11 +147,11 @@ cursor: grab;
 
 #homepage {
   #login-form {
-    margin: 5em;
+    margin: 3em;
     display: none;
   }
   #singup {
-    margin: 5em;
+    margin: 3em;
     display: none;
   }
   nav {
