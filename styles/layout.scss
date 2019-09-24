@@ -56,7 +56,7 @@ body {
     height: 600px;
     width: 60%;
     float: right;
-    margin-right: auto;
+    margin-right: 5%;
 
     .searchPlace {
       position: fixed;
@@ -86,7 +86,6 @@ body {
     margin: 5em;
     display: none;
   }
-
   #singup {
     margin: 5em;
     display: none;
@@ -123,6 +122,41 @@ body {
     }
     #left {
       margin: 3em 0 0 3em;
+    }
+  }
+}
+
+#homepage {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 6em;
+  }
+
+  #map-collections {
+    // margin: 2em;
+    .line1 {
+      display: flex;
+      justify-content: space-around;
+      margin: 2em;
+    }
+
+    .line2 {
+      display: flex;
+      justify-content: space-around;
+      margin: 2em;
+    }
+
+    .line3 {
+      display: flex;
+      justify-content: space-around;
+      margin: 2em;
+    }
+
+    .line4 {
+      display: flex;
+      justify-content: space-around;
+      margin: 2em;
     }
   }
 }
