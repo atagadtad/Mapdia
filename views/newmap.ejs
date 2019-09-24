@@ -63,17 +63,24 @@
         <div class="modal-body">
           <form class="form-group">
             <div>
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" rows="3"></textarea>
-          </div>
+              <label for="description">Description</label>
+              <textarea class="form-control" id="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="gender1" class="control-label">Category</label>
+              <select class="form-control" id="gender1">
+                <option>Camping</option>
+                <option>Foody</option>
+                <option>Wedding</option>
+              </select>
+            </div>
+            <div>
+              <button type="button" class="browse btn btn-default">Browse...</button>
+              <input type="file" name="img[]" class="file" accept="image/*">
+              <div class="input-group my-3">
+                <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
+              </div>
           </form>
-          <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-            officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-            wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
-            excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-            you probably haven't heard of them accusamus labore sustainable VHS.
-          </p>
         </div>
 
       </div><!-- modal-content -->
