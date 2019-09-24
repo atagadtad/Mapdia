@@ -12,12 +12,40 @@ body {
     justify-content: space-between;
     margin: 2em;
   }
+  .form-check {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .form-check-input{
+    position: relative;
+    }
+  }
 .mapCollection {
   display: flex;
   flex-direction: column;
+  background-color: bisque;
   width:30%;
   height: 600px;
   float: left;
+  body > .mapCollection > p{
+    width:100%;
+  }
+  #favoritemap {
+    display: none;
+    height: 25%;
+  }
+  #foodymap {
+    display: none;
+    height: 25%;
+  }
+  #campingmap {
+    display: none;
+    height: 25%;
+  }
+  #weddingmap {
+    display: none;
+    height: 25%;
+  }
 }
 .mapCollection:hover {
 cursor: grab;

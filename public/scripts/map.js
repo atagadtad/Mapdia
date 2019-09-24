@@ -102,7 +102,7 @@ $(() => {
   console.log('loaded');
 
   //ajax request to GET
-  $("#map1").click(() => {
+  $("#campingmap").click(() => {
     $.ajax({
       url: '/mapID',
       success: (data) => {
@@ -110,10 +110,11 @@ $(() => {
         for (marker of data.coords) {
           // console.log(marker);
           let marker1 = new google.maps.Marker({
-            position: { lng: Number(marker.longitude), lat: Number(marker.latitude) },
+            position: { lat: Number(marker.latitude), lng: Number(marker.longitude)},
             draggable: true
           });
           pinMap.push(marker1);
+          console.log(marker1.position.lng() + " "+marker1.position.lat());
           map.setCenter(marker1.getPosition());
           map.setZoom(6);
         }

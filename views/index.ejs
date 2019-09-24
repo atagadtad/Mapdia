@@ -9,7 +9,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
     <link
       href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap"
       rel="stylesheet"
@@ -32,6 +32,8 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -63,10 +65,24 @@
           <button class="ui button" type="submit">Submit</button>
         </form>
       </div>
+      
+        <!-- <div class="ui checkbox"> -->
+            <div class="form-check">
+          <input id='favorite' class="form-check-input" type="checkbox" />
+          <label class = "childBox">favorite</label>
+          <input class = "form-check-input" id='foody' type="checkbox"/>
+          <label class = "childBox">foody</label>
+          <input class = "form-check-input" id='camping' type="checkbox" />
+          <label class = "childBox">camping</label>
+          <input class = "form-check-input" id='wedding' type="checkbox" />
+          <label class = "childBox">wedding</label>
+        </div>
+      
       <section class="mapCollection">
-        <div class="mapCollection" id = "map1">map1</div>
-        <div class="mapCollection" id = 'map2'>map2</div>
-        <div class="mapCollection" id = 'map3'>map3</div>
+        <div class="mapCollection" id = "favoritemap">favoritemap</div>
+        <div class="mapCollection" id = 'foodymap'>foodymap</div>
+        <div class="mapCollection" id = 'campingmap'>campingmap</div>
+        <div class="mapCollection" id = 'weddingmap'>weddingmap</div>
       </section>
       <section id="map">
         <div>
@@ -80,6 +96,6 @@
         <button>Submit Pins</button>
       </form>
     </main>
-    <% include ./partials/_footer%>
+    <% include ./partials/_footer%>1
   </body>
 </html>
