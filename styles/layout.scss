@@ -56,23 +56,23 @@ body {
 .mapCollection > img:hover {
 cursor: grab;
 }
-#newmap {
-  height: 600px;
-  width: 70%;
-  margin: 2%;
+// #newmap {
+//   height: 600px;
+//   width: 70%;
+//   margin: 2%;
 
-  #search-input {
-    width: 90%;
-    height: 10%;
-  }
+//   #search-input {
+//     width: 90%;
+//     height: 10%;
+//   }
 
-  #searchPlace {
-    z-index: 100;
-    position: fixed;
-    left:0;
-    top:0;
-  }
-}
+//   #searchPlace {
+//     z-index: 100;
+//     position: fixed;
+//     left:0;
+//     top:0;
+//   }
+// }
   #map {
     height: 600px;
     width: 96%;
@@ -188,3 +188,8 @@ cursor: grab;
     }
   }
 }
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
