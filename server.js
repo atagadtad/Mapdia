@@ -70,6 +70,17 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/showmap/:mapID", (req, res) => {
+  let mapID = req.params.mapID;
+  let templateVars = {mapID};
+  res.render("showmap", templateVars);
+});
+app.get("/newmap", (req, res) => {
+  // let mapID = req.params.mapID;
+  // console.log(mapID);
+  // let templateVars = {mapID};
+  res.render("newmap");
+});
 app.get("/login", (req, res) => {
   res.render("user");
 });

@@ -52,11 +52,27 @@ body {
 .mapCollection > img:hover {
 cursor: grab;
 }
+#newmap {
+  height: 600px;
+  width: 70%;
+  margin: 2%;
+
+  #search-input {
+    width: 90%;
+    height: 10%;
+  }
+
+  #searchPlace {
+    z-index: 100;
+    position: fixed;
+    left:0;
+    top:0;
+  }
+}
   #map {
     height: 600px;
-    width: 60%;
-    float: right;
-    margin-right: 5%;
+    width: 96%;
+    margin: 2%;
 
     #search-input {
       width: 90%;
