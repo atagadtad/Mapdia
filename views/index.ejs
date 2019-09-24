@@ -3,6 +3,11 @@
 <!-- JS -->
 <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+    />
+    <!-- BOOTSTRAP  -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,40 +26,93 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-  <!-- JS -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/accordion.min.js"></script>
-
-  <!-- change type from "text/jsvascript" to "module" client code helpers function module-->
-  <script type="module" src="/scripts/app.js"></script>
-</head>
-
-<body>
-  <% include ./partials/_header%>
-
-  <main>
-    <div id="login-form" class="mainform">
-      <form class="ui form" action="/login" method="POST">
-        <div class="field">
-          <label>Email</label>
-          <input type="text" name="email" placeholder="Email" />
-        </div>
-        <div class="field">
-          <label>Password</label>
-          <input type="text" name="password" placeholder="Password" />
-        </div>
-        <div class="field">
-          <div class="ui checkbox">
-            <input type="checkbox" tabindex="0" class="hidden" />
-            <label>I agree to the Terms and Conditions</label>
+  <body>
+    <% include ./partials/_header%>
+    <!-- <div>
+      <button class="ui basic button searchPlace">Find place</button>
+    </div> -->
+    <main>
+      <div id="login-form" class="mainform">
+        <form class="ui form" action="/login" method="POST">
+          <div class="field">
+            <label>Email</label>
+            <input type="text" name="email" placeholder="Email" />
           </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="text" name="password" placeholder="Password" />
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" tabindex="0" class="hidden" />
+              <label>I agree to the Terms and Conditions</label>
+            </div>
+          </div>
+          <button class="ui basic button" type="submit">Submit</button>
+        </form>
+      </div>
+      <div id="singup">
+        <form class="ui form">
+          <div class="field">
+            <label>Eamil</label>
+            <input type="text" name="first-name" placeholder="First Name" />
+          </div>
+          <div class="field">
+            <label>password</label>
+            <input type="text" name="last-name" placeholder="Last Name" />
+          </div>
+
+          <button class="ui basic button" type="submit">Submit</button>
+          <button class="ui button" type="submit">Submit</button>
+        </form>
+      </div>
+      <section class="mapCollection">
+        <div class="mapCollection" id="map1">map1</div>
+        <div class="mapCollection" id="map2">map2</div>
+        <div class="mapCollection" id="map3">map3</div>
+      </section>
+
+      <section id="map">
+        <div>
+          <script type="text/javascript" src="/scripts/map.js"></script>
+          <script
+            async
+            defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA&libraries=places&callback=initMap"
+          ></script>
         </div>
-        <button class="ui button" type="submit">Submit</button>
+      </section>
+
+      <section id="map">
+        <div>
+          <script type="text/javascript" src="/scripts/map.js"></script>
+          <script
+            async
+            defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA&libraries=places&callback=initMap"
+          ></script>
+        </div>
+      </section>
+      <form id="map_submission" method="POST" action="/pinsCollection">
+        <button class="ui button">
+          submit
+        </button>
       </form>
     </div>
+    <div id="singup">
+        <form class="ui form">
+          <div class="field">
+            <label>Eamil</label>
+            <input type="text" name="first-name" placeholder="First Name" />
+          </div>
+          <div class="field">
+            <label>password</label>
+            <input type="text" name="last-name" placeholder="Last Name" />
+          </div>
+          <button class="ui basic button" type="submit">Submit</button>
+          <button class="ui button" type="submit">Submit</button>
+        </form>
+      </div>
 
     <!-- <div class="ui checkbox"> -->
     <div class="form-check">
@@ -74,20 +132,13 @@
       <div class="mapCollection" id='campingmap'>campingmap</div>
       <div class="mapCollection" id='weddingmap'>weddingmap</div>
       <div class="ui basic vertical accordion menu">
-<div class="active title">
-  <i class='dropdown icon'></i>
-  capming site
-</div>
-<div class="active content">
-  camp1
-</div>
-<div class="title">
-    <i class='dropdown icon'></i>
-    capming site
-  </div>
-  <div class="content">
-    camp1
-  </div>
+        <div class="active title">
+          <i class='dropdown icon'></i>
+          capming site
+        </div>
+        <div class="active content">
+          camp1
+        </div>
       </div>
     </section>
     <section id="map">

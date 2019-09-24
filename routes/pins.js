@@ -3,15 +3,15 @@ const router = express.Router();
 
 module.exports = db => {
   // router.get("/", (req, res) => {
-    db.query(`SELECT * FROM pins;`)
-      .then(data => {
-        // console.log(data)
-        const users = data.rows;
-        res.json({ users });
-      })
-      .catch(err => {
-        res.status(500).json({ error: err.message });
-      });
+  db.query(`SELECT * FROM pins;`)
+    .then(data => {
+      // console.log(data)
+      const users = data.rows;
+      res.json({ users });
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
   // });
   return router;
 };

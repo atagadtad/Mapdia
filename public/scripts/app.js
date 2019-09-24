@@ -1,4 +1,9 @@
-import { appendMap, appendSearch, addMarker, checkMapCollections } from "./helpers.js";
+import {
+  appendMap,
+  appendSearch,
+  addMarker,
+  checkMapCollections
+} from "./helpers.js";
 
 $(function ($) {
   //check checkBox to show map collection sections
@@ -29,84 +34,78 @@ $(function ($) {
     // $("#searchPlace").click(function() {
     //   appendSearch();
   });
-});
+
+<<<<<<< HEAD
 
 
+  $.ajax({
+    method: "GET",
+    url: "/map"
+  }).done(() => {
+    $("#right").append(appendMap());
 
-$.ajax({
-  method: "GET",
-  url: "/map"
-}).done(() => {
-  $("#right").append(appendMap());
+    $("#searchPlace").click(function () {
+      appendSearch();
+      // $("#map").append(appendMap());
+      // $("#searchPlace").click(function() {
+      //   appendSearch();
+      // });
+=======
+  $.ajax({
+    method: "GET",
+    url: "/map"
+  }).done(() => {
+    $("#right").append(appendMap());
 
-  $("#searchPlace").click(function () {
-    appendSearch();
+    $("#searchPlace").click(function() {
+      appendSearch();
+      // $("#map").append(appendMap());
+      // $("#searchPlace").click(function() {
+      //   appendSearch();
+      // });
+    });
+>>>>>>> d583e5d3ebc2ee876958b241d779b350eb3674b0
+    });
     // $("#map").append(appendMap());
     // $("#searchPlace").click(function() {
     //   appendSearch();
     // });
-  });
-  // $("#map").append(appendMap());
-  // $("#searchPlace").click(function() {
-  //   appendSearch();
-  // });
-  $.ajax({
-    method: "GET",
-    url: "/"
-  }).done(() => {
-    $("#map").append(appendMap());
-    $("#searchPlace").click(function () {
-      appendSearch();
+    $.ajax({
+      method: "GET",
+      url: "/"
+    }).done(() => {
+      $("#map").append(appendMap());
+      $("#searchPlace").click(function () {
+        appendSearch();
+      });
+    });
+
+    $("#buttons .login").click(function () {
+      if ($("#login-form").css("display") == "none") {
+        $("#login-form").slideDown();
+      } else {
+        $("#login-form").slideUp();
+      }
+    });
+    $("#buttons .signup").click(function () {
+      // alert("hiiii");
+      if ($("#singup").css("display") == "none") {
+        $("#singup").slideDown();
+      } else {
+        $("#singup").slideUp();
+      }
+    });
+    $(".item").click(function () {
+      let url = $(this).attr("href");
+      alert(url);
+      $("#right").load(url + " #right >*");
+      return false;
+    });
+    // });
+    $(".item").click(function () {
+      let url = $(this).attr("href");
+      alert(url);
+      $("#right").load(url);
+      return false;
     });
   });
-});
-
-// $.ajax({
-//   method: "GET",
-//   url: "/"
-// }).done(() => {
-// });
-
-// $(".buttons .login").click(function () {
-//   $("#login-form").css("display", "block");
-// });
-
-// $.ajax({
-//   method: "GET",
-//   url: "/"
-// }).done(() => {
-
-// });
-
-$("#buttons .login").click(function () {
-  $("#login-form").css("display", "block");
-});
-
-$(".item").click(function () {
-  let url = $(this).attr("href");
-  alert(url);
-  $("#right").load(url + " #right >*");
-  return false;
-});
-// });
-$(".item").click(function () {
-  let url = $(this).attr("href");
-  alert(url);
-  $("#right").load(url);
-  return false;
-});
-
-// jQuery(document).ready(function() {
-//   $("#map").click(function() {
-//     // $("body").append(appendSearch());
-//     let map = document.getElementById("map").gMap;
-//     console.log(map);
-//     google.maps.event.addListener(map, "rightclick", function(event) {
-//       console.log(map);
-//       var lat = event.latLng.lat();
-//       var lng = event.latLng.lng();
-//       // populate yor box/field with lat, lng
-//       alert("Lat=" + lat + "; Lng=" + lng);
-//     });
-//   });
-// });

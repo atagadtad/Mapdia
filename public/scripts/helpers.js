@@ -1,9 +1,8 @@
 function appendMap() {
   let $map = `
   <div>
-  <button id = 'searchPlace'>Find place</button>
-  </div>
-`;
+  <button id="searchPlace" class="ui button searchPlace">Find place</button>
+  </div>`;
   return $map;
 }
 
@@ -70,41 +69,27 @@ function checkMapCollections(id) {
       method: "GET",
       url: "/maps"
     }).done((data) => {
-      $(`#${id}map`).append(`<div class="ui basic vertical accordion menu">
-        <div class="active title">
+      $(`section.mapCollection`).append(`<div class="ui basic vertical accordion menu">
+        <div class="title active">
           <i class="dropdown icon"></i>
           camping map
         </div>
-        <div class="active content menu">
+        <div class="content active">
         description
         img
+        </div>
         </div>`)
-      for (let map of data.maps) {
-        //    const img = 
-        $(`#${id}map`)
-          .append(` <div class="active content menu">${map.description}</div>`)
-          .append(`<img src="${map.url}" height= "150px" width="150px" ></div>`);
+      // for (let map of data.maps) {
+      //   //    const img = 
+      //   $(`#${id}map`)
+      //     .append(` <div class="active content menu">${map.description}</div>`)
+      //     .append(`<img src="${map.url}" height= "150px" width="150px" ></div>`);
 
-      }
+      // }
 
     });
   });
-  <div class="ui basic vertical accordion menu">
-  <div class="active title">
-    <i class='dropdown icon'></i>
-    capming site
-  </div>
-  <div class="active content">
-    camp1
-  </div>
-  <div class="title">
-      <i class='dropdown icon'></i>
-      capming site
-    </div>
-    <div class="content">
-      camp1
-    </div>
-        </div>
+
   //   if ($('.new-tweet').css('display') == 'none') {
   //     $('.new-tweet').slideDown('slow', function() {
   //         $('textArea').focus();
