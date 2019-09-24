@@ -1,16 +1,16 @@
 DELETE FROM pins;
-DROP TABLE IF EXISTS maps
-CASCADE;
+-- DROP TABLE IF EXISTS maps
+-- CASCADE;
 CREATE TABLE maps
 (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  description TEXT;
+  description TEXT
   category VARCHAR
   (255);
   url VARCHAR
   (255);
-  liked INTEGER;
+  liked INTEGER
 );
   INSERT INTO maps
     (owner_id, description, category, url, liked)

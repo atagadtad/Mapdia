@@ -46,6 +46,7 @@ const homePagePinsRoutes = require("./routes/homePagePins");
 const mapIDsRoutes = require("./routes/mapIDs");
 const registrationRoutes = require("./routes/registrations");
 const logoutRoutes = require("./routes/logouts");
+const searchRoutes = require("./routes/search");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -60,6 +61,7 @@ app.use("/", homePagePinsRoutes(db));
 app.use("/mapID", mapIDsRoutes(db));
 app.use("/registration", registrationRoutes(db));
 app.use("/logout", logoutRoutes(db));
+app.use("/search", searchRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
