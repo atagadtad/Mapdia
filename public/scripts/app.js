@@ -35,9 +35,6 @@ $(function ($) {
     //   appendSearch();
   });
 
-<<<<<<< HEAD
-
-
   $.ajax({
     method: "GET",
     url: "/map"
@@ -50,62 +47,48 @@ $(function ($) {
       // $("#searchPlace").click(function() {
       //   appendSearch();
       // });
-=======
-  $.ajax({
-    method: "GET",
-    url: "/map"
-  }).done(() => {
-    $("#right").append(appendMap());
-
-    $("#searchPlace").click(function() {
-      appendSearch();
-      // $("#map").append(appendMap());
-      // $("#searchPlace").click(function() {
-      //   appendSearch();
-      // });
-    });
->>>>>>> d583e5d3ebc2ee876958b241d779b350eb3674b0
-    });
-    // $("#map").append(appendMap());
-    // $("#searchPlace").click(function() {
-    //   appendSearch();
-    // });
-    $.ajax({
-      method: "GET",
-      url: "/"
-    }).done(() => {
-      $("#map").append(appendMap());
-      $("#searchPlace").click(function () {
-        appendSearch();
-      });
-    });
-
-    $("#buttons .login").click(function () {
-      if ($("#login-form").css("display") == "none") {
-        $("#login-form").slideDown();
-      } else {
-        $("#login-form").slideUp();
-      }
-    });
-    $("#buttons .signup").click(function () {
-      // alert("hiiii");
-      if ($("#singup").css("display") == "none") {
-        $("#singup").slideDown();
-      } else {
-        $("#singup").slideUp();
-      }
-    });
-    $(".item").click(function () {
-      let url = $(this).attr("href");
-      alert(url);
-      $("#right").load(url + " #right >*");
-      return false;
-    });
-    // });
-    $(".item").click(function () {
-      let url = $(this).attr("href");
-      alert(url);
-      $("#right").load(url);
-      return false;
     });
   });
+  // $("#map").append(appendMap());
+  // $("#searchPlace").click(function() {
+  //   appendSearch();
+  // });
+  $.ajax({
+    method: "GET",
+    url: "/"
+  }).done(() => {
+    $("#map").append(appendMap());
+    $("#searchPlace").click(function () {
+      appendSearch();
+    });
+  });
+
+  $("#buttons .login").click(function () {
+    if ($("#login-form").css("display") == "none") {
+      $("#login-form").slideDown();
+    } else {
+      $("#login-form").slideUp();
+    }
+  });
+  $("#buttons .signup").click(function () {
+    // alert("hiiii");
+    if ($("#singup").css("display") == "none") {
+      $("#singup").slideDown();
+    } else {
+      $("#singup").slideUp();
+    }
+  });
+  $(".item").click(function () {
+    let url = $(this).attr("href");
+    alert(url);
+    $("#right").load(url + " #right >*");
+    return false;
+  });
+  // });
+  $(".item").click(function () {
+    let url = $(this).attr("href");
+    alert(url);
+    $("#right").load(url);
+    return false;
+  });
+});
