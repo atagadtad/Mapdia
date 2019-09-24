@@ -73,7 +73,7 @@ app.get("/", (req, res) => {
 
 app.get("/showmap/:mapID", (req, res) => {
   let mapID = req.params.mapID;
-  let templateVars = {mapID};
+  let templateVars = { mapID };
   res.render("showmap", templateVars);
 });
 app.get("/newmap", (req, res) => {
