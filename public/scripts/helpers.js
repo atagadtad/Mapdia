@@ -1,9 +1,8 @@
 function appendMap() {
   let $map = `
   <div>
-  <button id = 'searchPlace'>Find place</button>
-  </div>
-`;
+  <button id="searchPlace" class="ui button searchPlace">Find place</button>
+  </div>`;
   return $map;
 }
 

@@ -16,37 +16,41 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    .form-check-input{
-    position: relative;
+    .form-check-input {
+      position: relative;
     }
   }
-.mapCollection {
-  display: flex;
-  flex-direction: column;
-  background-color: bisque;
+  .mapCollection {
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
 
-  height: 1200px;
-  float: left;
-  .mapCollection > p{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    width:100%;
+    height: 1200px;
+    float: left;
+    .mapCollection > p {
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-weight: bold;
+      width: 100%;
+    }
+    #favoritemap {
+      display: none;
+      height: 25%;
+    }
+    #foodymap {
+      display: none;
+      height: 25%;
+    }
+    #campingmap {
+      display: none;
+      height: 25%;
+    }
+    #weddingmap {
+      display: none;
+      height: 25%;
+    }
   }
-  #favoritemap {
-    display: none;
-    height: 25%;
-  }
-  #foodymap {
-    display: none;
-    height: 25%;
-  }
-  #campingmap {
-    display: none;
-    height: 25%;
-  }
-  #weddingmap {
-    display: none;
-    height: 25%;
+  .mapCollection > img:hover {
+    cursor: grab;
   }
 }
 .mapCollection > img:hover {
@@ -74,16 +78,23 @@ cursor: grab;
     width: 96%;
     margin: 2%;
 
+    .searchPlace {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
     #search-input {
-      width: 90%;
-      height: 10%;
+      width: 50%;
+      height: 5%;
     }
 
     #searchPlace {
       z-index: 100;
       position: fixed;
-      left:0;
-      top:0;
+      left: 0;
+      top: 0;
     }
   }
 
@@ -91,14 +102,14 @@ cursor: grab;
     margin-left: 1em;
   }
 
-  #login-form {
-    margin: 5em;
-    display: none;
-  }
-  #singup {
-    margin: 5em;
-    display: none;
-  }
+  // #login-form {
+  //   margin: 5em;
+  //   display: none;
+  // }
+  // #singup {
+  //   margin: 5em;
+  //   display: none;
+  // }
   nav .search {
     margin-left: 3em;
   }
@@ -106,7 +117,7 @@ cursor: grab;
   nav #buttons {
     margin-right: 3em;
   }
-}
+
 
 #user {
   .loginpage {
@@ -131,6 +142,49 @@ cursor: grab;
     }
     #left {
       margin: 3em 0 0 3em;
+    }
+  }
+}
+
+#homepage {
+  #login-form {
+    margin: 5em;
+    display: none;
+  }
+  #singup {
+    margin: 5em;
+    display: none;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 6em;
+  }
+
+  #map-collections {
+    // margin: 2em;
+    .line1 {
+      display: flex;
+      justify-content: space-around;
+      margin: 2em;
+    }
+
+    .line2 {
+      display: flex;
+      justify-content: space-around;
+      margin: 2em;
+    }
+
+    .line3 {
+      display: flex;
+      justify-content: space-around;
+      margin: 2em;
+    }
+
+    .line4 {
+      display: flex;
+      justify-content: space-around;
+      margin: 2em;
     }
   }
 }

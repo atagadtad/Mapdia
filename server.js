@@ -10,7 +10,6 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
 
-
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -81,6 +80,10 @@ app.get("/newmap", (req, res) => {
   // let templateVars = {mapID};
   res.render("newmap");
 });
+app.get("/homepage", (req, res) => {
+  res.render("homepage");
+});
+
 app.get("/login", (req, res) => {
   res.render("user");
 });
@@ -96,6 +99,7 @@ app.get("/map", (req, res) => {
 app.post("/login", (req, res) => {
   res.render("user");
 });
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
