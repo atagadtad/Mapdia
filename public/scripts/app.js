@@ -1,11 +1,11 @@
 import { appendMap, appendSearch, addMarker, checkMapCollections } from "./helpers.js";
 
-$(function($) {
+$(function ($) {
   //check checkBox to show map collection sections
   checkMapCollections("favorite");
   checkMapCollections("foody");
   checkMapCollections("camping");
-  
+
   $.ajax({
     method: "GET",
     url: "/api/users"
@@ -31,13 +31,15 @@ $(function($) {
   });
 });
 
+
+
 $.ajax({
   method: "GET",
   url: "/map"
 }).done(() => {
   $("#right").append(appendMap());
 
-  $("#searchPlace").click(function() {
+  $("#searchPlace").click(function () {
     appendSearch();
     // $("#map").append(appendMap());
     // $("#searchPlace").click(function() {
@@ -53,7 +55,7 @@ $.ajax({
     url: "/"
   }).done(() => {
     $("#map").append(appendMap());
-    $("#searchPlace").click(function() {
+    $("#searchPlace").click(function () {
       appendSearch();
     });
   });
@@ -76,18 +78,18 @@ $.ajax({
 
 // });
 
-$("#buttons .login").click(function() {
+$("#buttons .login").click(function () {
   $("#login-form").css("display", "block");
 });
 
-$(".item").click(function() {
+$(".item").click(function () {
   let url = $(this).attr("href");
   alert(url);
   $("#right").load(url + " #right >*");
   return false;
 });
 // });
-$(".item").click(function() {
+$(".item").click(function () {
   let url = $(this).attr("href");
   alert(url);
   $("#right").load(url);
