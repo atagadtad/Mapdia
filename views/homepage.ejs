@@ -29,19 +29,71 @@
   </head>
 
   <body id="homepage">
-    <% include ./partials/_header%>
+    <header>
+      <nav>
+        <div class="search">
+          <form class="form-inline md-form form-sm active-cyan-2 mt-2">
+            <div class="ui input">
+              <input type="text" placeholder="Search..." />
+            </div>
+            <i class="fas fa-search-location"></i>
+          </form>
+        </div>
+
+        <div id="buttons ">
+          <button class="ui basic button login">Login</button>
+          <button class="ui basic button signup">Sign up</button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div id="login-form" class="mainform">
+        <form class="ui form">
+          <div class="field">
+            <label>Email</label>
+            <input type="text" name="first-name" placeholder="First Name" />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="text" name="last-name" placeholder="Last Name" />
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" tabindex="0" class="hidden" />
+              <label>I agree to the Terms and Conditions</label>
+            </div>
+          </div>
+          <button class="ui button" type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div id="singup">
+        <form class="ui form">
+          <div class="field">
+            <label>Eamil</label>
+            <input type="text" name="first-name" placeholder="First Name" />
+          </div>
+          <div class="field">
+            <label>password</label>
+            <input type="text" name="last-name" placeholder="Last Name" />
+          </div>
+          <button class="ui basic button" type="submit">Submit</button>
+          <button class="ui button" type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
 
     <div id="map-collections">
       <div class="line1">
         <div class="map1">
           <img
-            src="https://source.unsplash.com/500x500/?programing,javascript"
+            src="https://source.unsplash.com/500x500/?programing,map"
             alt="technology"
           />
         </div>
         <div class="map2">
           <img
-            src="https://source.unsplash.com/500x500/?friendship,social"
+            src="https://source.unsplash.com/500x500/?friendship,map"
             alt="family"
           />
         </div>
@@ -50,13 +102,13 @@
       <div class="line2">
         <div class="map3">
           <img
-            src="https://source.unsplash.com/500x500/?food,friuts"
+            src="https://source.unsplash.com/500x500/?food,map"
             alt="health"
           />
         </div>
         <div class="map4">
           <img
-            src="https://source.unsplash.com/500x500/?finance,bitcoin"
+            src="https://source.unsplash.com/500x500/?finance,map"
             alt="money"
           />
         </div>
@@ -65,13 +117,13 @@
       <div class="line3">
         <div class="map5">
           <img
-            src="https://source.unsplash.com/500x500/?portrait,nature"
+            src="https://source.unsplash.com/500x500/?portrait,map"
             alt="photograph"
           />
         </div>
         <div class="map6">
           <img
-            src="https://source.unsplash.com/500x500/?shopping,water"
+            src="https://source.unsplash.com/500x500/?shopping,map"
             alt="shopping"
           />
         </div>
@@ -80,13 +132,13 @@
       <div class="line4">
         <div class="map7">
           <img
-            src="https://source.unsplash.com/500x500/?deviantart,paint"
+            src="https://source.unsplash.com/500x500/?deviantart,map"
             alt="art"
           />
         </div>
         <div class="map8">
           <img
-            src="https://source.unsplash.com/500x500/?toronto,water"
+            src="https://source.unsplash.com/500x500/?toronto,map"
             alt="cloud"
           />
         </div>
