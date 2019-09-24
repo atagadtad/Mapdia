@@ -56,7 +56,7 @@ cursor: grab;
     height: 600px;
     width: 60%;
     float: right;
-    margin-right: auto;
+    margin-right: 5%;
 
     #search-input {
       width: 90%;
@@ -79,7 +79,10 @@ cursor: grab;
     margin: 5em;
     display: none;
   }
-
+  #singup {
+    margin: 5em;
+    display: none;
+  }
   nav .search {
     margin-left: 3em;
   }
