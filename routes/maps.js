@@ -7,7 +7,7 @@ module.exports = db => {
     db.query(`
     SELECT * FROM maps
     where category = $1;
-    `,values)
+    `, values)
       .then(data => {
         // console.log(data)
         const maps = data.rows;
@@ -18,5 +18,9 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   });
+
+
+
+
   return router;
 };
