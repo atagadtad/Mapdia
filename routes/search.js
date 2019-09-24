@@ -10,14 +10,16 @@ router.use(cookieSession({
 
 module.exports = db => {
   router.post("/", (req, res) => {
-    console.log(req.body)
-    res.send(200);
+    let userSearch = req.body
+    console.log(userSearch)
+    const values = [`%${userSearch.search}%`]
     db.query(`
-    SELECT *
-    FROM maps;
-    `)
+    SELECT maps.id
+    FROM maps
+    WHERE lower(description) LIKE $1;
+    `, values)
       .then(data => {
-        // console.log(data)
+        res.send(data.rows);
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
