@@ -12,7 +12,7 @@ module.exports = db => {
   router.post("/", (req, res) => {
     res.clearCookie('user_id');
     res.clearCookie('user_id.sig');
-    res.redirect("index");
+    res.redirect("/");
     db.query(`
 
     `, values)
