@@ -41,14 +41,14 @@ module.exports = db => {
 
   router.post("/getmap", (req, res) => {
 
-    console.log(req.body.data);
+    // console.log(req.body.data);
     let values = [`${req.body.data}`];
     db.query(`
     SELECT latitude, longitude
     FROM pins
     JOIN maps ON map_id = maps.id
     WHERE map_id = $1;
-    `,values)
+    `, values)
       .then(pins => {
         const coords = pins.rows;
         res.json({ coords });
@@ -56,7 +56,7 @@ module.exports = db => {
       .catch(err => {
         res.status(500).json({ error: err.message });
       });
-  
+
   });
   return router;
 };
