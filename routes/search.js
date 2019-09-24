@@ -11,12 +11,13 @@ router.use(cookieSession({
 module.exports = db => {
   router.post("/", (req, res) => {
     console.log(req.body)
+    res.send(200);
     db.query(`
     SELECT *
     FROM maps;
     `)
       .then(data => {
-        console.log(data)
+        // console.log(data)
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
