@@ -11,8 +11,8 @@ router.use(
 
 module.exports = db => {
   router.post("/", (req, res) => {
-    userEmail = req.body.email;
-    userPassword = req.body.password;
+    let userEmail = req.body.email;
+    let userPassword = req.body.password;
     const values = [userEmail, userPassword];
     db.query(
       `
