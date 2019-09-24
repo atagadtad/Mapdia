@@ -59,9 +59,38 @@ function appendSearch() {
     });
   }
 }
+// function checkMapCollections(id) {
+
+
+//   $(`#${id}`).click(function () {
+//     $(`#${id}map`).toggle(this.checked);
+//     console.log(`let's get some map`);
+//     $.ajax({
+//       method: "GET",
+//       url: "/maps"
+//     }).done((data) => {
+//       $(`section.mapCollection`).append(`<details class="ui basic vertical accordion menu">
+//         <summary class="title active">
+//           <i class="dropdown icon"></i>
+//           camping map
+//         </summary>
+//         <div class="content active">
+//         description
+//         img
+//         </div>
+//         </details>`)
+     
+//       // for (let map of data.maps) {
+//       //   //    const img = 
+//       //   $(`#${id}map`)
+//       //     .append(` <div class="active content menu">${map.description}</div>`)
+//       //     .append(`<img src="${map.url}" height= "150px" width="150px" ></div>`);
+
+//       // }
+
+//     });
+//   });
 function checkMapCollections(id) {
-
-
   $(`#${id}`).click(function () {
     $(`#${id}map`).toggle(this.checked);
     console.log(`let's get some map`);
@@ -69,16 +98,8 @@ function checkMapCollections(id) {
       method: "GET",
       url: "/maps"
     }).done((data) => {
-      $(`section.mapCollection`).append(`<div class="ui basic vertical accordion menu">
-        <div class="title active">
-          <i class="dropdown icon"></i>
-          camping map
-        </div>
-        <div class="content active">
-        description
-        img
-        </div>
-        </div>`)
+      $(`section.mapCollection`).append(`<img src="${data.maps[0].url}" height= "150px" width="150px" >`)
+     
       // for (let map of data.maps) {
       //   //    const img = 
       //   $(`#${id}map`)
@@ -89,6 +110,7 @@ function checkMapCollections(id) {
 
     });
   });
+
 
   //   if ($('.new-tweet').css('display') == 'none') {
   //     $('.new-tweet').slideDown('slow', function() {
