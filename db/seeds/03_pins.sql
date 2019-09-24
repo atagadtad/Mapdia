@@ -1,12 +1,3 @@
-delete from pins;
-INSERT INTO pins
-  (latitude, longitude, map_id)
-VALUES
-  (43.644114, -79.402328, 3);
-INSERT INTO pins
-  (latitude, longitude, map_id)
-VALUES
-  (43.644999, -79.400558, 2);
 INSERT INTO pins
   (latitude, longitude, map_id)
 VALUES
@@ -22,4 +13,36 @@ VALUES
 INSERT INTO pins
   (latitude, longitude, map_id)
 VALUES
-  (46.643470, -79.399206, 2);
+  (51.18653997370893, -115.57331319011996, 2);
+  INSERT INTO pins
+  (latitude, longitude, map_id)
+VALUES
+  (51.16458534676431, -115.58807606853793, 2);
+  INSERT INTO pins
+  (latitude, longitude, map_id)
+VALUES
+  (51.17438012387094, -115.54859395183871, 2);
+
+  INSERT INTO pins
+  (latitude, longitude, map_id)
+VALUES
+  (45.57560248784109, -78.62793799758913, 3);
+INSERT INTO pins
+  (latitude, longitude, map_id)
+VALUES
+  (45.538581817735725, -78.52082129837038, 3);
+INSERT INTO pins
+  (latitude, longitude, map_id)
+VALUES
+  (45.506349182254574, -78.62793799758913, 3);
+
+ INSERT INTO pins
+  (latitude, longitude, map_id)
+VALUES
+  (43.80581065914306, -79.13820574986772, 4);
+INSERT INTO pins
+  (latitude, longitude, map_id)
+VALUES
+  (43.80496667773235, -79.1367788146718, 4);
+ 
+

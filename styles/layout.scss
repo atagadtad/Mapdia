@@ -24,10 +24,12 @@ body {
   display: flex;
   flex-direction: column;
   background-color: bisque;
-  width:30%;
-  height: 600px;
+
+  height: 1200px;
   float: left;
-  body > .mapCollection > p{
+  .mapCollection > p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
     width:100%;
   }
   #favoritemap {
@@ -47,7 +49,7 @@ body {
     height: 25%;
   }
 }
-.mapCollection:hover {
+.mapCollection > img:hover {
 cursor: grab;
 }
   #map {

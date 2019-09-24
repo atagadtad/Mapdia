@@ -10,7 +10,7 @@ module.exports = db => {
     `,values)
       .then(data => {
         // console.log(data)
-        const maps = data.rows[0];
+        const maps = data.rows;
         console.log(maps);
         res.json({ maps });
       })
