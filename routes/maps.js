@@ -1,5 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const cookieSession = require("cookie-session");
+
+router.use(
+  cookieSession({
+    name: "user_id",
+    keys: ["id"]
+  })
+);
 
 module.exports = db => {
   router.get("/", (req, res) => {
@@ -19,7 +27,12 @@ module.exports = db => {
       });
   });
   router.post("/mapsubmission", (req, res) => {
-    console.log('hai')
+
+    let textArea = req.body.textsubmit;
+    let dropMenu = req.body.dropdown;
+    let userID = req.session.user_id;
+
+    const values = [textArea, dropMenu, userID]
     db.query(`
     SELECT *
     FROM maps;
