@@ -17,7 +17,10 @@ CREATE TABLE maps
 (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  description TEXT
+  description TEXT,
+  category VARCHAR(255),
+  url VARCHAR(255),
+  liked INTEGER
 );
 CREATE TABLE pins
 (

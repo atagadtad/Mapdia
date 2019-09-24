@@ -4,15 +4,12 @@ const app = express();
 
 
 module.exports = db => {
-  router.get("/", (req, res) => {
+  router.post("/", (req, res) => {
     db.query(`
-    SELECT latitude, longitude
-    FROM pins
-    JOIN maps ON map_id = maps.id
-    WHERE map_id = 1;
+
     `)
-      .then(pins => {
-        const coords = pins.rows;
+      .then(users => {
+        const user = users.rows;
         res.json({ coords });
       })
       .catch(err => {
@@ -21,4 +18,3 @@ module.exports = db => {
   });
   return router;
 };
-

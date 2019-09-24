@@ -1,41 +1,16 @@
-import { appendMap, appendSearch, addMarker } from "./helpers.js";
-// const userItemView = user => {
-//   const $item = $(`<div class='user'>${user.email}</div>`);
-//   $item.on("click", () => alert("hello" + user.email));
-//   return $item;
-// };
-
-// const userPageView = users => {
-//   const $page = $(`<div class='page'></div>`);
-//   for (user of users) {
-//     $page.append(userItemView(user));
-//   }
-//   return $page;
-// };
-
-// const loadUserPage = () => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users"
-//   }).done(response => {
-//     $("main").html(userPageView(response.users));
-//   });
-// };
-
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users"
-//   }).done(users => {
-//     for (user of users) {
-//       $("<div>")
-//         .text(user.name)
-//         .appendTo($("body"));
-//     }
-//   });
-// });
+import {
+  appendMap,
+  appendSearch,
+  addMarker,
+  checkMapCollections
+} from "./helpers.js";
 
 $(function($) {
+  //check checkBox to show map collection sections
+  checkMapCollections("favorite");
+  checkMapCollections("foody");
+  checkMapCollections("camping");
+
   $.ajax({
     method: "GET",
     url: "/api/users"
@@ -139,5 +114,4 @@ $(".item").click(function() {
 //       // populate yor box/field with lat, lng
 //       alert("Lat=" + lat + "; Lng=" + lng);
 //     });
-//   });
-// });
+//   });});
