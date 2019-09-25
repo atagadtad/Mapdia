@@ -34,7 +34,7 @@
 </head>
 
 <body>
-<input id="mapID" value="<%= data %>"hidden>
+  <input id="mapID" value="<%= data %>" hidden>
   <div id="map">
     <div>
       <script type="text/javascript" src="/scripts/map_v1.js"></script>
@@ -45,7 +45,7 @@
   </div>
 
   <div class="container demo">
-    <button type="button" id ="modalbutton" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
+    <button type="button" id="modalbutton" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
       Create Map?
     </button>
   </div>
@@ -69,9 +69,9 @@
             <div class="form-group">
               <label for="gender1" class="control-label">Category</label>
               <select name="dropdown" class="form-control" id="gender1">
-                <option value="Camping">Camping</option>
-                <option value="Foody">Foody</option>
-                <option value="Wedding">Wedding</option>
+                <option value="camping">Camping</option>
+                <option value="foody">Foody</option>
+                <option value="wedding">Wedding</option>
               </select>
               <input type="submit" value="Submit">
             </div>
@@ -88,8 +88,8 @@
       </div><!-- modal-content -->
     </div><!-- modal-dialog -->
   </div><!-- modal -->
-  
-</div><!-- container -->
+
+  </div><!-- container -->
   <form id="map_submission" method="POST" action="/pinsCollection">
     <button>Submit Pins</button>
   </form>
