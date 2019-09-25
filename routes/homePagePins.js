@@ -71,5 +71,12 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   });
+
+  router.get("/showmap/:mapID", (req, res) => {
+    let mapID = req.params.mapID;
+    let templateVars = { mapID };
+    res.render("showmap", templateVars);
+  });
+
   return router;
 };
