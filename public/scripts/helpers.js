@@ -59,37 +59,7 @@ function appendSearch() {
     });
   }
 }
-// function checkMapCollections(id) {
 
-
-//   $(`#${id}`).click(function () {
-//     $(`#${id}map`).toggle(this.checked);
-//     console.log(`let's get some map`);
-//     $.ajax({
-//       method: "GET",
-//       url: "/maps"
-//     }).done((data) => {
-//       $(`section.mapCollection`).append(`<details class="ui basic vertical accordion menu">
-//         <summary class="title active">
-//           <i class="dropdown icon"></i>
-//           camping map
-//         </summary>
-//         <div class="content active">
-//         description
-//         img
-//         </div>
-//         </details>`)
-     
-//       // for (let map of data.maps) {
-//       //   //    const img = 
-//       //   $(`#${id}map`)
-//       //     .append(` <div class="active content menu">${map.description}</div>`)
-//       //     .append(`<img src="${map.url}" height= "150px" width="150px" ></div>`);
-
-//       // }
-
-//     });
-//   });
 function checkMapCollections(id) {
   $(`#${id}`).click(function () {
     $(`#${id}map`).toggle(this.checked);
@@ -110,24 +80,6 @@ function checkMapCollections(id) {
 
     });
   });
-
-
-  //   if ($('.new-tweet').css('display') == 'none') {
-  //     $('.new-tweet').slideDown('slow', function() {
-  //         $('textArea').focus();
-  //     });
-  // } else {
-  //     $('.new-tweet').slideUp('slow');
-  // }
 }
-function addMarker() {
-  let map = document.getElementById("map").gMap;
-  //click on map to add marker
-  google.maps.event.addListener(map, "click", function (e) {
-    var lat = event.latLng.lat();
-    var lng = event.latLng.lng();
-    // populate yor box/field with lat, lng
-    alert("Lat=" + lat + "; Lng=" + lng);
-  });
-}
+
 export { appendMap, appendSearch, addMarker, checkMapCollections };

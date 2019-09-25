@@ -35,15 +35,15 @@
 
 <body>
 
-  <section id="map">
+  <div id="map">
     <div>
       <script type="text/javascript" src="/scripts/map_v1.js"></script>
       <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA&libraries=places&callback=initMap">
         </script>
     </div>
-    </div> -->
-  </section>
+  </div>
+
   <div class="container demo">
     <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
       Right Sidebar Modal
@@ -86,14 +86,19 @@
       </div><!-- modal-content -->
     </div><!-- modal-dialog -->
   </div><!-- modal -->
-
-
-  </div><!-- container -->
+  
+</div><!-- container -->
+<img src="https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap
+&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+&markers=color:red%7Clabel:C%7C40.718217,-73.998284&markers=red%7Clabel:C%7C43.70794222817802, -79.4204277038574
+&key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA">
   <form id="map_submission" method="POST" action="/pinsCollection">
     <button>Submit Pins</button>
   </form>
+  <button id="capture">capture</button>
   </main>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js" type="text/javascript"
+    xml="space"></script>
 </body>
 
 </html>

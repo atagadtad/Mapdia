@@ -74,9 +74,9 @@ cursor: grab;
 //   }
 // }
   #map {
-    height: 600px;
+    height: 300px;
     width: 96%;
-    margin: 2%;
+
 
     .searchPlace {
       position: fixed;
@@ -265,3 +265,6 @@ outline: 0;
   position: absolute;
 }
 
+.overflowVisible{
+  overflow:visible 
+}

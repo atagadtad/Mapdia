@@ -97,68 +97,82 @@ function setContentString(marker) {
   return contentString;
 }
 
-
+function generateMapString(markers) {
+  let mapString = `https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap
+  &`;
+  for (let marker of markers) {
+    mapString += `markers=color:red%7Clabel:S%7C${marker.lat},${marker.lng}&`
+  }
+  mapString += `key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA`
+  return mapString;
+}
 $(() => {
   console.log('loaded');
-  $(document).on("click", ".browse", function() {
+  $(document).on("click", ".browse", function () {
     var file = $(this).parents().find(".file");
     file.trigger("click");
   });
-  $('input[type="file"]').change(function(e) {
+  $('input[type="file"]').change(function (e) {
     var fileName = e.target.files[0].name;
     $("#file").val(fileName);
-  
+
     var reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       // get loaded data and render thumbnail.
       document.getElementById("preview").src = e.target.result;
     };
     // read the image file as a data URL.
     reader.readAsDataURL(this.files[0]);
   });
-  
-  //ajax request to GET
-let mapID = $('#mapID').val();
 
-    $.ajax({
-      url: '/getmap',
-      method:'POST',
-      data: {data:mapID},
-      success: (data) => {
-        console.log(data);
-        pinMap = [];
-        for (marker of data.coords) {
-          // console.log(marker);
-          let marker1 = new google.maps.Marker({
-            position: { lat: Number(marker.latitude), lng: Number(marker.longitude)},
-            draggable: true
-          });
-          pinMap.push(marker1);
-          console.log(marker1.position.lng() + " "+marker1.position.lat());
-          map.setCenter(marker1.getPosition());
-          map.setZoom(6);
-        }
-        var bounds = new google.maps.LatLngBounds();
-        pinMap.forEach(item => {
-          item.setMap(map);
-          bounds.extend(item.getPosition());
+  //ajax request to GET
+  let mapID = $('#mapID').val();
+
+  $.ajax({
+    url: '/getmap',
+    method: 'POST',
+    data: { data: mapID },
+    success: (data) => {
+      console.log(data);
+      pinMap = [];
+      for (marker of data.coords) {
+        // console.log(marker);
+        let marker1 = new google.maps.Marker({
+          position: { lat: Number(marker.latitude), lng: Number(marker.longitude) },
+          draggable: true
         });
-        map.fitBounds(bounds);
+        pinMap.push(marker1);
+        console.log(marker1.position.lng() + " " + marker1.position.lat());
+        map.setCenter(marker1.getPosition());
+        map.setZoom(6);
       }
-    });
- 
+      var bounds = new google.maps.LatLngBounds();
+      pinMap.forEach(item => {
+        item.setMap(map);
+        bounds.extend(item.getPosition());
+      });
+      map.fitBounds(bounds);
+    }
+  });
+
   $("#map_submission").on("submit", evt => {
     evt.preventDefault();
+    const mapString =  generateMapString(markers);
+    console.log(mapString);
+    $('body').append(`<img src="${mapString}">`);
     //ajax request to /maps with markers
-    $.ajax({
-      url: '/pinsCollection',
-      method: 'POST',
-      data: { data: markers },
-      dataType: "json",
-      success: function (status) {
-        console.log(status);
-        // markers=[];
-      }
-    })
+    // $.ajax({
+    //   url: '/pinsCollection',
+    //   method: 'POST',
+    //   data: { data: markers },
+    //   dataType: "json",
+    //   success: function (status) {
+    //     console.log(status);
+    //     // markers=[];
+    //   }
+    // })
+  })
+  $('#capture').click(() => {
+    // $('body').append()
   })
 });
