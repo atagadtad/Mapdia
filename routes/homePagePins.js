@@ -39,7 +39,7 @@ module.exports = db => {
   });
 
   router.post("/getmap", (req, res) => {
-    console.log(req.body.data);
+    // console.log(req.body.data);
     let values = [`${req.body.data}`];
     db.query(
       `

@@ -30,6 +30,9 @@ module.exports = db => {
           users[0].password === userPassword
         ) {
           req.session.user_id = users[0].id;
+          let templateVars = {
+            user: req.session.user_id
+          };
           console.log(req.session.user_id);
           res.render("homepage", { name: "Bob", user: req.session.user_id });
         }

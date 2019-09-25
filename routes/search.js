@@ -1,13 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// const cookieSession = require("cookie-session");
-
-// router.use(
-//   cookieSession({
-//     name: "user_id",
-//     keys: ["id"]
-//   })
-// );
+//
 
 module.exports = db => {
   router.post("/", (req, res) => {
