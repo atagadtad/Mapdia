@@ -69,7 +69,7 @@ module.exports = db => {
             `,
               values
             ).then(data => {
-              res.render('homepage', { user: userID, error:'' });
+              res.render('homepage', { name: "fixmeinsubmission",user: userID, error:'' });
               // res.json('get it');
             });
           }
