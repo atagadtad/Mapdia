@@ -16,7 +16,7 @@ module.exports = db => {
     if (req.session["user_id"]) {
       user = req.session["user_id"];
     }
-    res.render("homepage", { user: user, error: '' });
+    res.render("homepage", { name:"",user: user, error: '' });
   });
   router.get("/pins", (req, res) => {
     db.query(
