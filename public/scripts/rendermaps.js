@@ -19,14 +19,18 @@ $(function ($) {
 
   $("#searchbutton").click(function (event) {
     event.preventDefault();
-    alert("hai you clicked search!")
     $('.mapsContainer').empty();
+    let text = $("#searchtext").val()
+    console.log('text: ', text)
     $.ajax({
-      type: "POST",
+      type: "GET",
       url: '/search',
+      data: { search: text },
       success: (data) => {
+        console.log(data)
+        // console.log(data.maps[0].maps)
         for (let map of data.maps) {
-          console.log(data.maps[0].url);
+          // console.log(data.maps[0].url);
           $('.mapsContainer').append(insertAnchor(map.id, map.url));
         }
       }
