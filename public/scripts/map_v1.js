@@ -1,26 +1,14 @@
 let map;
 let markers = [];
 let pinMap = [];
+let testMarkers = [];
 // Initialize and add the map
 function initMap() {
-  // The location of Uluru
   var toronto = { lat: 43.7, lng: -79.4 };
-  // The map, centered at Uluru
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 8,
     center: toronto
   });
-  // var marker = new google.maps.Marker({
-  //   position: toronto,
-  //   draggable: true
-  // });
-  // let marker1 = new google.maps.Marker({
-  //   position: { lat: 43.9, lng: -79.4 },
-  //   draggable: true
-  // });
-  // map1.push(marker);
-  // map1.push(marker1);
-  // map1.forEach(item => item.setMap(map));
   const placeService = new google.maps.places.PlacesService(map);
   const request = {
     query: "ottawa",
@@ -45,11 +33,13 @@ function initMap() {
       id: markers.length,
       position: event["latLng"],
       label: markers.length.toString(),
+      map: map,
       // title: "Hello World!"
       draggable: true
     });
     markers.push({ lat: marker.position.lat(), lng: marker.position.lng() });
-    marker.setMap(map);
+    testMarkers.push(marker);
+    // marker.setMap(map);
     console.log(marker.position);
     //    const contentString = setContentString(markers.length);
     const contentString = setContentString(marker);
@@ -57,11 +47,17 @@ function initMap() {
     google.maps.event.addListener(marker, "click", function () {
       infowindow.setContent(contentString);
       infowindow.open(map, this);
-
     });
     google.maps.event.addListener(marker, "rightclick", function () {
+      // for (let itemmarker of markers) {
+      //   if (itemmarker === marker) {
+      console.log('are you here');
       marker.setMap(null);
-      markers.push(marker);
+      console.log(markers.length);
+      //   }
+      // }
+
+      //    markers.push(marker);
     });
   });
   let divMap = document.getElementById("map");
@@ -109,24 +105,6 @@ function generateMapString(markers) {
   return [mapString, coordsString];
 };
 $(() => {
-  console.log('loaded');
-  $(document).on("click", ".browse", function () {
-    var file = $(this).parents().find(".file");
-    file.trigger("click");
-  });
-  $('input[type="file"]').change(function (e) {
-    var fileName = e.target.files[0].name;
-    $("#file").val(fileName);
-
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      // get loaded data and render thumbnail.
-      document.getElementById("preview").src = e.target.result;
-    };
-    // read the image file as a data URL.
-    reader.readAsDataURL(this.files[0]);
-  });
-
   //ajax request to GET
   let mapID = $('#mapID').val();
 
@@ -141,6 +119,7 @@ $(() => {
         // console.log(marker);
         let marker1 = new google.maps.Marker({
           position: { lat: Number(marker.latitude), lng: Number(marker.longitude) },
+          map: map,
           draggable: true
         });
         pinMap.push(marker1);
