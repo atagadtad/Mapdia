@@ -24,52 +24,53 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
 
-  </head>
-  <body>
-    <% include ./partials/_header%>
-    <!-- <div>
+</head>
+
+<body>
+  <% include ./partials/_header%>
+  <!-- <div>
       <button class="ui basic button searchPlace">Find place</button>
     </div> -->
-    <main>
-      <div id="login-form" class="mainform">
-        <form class="ui form" action="/login" method="POST">
-          <div class="field">
-            <label>Email</label>
-            <input type="text" name="email" placeholder="Email" />
+  <main>
+    <div id="login-form" class="mainform">
+      <form class="ui form" action="/login" method="POST">
+        <div class="field">
+          <label>Email</label>
+          <input type="text" name="email" placeholder="Email" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="text" name="password" placeholder="Password" />
+        </div>
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" class="hidden" />
+            <label>I agree to the Terms and Conditions</label>
           </div>
-          <div class="field">
-            <label>Password</label>
-            <input type="text" name="password" placeholder="Password" />
-          </div>
-          <div class="field">
-            <div class="ui checkbox">
-              <input type="checkbox" tabindex="0" class="hidden" />
-              <label>I agree to the Terms and Conditions</label>
-            </div>
-          </div>
-          <button class="ui basic button" type="submit">Submit</button>
-        </form>
-      </div>
-      <div id="singup">
-        <form class="ui form">
-          <div class="field">
-            <label>Eamil</label>
-            <input type="text" name="first-name" placeholder="First Name" />
-          </div>
-          <div class="field">
-            <label>password</label>
-            <input type="text" name="last-name" placeholder="Last Name" />
-          </div>
+        </div>
+        <button class="ui basic button" type="submit">Submit</button>
+      </form>
+    </div>
+    <div id="singup">
+      <form class="ui form">
+        <div class="field">
+          <label>Eamil</label>
+          <input type="text" name="first-name" placeholder="First Name" />
+        </div>
+        <div class="field">
+          <label>password</label>
+          <input type="text" name="last-name" placeholder="Last Name" />
+        </div>
 
-          <button class="ui basic button" type="submit">Submit</button>
-          <button class="ui button" type="submit">Submit</button>
-        </form>
-      </div>
-      <section class="mapCollection">
-        <div class="mapCollection" id="map1">map1</div>
-        <div class="mapCollection" id="map2">map2</div>
-        <div class="mapCollection" id="map3">map3</div>
-      </section>
+        <button class="ui basic button" type="submit">Submit</button>
+        <button class="ui button" type="submit">Submit</button>
+      </form>
+    </div>
+    <section class="mapCollection">
+      <div class="mapCollection" id="map1">map1</div>
+      <div class="mapCollection" id="map2">map2</div>
+      <div class="mapCollection" id="map3">map3</div>
+    </section>
 
 
     <div id="login-form" class="mainform">
@@ -194,11 +195,11 @@
           <form id="map_submission" method="POST" action="/pinsCollection">
             <button>Submit Pins</button>
           </form>
-  </main>
-  <% include ./partials/_footer%>1
-  <script>
-    $('.ui.accordion').accordion();
-  </script>
+    </main>
+    <% include ./partials/_footer%>1
+    <script>
+      $('.ui.accordion').accordion();
+    </script>
 </body>
 
 </html>
