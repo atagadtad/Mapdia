@@ -16,7 +16,7 @@ module.exports = db => {
     if (req.session["user_id"]) {
       user = req.session["user_id"];
     }
-    res.render("homepage", { user: user, error: '' });
+    res.render("homepage", { name:"",user: user, error: '' });
   });
   router.get("/pins", (req, res) => {
     db.query(
@@ -71,7 +71,44 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   });
-
+//like
+  router.post("/likemap", (req, res) => {
+    console.log(req.body.data);
+    let values = [`${req.body.data}`];
+    db.query(
+      `
+    UPDATE maps SET liked = liked + 1
+    WHERE id = $1;
+    `,
+      values
+    )
+      .then(data => {
+        //res.render("homepage", { user: req.session["user_id"], error: '' });
+        res.json(data);
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
+  })
+//unlike
+router.post("/unlikemap", (req, res) => {
+  console.log(req.body.data);
+  let values = [`${req.body.data}`];
+  db.query(
+    `
+  UPDATE maps SET liked = liked - 1
+  WHERE id = $1;
+  `,
+    values
+  )
+    .then(data => {
+      //res.render("homepage", { user: req.session["user_id"], error: '' });
+      res.json(data);
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
+})
   router.get("/showmap/:mapID", (req, res) => {
     let mapID = req.params.mapID;
     let templateVars = { mapID };
@@ -79,7 +116,6 @@ module.exports = db => {
   });
 
   router.get("/newmap", (req, res) => {
-
     res.render("newmap", { data: [] });
   });
 

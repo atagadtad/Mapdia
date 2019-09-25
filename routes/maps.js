@@ -18,12 +18,17 @@ module.exports = db => {
         // console.log(data)
         const maps = data.rows;
         // console.log(maps);
-        res.json({ maps });
+        if (req.session.user_id){
+        res.json({ maps, logined: true });
+        } else {
+          res.json({ maps, logined: '' });
+        }
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
       });
   });
+  
   router.post("/mapsubmission", (req, res) => {
 
     let textArea = req.body.textsubmit;
@@ -49,7 +54,6 @@ module.exports = db => {
     VALUES ($1, $2, $3 ,$4);
     `, values)
       .then(data => {
-        console.log(`2`);
         // res.json({ data })
         db.query(`
         SELECT * FROM maps order by id DESC;
@@ -65,8 +69,7 @@ module.exports = db => {
             `,
               values
             ).then(data => {
-              console.log('finish insert into database');
-              res.render('homepage', { user: userID, error: '' });
+              res.render('homepage', { name: "fixmeinsubmission",user: userID, error:'' });
               // res.json('get it');
             });
           }

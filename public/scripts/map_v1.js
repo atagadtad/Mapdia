@@ -162,18 +162,34 @@ $(() => {
     const mapString = generateMapString(markers);
     console.log(mapString);
     $('body').append(`<img src="${mapString}">`);
-    //ajax request to /maps with markers
-    // $.ajax({
-    //   url: '/pinsCollection',
-    //   method: 'POST',
-    //   data: { data: markers },
-    //   dataType: "json",
-    //   success: function (status) {
-    //     console.log(status);
-    //     // markers=[];
-    //   }
-    // })
+  });
+  //like
+  $(`#like`).click(() => {
+    $("#like").attr("disabled", true);
+    $("#unlike").attr("disabled", false);
+    $.ajax({
+      url: '/likemap',
+      method: 'POST',
+      data: { data: mapID },
+      success: (data) => {
+        console.log(data);
+      }
+    })
   })
+  //unlike
+  $(`#unlike`).click(() => {
+    $("#unlike").attr("disabled", true);
+    $("#like").attr("disabled", false);
+    $.ajax({
+      url: '/unlikemap',
+      method: 'POST',
+      data: { data: mapID },
+      success: (data) => {
+        console.log(data);
+      }
+    })
+  })
+
   $('#modalbutton').click(() => {
     const mapString = generateMapString(markers)[0];
     const coordsString = generateMapString(markers)[1];

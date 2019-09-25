@@ -14,7 +14,7 @@ module.exports = db => {
     res.redirect("/");
 
     db.query(
-      `
+    `
 
     `,
       values

@@ -20,7 +20,7 @@ CREATE TABLE maps
   description TEXT,
   category VARCHAR(255),
   url TEXT,
-  liked INTEGER
+  liked INTEGER DEFAULT 0
 );
 CREATE TABLE pins
 (

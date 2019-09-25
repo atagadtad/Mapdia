@@ -33,7 +33,7 @@
 </head>
 
 <body>
-   
+
   <section id="map">
     <div>
       <script type="text/javascript" src="/scripts/map_v1.js"></script>
@@ -44,6 +44,15 @@
   </section>
   </main>
   <input id="mapID" value="<%= mapID %> "hidden>
+  <button id="like" class="ui basic button">like</button>
+  <button id="unlike" class="ui basic button">unlike</button>
+
+  <form action="/delete" method="POST">
+    <div>
+  <button >Delete</button>
+</div>
+  </form>
+
 </body>
 
 </html>

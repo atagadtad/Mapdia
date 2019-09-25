@@ -84,7 +84,7 @@ body {
     left: 0;
     z-index: 100;
   }
-  
+
   #search-input {
     width: 50%;
     height: 5%;
@@ -200,8 +200,8 @@ nav #buttons {
   }
 }
 .ui.error.message {
-width: 80%;
-margin:0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 /*******************************
 * MODAL AS LEFT/RIGHT SIDEBAR
@@ -262,7 +262,7 @@ margin:0 auto;
 
 .btn-demo {
   text-align: center;
-  margin:0 auto;
+  margin: 0 auto;
 
   border-radius: 0;
   font-size: 16px;
@@ -274,7 +274,7 @@ margin:0 auto;
   outline: 0;
 }
 
-.file {
-  visibility: hidden;
-  position: absolute;
+.mapsContainer {
+  display: flex;
+  justify-content: space-around;
 }
