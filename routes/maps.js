@@ -64,8 +64,10 @@ module.exports = db => {
             RETURNING *;
             `,
               values
-            ).then(res => {
-              res.redirect('/homepage');
+            ).then(data => {
+              console.log('finish insert into database');
+              res.render('homepage', { user: userID, error:'' });
+              // res.json('get it');
             });
           }
         });
