@@ -11,7 +11,6 @@ router.use(
 
 module.exports = db => {
   router.get("/", (req, res) => {
-    values = [`camping`];
     db.query(`
     SELECT * FROM maps
     `)

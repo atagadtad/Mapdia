@@ -19,6 +19,7 @@
   <!-- change type from "text/jsvascript" to "module" client code helpers function module-->
 
   <script type="module" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/rendermaps.js"></script>
 </head>
 
 <body id="homepage">
@@ -49,7 +50,7 @@
   </header>
   <main>
       <%if(error) {%>
-        <div class="ui error message">
+          <div class="ui error message">
             <i class="close icon"></i>
             <div class="header">
               There were some errors with your email or password
@@ -80,7 +81,7 @@
     </div>
 
     <div id="singup">
-      <form class="ui form" action='/registeration' method="POST">
+      <form class="ui form" action='/registration' method="POST">
         <div class="field">
           <label>Email</label>
           <input type="text" name="email" placeholder="First Name" />
@@ -182,6 +183,9 @@
           </div>
     </div>
 
+
+      </div>
+      <div class="mapsContainer">
 
       </div>
     </div>
