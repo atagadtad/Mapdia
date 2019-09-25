@@ -1,13 +1,6 @@
 // load .env data into process.env
 require("dotenv").config();
 
-// //cookie
-// const cookieSession = require("cookie-session");
-
-// cookieSession({
-//   name: "user_id",
-//   keys: ["id"]
-// });
 
 // Web server config
 const PORT = process.env.PORT || 8080;
@@ -54,14 +47,11 @@ const apiRoutes = require("./");
 // Note: Feel free to replace the example routes below with your own
 // const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-const pinsRoutes = require("./routes/pins");
 const mapsRoutes = require("./routes/maps");
 const favoritesRoutes = require("./routes/favorites");
 const loginRoutes = require("./routes/logins");
 const homePagePinsRoutes = require("./routes/homePagePins");
-const mapIDsRoutes = require("./routes/mapIDs");
 const registrationRoutes = require("./routes/registrations");
-const userRoutes = require("./routes/users");
 const logoutRoutes = require("./routes/logouts");
 const searchRoutes = require("./routes/search");
 
@@ -70,14 +60,11 @@ const searchRoutes = require("./routes/search");
 // app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // // Note: mount other resources here, using the same pattern above
-app.use("/api/pins", pinsRoutes(db));
 app.use("/maps", mapsRoutes(db));
 app.use("/api/favorites", favoritesRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/", homePagePinsRoutes(db));
-app.use("/mapID", mapIDsRoutes(db));
 app.use("/registration", registrationRoutes(db));
-app.use("/user", userRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/search", searchRoutes(db));
 
@@ -85,46 +72,6 @@ app.use("/search", searchRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/showmap/:mapID", (req, res) => {
-  let mapID = req.params.mapID;
-  let templateVars = { mapID };
-  res.render("showmap", templateVars);
-});
-app.get("/newmap", (req, res) => {
-  // let mapID = req.params.mapID;
-  // console.log(mapID);
-  // let templateVars = {mapID};
-  res.render("newmap",{data:[]});
-});
-app.get("/homepage", (req, res) => {
-  //check
-  user = null;
-  if (req.session["user_id"]) {
-    user = req.session["user_id"];
-  }
-  res.render("homepage", { user: user, error:'' });
-});
-
-// login
-// app.get("/login", (req, res) => {
-//   res.render("homepage");
-// });
-
-app.get("/collections", (req, res) => {
-  res.render("collections");
-});
-
-app.get("/map", (req, res) => {
-  res.render("map");
-});
-
-// app.post("/login", (req, res) => {
-//   res.render("homepage");
-// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

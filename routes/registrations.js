@@ -8,13 +8,13 @@ module.exports = db => {
     let email = req.body.email;
     let password = bcrypt.hashSync(req.body.password, 10);
     db.query(
-    `
+      `
     INSERT INTO users (email, password)
     VALUES ($1, $2);
-    `,[email, password])
+    `, [email, password])
       .then(users => {
         const user = users.rows;
-        res.redirect('/homepage');
+        res.redirect('/');
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
