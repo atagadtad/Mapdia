@@ -76,7 +76,7 @@ module.exports = db => {
           res.render("homepage", { name: userEmail, user: req.session.user_id, error:'' });
           return;
         } else {
-          res.render("homepage", { user: '', error: "Please check email or password" });
+          res.render("homepage", { name: '',user: '', error: "Please check email or password" });
         }
       })
       .catch(err => {
