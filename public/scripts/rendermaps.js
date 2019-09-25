@@ -45,6 +45,5 @@ $(function ($) {
     })
   })
 
-  // $('.mapsContainer').append(insertAnchor(map.id, map.url));
 })
 
