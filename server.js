@@ -1,14 +1,30 @@
 // load .env data into process.env
 require("dotenv").config();
 
+// //cookie
+// const cookieSession = require("cookie-session");
+
+// cookieSession({
+//   name: "user_id",
+//   keys: ["id"]
+// });
+
 // Web server config
 const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
+const cookieSession = require("cookie-session");
 const express = require("express");
 const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
+
+app.use(
+  cookieSession({
+    name: "user_id",
+    keys: ["id"]
+  })
+);
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -36,7 +52,7 @@ app.use(express.static("public"));
 const apiRoutes = require("./");
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
+// const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const pinsRoutes = require("./routes/pins");
 const mapsRoutes = require("./routes/maps");
@@ -50,9 +66,9 @@ const searchRoutes = require("./routes/search");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
+// app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-// Note: mount other resources here, using the same pattern above
+// // Note: mount other resources here, using the same pattern above
 app.use("/api/pins", pinsRoutes(db));
 app.use("/maps", mapsRoutes(db));
 app.use("/api/favorites", favoritesRoutes(db));
@@ -83,12 +99,18 @@ app.get("/newmap", (req, res) => {
   res.render("newmap");
 });
 app.get("/homepage", (req, res) => {
-  res.render("homepage");
+  //check
+  user = null;
+  if (req.session["user_id"]) {
+    user = req.session["user_id"];
+  }
+  res.render("homepage", { user: user });
 });
 
-app.get("/login", (req, res) => {
-  res.render("user");
-});
+// login
+// app.get("/login", (req, res) => {
+//   res.render("homepage");
+// });
 
 app.get("/collections", (req, res) => {
   res.render("collections");
@@ -98,9 +120,9 @@ app.get("/map", (req, res) => {
   res.render("map");
 });
 
-app.post("/login", (req, res) => {
-  res.render("user");
-});
+// app.post("/login", (req, res) => {
+//   res.render("homepage");
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

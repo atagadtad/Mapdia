@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const app = express();
-
+//const app = express();
 
 module.exports = db => {
   router.post("/", (req, res) => {
-    db.query(`
+    db.query(
+      `
 
-    `)
+    `
+    )
       .then(users => {
         const user = users.rows;
         res.json({ coords });

@@ -1,88 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Homepage</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
-    />
-    <!-- SEMANTIC UI -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"
-    />
 
-    <!-- JS -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+<head>
+  <title>Homepage</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
+  <!-- SEMANTIC UI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css" />
 
-    <!-- change type from "text/jsvascript" to "module" client code helpers function module-->
+  <!-- JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <!-- <script type="text/javascript" src="/routes/logins.js"></script> -->
 
-    <script type="module" src="/scripts/app.js"></script>
-  </head>
+  <!-- change type from "text/jsvascript" to "module" client code helpers function module-->
 
-  <body id="homepage">
-    <header>
-      <nav>
-        <div class="search">
-          <form class="form-inline md-form form-sm active-cyan-2 mt-2">
-            <div class="ui input">
-              <input type="text" placeholder="Search..." />
-            </div>
-            <i class="fas fa-search-location"></i>
-          </form>
-        </div>
+  <script type="module" src="/scripts/app.js"></script>
+</head>
 
-        <div id="buttons ">
-          <button class="ui basic button login">Login</button>
-          <button class="ui basic button signup">Sign up</button>
-
-          <button class="ui basic button login">Logout</button>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <div id="login-form" class="mainform">
-        <form class="ui form">
-          <div class="field">
-            <label>Email</label>
-            <input type="text" name="first-name" placeholder="First Name" />
+<body id="homepage">
+  <header>
+    <nav>
+      <div class="search">
+        <form class="form-inline md-form form-sm active-cyan-2 mt-2">
+          <div class="ui input">
+            <input type="text" placeholder="Search..." />
           </div>
-          <div class="field">
-            <label>Password</label>
-            <input type="text" name="last-name" placeholder="Last Name" />
-          </div>
-          <div class="field">
-            <div class="ui checkbox">
-              <input type="checkbox" tabindex="0" class="hidden" />
-              <label>I agree to the Terms and Conditions</label>
-            </div>
-          </div>
-          <button class="ui button" type="submit">Submit</button>
+          <i class="fas fa-search-location"></i>
         </form>
       </div>
 
-      <div id="singup">
-        <form class="ui form">
-          <div class="field">
-            <label>Eamil</label>
-            <input type="text" name="first-name" placeholder="First Name" />
-          </div>
-          <div class="field">
-            <label>password</label>
-            <input type="text" name="last-name" placeholder="Last Name" />
-          </div>
-          <button class="ui basic button" type="submit">Submit</button>
-        </form>
+      <div id="buttons ">
+  <% if(!user) { %>
+    <button class="ui basic button login">Login</button>
+    <button class="ui basic button signup">Sign up</button>
+    <% } else{%>
+      <a href="/logout"><button class="ui basic button login">Logout</button></a>
+      <%}%>
       </div>
-    </main>
+
+    </nav>
+  </header>
+  <main>
+    <div id="login-form" class="mainform">
+      <form class="ui form" action="/login" method="POST">
+        <div class="field">
+          <label>Email</label>
+          <input type="text" name="email" placeholder="Email" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="text" name="password" placeholder="Password" />
+        </div>
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" class="hidden" />
+            <label>I agree to the Terms and Conditions</label>
+          </div>
+        </div>
+        <button class="ui basic button" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div id="singup">
+      <form class="ui form">
+        <div class="field">
+          <label>Eamil</label>
+          <input type="text" name="first-name" placeholder="First Name" />
+        </div>
+        <div class="field">
+          <label>password</label>
+          <input type="text" name="last-name" placeholder="Last Name" />
+        </div>
+        <button class="ui basic button" type="submit">Submit</button>
+        <button class="ui button" type="submit">Submit</button>
+      </form>
+    </div>
+  </main>
 
     <div id="map-collections">
       <div class="line1">
@@ -102,63 +99,80 @@
           </a>
         </div>
       </div>
+      <!-- <div class="map2">
+        <img src="https://source.unsplash.com/500x500/?friendship,map" alt="family" />
+      </div> -->
+
 
       <div class="line2">
-        <div class="map3">
-          <a class="" href="/showmap/3">
-            <img
-              src="https://source.unsplash.com/500x500/?food,map"
-              alt="health"
-            />
-          </a>
+          <div class="map3">
+            <a class="" href="/showmap/3">
+              <img
+                src="https://source.unsplash.com/500x500/?food,map"
+                alt="health"
+              />
+            </a>
+          </div>
+          <div class="map4">
+            <a class="" href="/showmap/4">
+              <img
+                src="https://source.unsplash.com/500x500/?finance,map"
+                alt="money"
+              />
+            </a>
+          </div>
         </div>
-        <div class="map4">
-          <a class="" href="/showmap/4">
-            <img
-              src="https://source.unsplash.com/500x500/?finance,map"
-              alt="money"
-            />
-          </a>
-        </div>
-      </div>
+        <!-- <div class="map4">
+          <img src="https://source.unsplash.com/500x500/?finance,map" alt="money" />
+        </div> -->
+      <!-- </div> -->
 
-      <div class="line3">
-        <div class="map5">
-          <a class="" href="/showmap/5">
-            <img
-              src="https://source.unsplash.com/500x500/?portrait,map"
-              alt="photograph"
-            />
-          </a>
+        <div class="line3">
+          <div class="map5">
+            <a class="" href="/showmap/5">
+              <img
+                src="https://source.unsplash.com/500x500/?portrait,map"
+                alt="photograph"
+              />
+            </a>
+          </div>
+          <div class="map6">
+            <a class="" href="/showmap/6">
+              <img
+                src="https://source.unsplash.com/500x500/?shopping,map"
+                alt="shopping"
+              />
+            </a>
+          </div>
         </div>
-        <div class="map6">
-          <a class="" href="/showmap/6">
-            <img
-              src="https://source.unsplash.com/500x500/?shopping,map"
-              alt="shopping"
-            />
-          </a>
+        <!-- <div class="map6">
+          <img src="https://source.unsplash.com/500x500/?shopping,map" alt="shopping" />
         </div>
-      </div>
+      </div> -->
 
-      <div class="line4">
-        <div class="map7">
-          <a class="" href="/showmap/7">
-            <img
-              src="https://source.unsplash.com/500x500/?deviantart,map"
-              alt="art"
-            />
-          </a>
-        </div>
-        <div class="map8">
-          <a class="" href="/showmap/8">
-            <img
-              src="https://source.unsplash.com/500x500/?toronto,map"
-              alt="cloud"
-            />
-          </a>
-        </div>
+        <div class="line4">
+          <div class="map7">
+            <a class="" href="/showmap/7">
+              <img
+                src="https://source.unsplash.com/500x500/?deviantart,map"
+                alt="art"
+              />
+            </a>
+          </div>
+          <div class="map8">
+            <a class="" href="/showmap/8">
+              <img
+                src="https://source.unsplash.com/500x500/?toronto,map"
+                alt="cloud"
+              />
+            </a>
+          </div>
+    </div>
+
+
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
