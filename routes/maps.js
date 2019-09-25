@@ -24,6 +24,7 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   });
+  
   router.post("/mapsubmission", (req, res) => {
 
     let textArea = req.body.textsubmit;
