@@ -26,24 +26,27 @@
   <header>
     <nav>
       <div class="search">
-        <form class="form-inline md-form form-sm active-cyan-2 mt-2">
+        <form action="/search" method="POST" class="form-inline md-form form-sm active-cyan-2 mt-2">
           <div class="ui input">
-            <input type="text" placeholder="Search..." />
+            <input type="text" name="search" placeholder="Search..." />
           </div>
           <i class="fas fa-search-location"></i>
+          <button class="ui basic button login">Search</button>
         </form>
       </div>
 
       <div id="buttons ">
 
-
+        <% if(!user){%>
         <button class="ui basic button login">Login</button>
         <button class="ui basic button signup">Sign up</button>
+        <%}else {%>
         <form action="/logout" method="POST">
           <div id="logout">Welcome Back
             <button class="ui basic button login">Logout</button>
           </div>
         </form>
+        <%}%>
       </div>
 
     </nav>
@@ -90,7 +93,9 @@
           <label>password</label>
           <input type="text" name="password" placeholder="Last Name" />
         </div>
+
         <button class="ui button" type="submit">Submit</button>
+
       </form>
     </div>
   </main>
