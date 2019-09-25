@@ -8,16 +8,18 @@ const router = express.Router();
 // }));
 
 module.exports = db => {
-  router.get("/", (req, res) => {
-    req.session = null;
+  router.post("/", (req, res) => {
+    res.clearCookie('user_id');
+    res.clearCookie('user_id.sig');
     res.redirect("/homepage");
+
     db.query(
       `
 
     `,
       values
     )
-      .then(data => {})
+      .then(data => { })
       .catch(err => {
         res.status(500).json({ error: err.message });
       });

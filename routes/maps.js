@@ -34,16 +34,16 @@ module.exports = db => {
     let coordsArray = coordsString.split(',');
     let coords = [];
     for (let i = 0; i < coordsArray.length - 1; i++) {
-      coords.push({latitude:Number(coordsArray[i]), longitude:Number(coordsArray[i+1])});
+      coords.push({ latitude: Number(coordsArray[i]), longitude: Number(coordsArray[i + 1]) });
       i++;
     }
     let img = req.body.img;
     const values = [userID, textArea, url, dropMenu];
-/*
-1. Insert map
-2. get map_id associate with the pins
-3. insert Pins with map_id
-*/
+    /*
+    1. Insert map
+    2. get map_id associate with the pins
+    3. insert Pins with map_id
+    */
     db.query(`
     INSERT INTO maps (owner_id, description, url, category)
     VALUES ($1, $2, $3 ,$4);
@@ -66,7 +66,7 @@ module.exports = db => {
               values
             ).then(data => {
               console.log('finish insert into database');
-              res.render('homepage', { user: userID, error:'' });
+              res.render('homepage', { user: userID, error: '' });
               // res.json('get it');
             });
           }

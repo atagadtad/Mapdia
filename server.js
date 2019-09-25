@@ -1,13 +1,6 @@
 // load .env data into process.env
 require("dotenv").config();
 
-// //cookie
-// const cookieSession = require("cookie-session");
-
-// cookieSession({
-//   name: "user_id",
-//   keys: ["id"]
-// });
 
 // Web server config
 const PORT = process.env.PORT || 8080;
@@ -98,7 +91,7 @@ app.get("/newmap", (req, res) => {
   // let mapID = req.params.mapID;
   // console.log(mapID);
   // let templateVars = {mapID};
-  res.render("newmap",{data:[]});
+  res.render("newmap", { data: [] });
 });
 app.get("/homepage", (req, res) => {
   //check
@@ -106,7 +99,7 @@ app.get("/homepage", (req, res) => {
   if (req.session["user_id"]) {
     user = req.session["user_id"];
   }
-  res.render("homepage", { user: user, error:'' });
+  res.render("homepage", { user: user, error: '' });
 });
 
 // login
