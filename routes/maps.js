@@ -31,14 +31,14 @@ module.exports = db => {
     let textArea = req.body.textsubmit;
     let dropMenu = req.body.dropdown;
     let userID = req.session.user_id;
-
-    const values = [textArea, dropMenu, userID]
+    let img = req.body.img;
+    const values = [userID, textArea, dropMenu]
     db.query(`
-    SELECT *
-    FROM maps;
-    `)
+    INSERT INTO maps (owner_id, description, category)
+    VALUES ($1, $2, $3);
+    `, values)
       .then(data => {
-        res.sendStatus(200)
+        res.json({ data })
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
