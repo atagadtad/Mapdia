@@ -26,11 +26,12 @@
   <header>
     <nav>
       <div class="search">
-        <form class="form-inline md-form form-sm active-cyan-2 mt-2">
+        <form action="/search" method="POST" class="form-inline md-form form-sm active-cyan-2 mt-2">
           <div class="ui input">
-            <input type="text" placeholder="Search..." />
+            <input type="text" name="search" placeholder="Search..." />
           </div>
           <i class="fas fa-search-location"></i>
+          <button id="searchbutton" class="ui basic button login">Search</button>
         </form>
       </div>
 
