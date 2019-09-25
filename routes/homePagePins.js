@@ -78,5 +78,10 @@ module.exports = db => {
     res.render("showmap", templateVars);
   });
 
+  router.get("/newmap", (req, res) => {
+
+    res.render("newmap", { data: [] });
+  });
+
   return router;
 };

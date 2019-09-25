@@ -39,6 +39,7 @@ module.exports = db => {
           res.render("homepage", { name: '', user: '', error: "Please check email or password" });
         }
       })
+
       .catch(err => {
         res.status(500).json({ error: err.message });
       });
