@@ -199,7 +199,10 @@ nav #buttons {
     }
   }
 }
-
+.ui.error.message {
+width: 80%;
+margin:0 auto;
+}
 /*******************************
 * MODAL AS LEFT/RIGHT SIDEBAR
 * Add "left" or "right" in modal parent div, after class="modal".

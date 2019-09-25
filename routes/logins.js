@@ -55,7 +55,6 @@ module.exports = db => {
   router.post("/", (req, res) => {
     let userEmail = req.body.email;
     let userPassword = req.body.password;
-    console.log(userPassword);
     const values = [userEmail, userPassword];
     db.query(
       `
@@ -66,9 +65,7 @@ module.exports = db => {
       .then(data => {
         const users = data.rows;
         for (let user of users) {
-          console.log(bcrypt.compareSync(userPassword, user.password));
           if (user.email === userEmail && bcrypt.compareSync(userPassword, user.password)) {
-            console.log(`it is right`);
             req.session.user_id = user.id;
             let templateVars = {
               user: req.session.user_id
