@@ -98,14 +98,16 @@ function setContentString(marker) {
 }
 
 function generateMapString(markers) {
-  let mapString = `https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap
-  &`;
+  let coordsString = '';
+  let mapString = `https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap&`;
   for (let marker of markers) {
-    mapString += `markers=color:red%7Clabel:S%7C${marker.lat},${marker.lng}&`
+    mapString += `markers=color:red%7Clabel:S%7C${marker.lat},${marker.lng}&`;
+    coordsString += `${marker.lat},${marker.lng},`
   }
-  mapString += `key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA`
-  return mapString;
-}
+  mapString += `key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA`;
+  console.log(mapString);
+  return [mapString, coordsString];
+};
 $(() => {
   console.log('loaded');
   $(document).on("click", ".browse", function () {
@@ -157,7 +159,7 @@ $(() => {
 
   $("#map_submission").on("submit", evt => {
     evt.preventDefault();
-    const mapString =  generateMapString(markers);
+    const mapString = generateMapString(markers);
     console.log(mapString);
     $('body').append(`<img src="${mapString}">`);
     //ajax request to /maps with markers
@@ -172,7 +174,10 @@ $(() => {
     //   }
     // })
   })
-  $('#capture').click(() => {
-    // $('body').append()
+  $('#modalbutton').click(() => {
+    const mapString = generateMapString(markers)[0];
+    const coordsString = generateMapString(markers)[1];
+    $('form').append(`<input id = "mapStr" name = "mapString" value = ${mapString} hidden>`);
+    $('form').append(`<input name = "coordsString" value = ${coordsString} hidden>`);
   })
 });

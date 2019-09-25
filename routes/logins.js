@@ -1,19 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const cookieSession = require("cookie-session");
+// const cookieSession = require("cookie-session");
 
-router.use(
-  cookieSession({
-    name: "user_id",
-    keys: ["id"]
-  })
-);
+// router.use(
+//   cookieSession({
+//     name: "user_id",
+//     keys: ["id"]
+//   })
+// );
 
 module.exports = db => {
   router.post("/", (req, res) => {
     let userEmail = req.body.email;
     let userPassword = req.body.password;
-    console.log(userEmail)
+    console.log(userEmail);
     const values = [userEmail, userPassword];
     db.query(
       `
@@ -30,8 +30,11 @@ module.exports = db => {
           users[0].password === userPassword
         ) {
           req.session.user_id = users[0].id;
+          let templateVars = {
+            user: req.session.user_id
+          };
           console.log(req.session.user_id);
-          res.render("homepage");
+          res.render("homepage", { name: "Bob", user: req.session.user_id });
         }
       })
       .catch(err => {

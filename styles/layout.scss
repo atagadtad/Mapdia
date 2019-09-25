@@ -54,7 +54,7 @@ body {
   }
 }
 .mapCollection > img:hover {
-cursor: grab;
+  cursor: grab;
 }
 // #newmap {
 //   height: 600px;
@@ -73,51 +73,62 @@ cursor: grab;
 //     top:0;
 //   }
 // }
-  #map {
-    height: 300px;
-    width: 96%;
+#map {
+  height: 600px;
+  width: 96%;
+  margin: 2%;
 
-
-    .searchPlace {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 100;
-    }
-
-    #search-input {
-      width: 50%;
-      height: 5%;
-    }
-
-    #searchPlace {
-      z-index: 100;
-      position: fixed;
-      left: 0;
-      top: 0;
-    }
+  .searchPlace {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+  
+  #search-input {
+    width: 50%;
+    height: 5%;
   }
 
-  .fa-search-location {
-    margin-left: 1em;
+  .searchPlace {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
   }
 
-  // #login-form {
-  //   margin: 5em;
-  //   display: none;
-  // }
-  // #singup {
-  //   margin: 5em;
-  //   display: none;
-  // }
-  nav .search {
-    margin-left: 3em;
+  #search-input {
+    width: 50%;
+    height: 5%;
   }
 
-  nav #buttons {
-    margin-right: 3em;
+  #searchPlace {
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    top: 0;
   }
+}
 
+.fa-search-location {
+  margin-left: 1em;
+}
+
+// #login-form {
+//   margin: 5em;
+//   display: none;
+// }
+// #singup {
+//   margin: 5em;
+//   display: none;
+// }
+nav .search {
+  margin-left: 3em;
+}
+
+nav #buttons {
+  margin-right: 3em;
+}
 
 #user {
   .loginpage {
@@ -148,11 +159,11 @@ cursor: grab;
 
 #homepage {
   #login-form {
-    margin: 5em;
+    margin: 3em;
     display: none;
   }
   #singup {
-    margin: 5em;
+    margin: 3em;
     display: none;
   }
   nav {
@@ -201,9 +212,9 @@ cursor: grab;
   width: 320px;
   height: 100%;
   -webkit-transform: translate3d(0%, 0, 0);
-      -ms-transform: translate3d(0%, 0, 0);
-       -o-transform: translate3d(0%, 0, 0);
-          transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
 }
 
 .modal.right .modal-content {
@@ -215,14 +226,13 @@ cursor: grab;
   padding: 15px 15px 80px;
 }
 
-      
 /*Right*/
 .modal.right.fade .modal-dialog {
   right: -320px;
   -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-     -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-       -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-          transition: opacity 0.3s linear, right 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+  transition: opacity 0.3s linear, right 0.3s ease-out;
 }
 
 .modal.right.fade.in .modal-dialog {
@@ -236,35 +246,32 @@ cursor: grab;
 }
 
 .modal-header {
-  border-bottom-color: #EEEEEE;
-  background-color: #FAFAFA;
+  border-bottom-color: #eeeeee;
+  background-color: #fafafa;
 }
 
 /* ----- v CAN BE DELETED v ----- */
 
-
 .demo {
-padding-top: 60px;
-padding-bottom: 110px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .btn-demo {
-margin: 15px;
-padding: 10px 15px;
-border-radius: 0;
-font-size: 16px;
-background-color: rgb(17, 16, 16);
+  text-align: center;
+  margin:0 auto;
+
+  border-radius: 0;
+  font-size: 16px;
+  color: #eee;
+  background-color: rgb(17, 16, 16);
 }
 
 .btn-demo:focus {
-outline: 0;
+  outline: 0;
 }
 
-.file{
+.file {
   visibility: hidden;
   position: absolute;
-}
-
-.overflowVisible{
-  overflow:visible 
 }

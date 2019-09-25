@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css" />
 
   <!-- BOOTSTRAP  -->
-  <!-- 
+  <!--
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" /> -->
 
@@ -34,7 +34,7 @@
 </head>
 
 <body>
-
+<input id="mapID" value="<%= data %>"hidden>
   <div id="map">
     <div>
       <script type="text/javascript" src="/scripts/map_v1.js"></script>
@@ -45,8 +45,8 @@
   </div>
 
   <div class="container demo">
-    <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
-      Right Sidebar Modal
+    <button type="button" id ="modalbutton" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
+      Create Map?
     </button>
   </div>
   <!-- Modal -->
@@ -61,24 +61,26 @@
         </div>
 
         <div class="modal-body">
-          <form class="form-group">
+          <form name="submit" class="form-group" action="/maps/mapsubmission" method="POST">
             <div>
               <label for="description">Description</label>
-              <textarea class="form-control" id="description" rows="3"></textarea>
+              <textarea name="textsubmit" class="form-control" id="description" rows="3"></textarea>
             </div>
             <div class="form-group">
               <label for="gender1" class="control-label">Category</label>
-              <select class="form-control" id="gender1">
-                <option>Camping</option>
-                <option>Foody</option>
-                <option>Wedding</option>
+              <select name="dropdown" class="form-control" id="gender1">
+                <option value="Camping">Camping</option>
+                <option value="Foody">Foody</option>
+                <option value="Wedding">Wedding</option>
               </select>
+              <input type="submit" value="Submit">
             </div>
             <div>
               <button type="button" class="browse btn btn-default">Browse...</button>
               <input type="file" name="img[]" class="file" accept="image/*">
               <div class="input-group my-3">
-                <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
+                <input class="form-control" disabled placeholder="Upload File" id="file">
+                <button type="submit" class="btn btn-default">Submit</button>
               </div>
           </form>
         </div>
@@ -88,14 +90,9 @@
   </div><!-- modal -->
   
 </div><!-- container -->
-<img src="https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap
-&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-&markers=color:red%7Clabel:C%7C40.718217,-73.998284&markers=red%7Clabel:C%7C43.70794222817802, -79.4204277038574
-&key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA">
   <form id="map_submission" method="POST" action="/pinsCollection">
     <button>Submit Pins</button>
   </form>
-  <button id="capture">capture</button>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js" type="text/javascript"
     xml="space"></script>

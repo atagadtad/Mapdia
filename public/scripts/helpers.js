@@ -82,4 +82,4 @@ function checkMapCollections(id) {
   });
 }
 
-export { appendMap, appendSearch, addMarker, checkMapCollections };
+export { appendMap, appendSearch, checkMapCollections };
