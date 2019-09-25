@@ -19,7 +19,7 @@ CREATE TABLE maps
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   description TEXT,
   category VARCHAR(255),
-  url VARCHAR(255),
+  url TEXT,
   liked INTEGER
 );
 CREATE TABLE pins

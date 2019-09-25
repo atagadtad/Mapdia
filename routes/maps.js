@@ -49,7 +49,6 @@ module.exports = db => {
     VALUES ($1, $2, $3 ,$4);
     `, values)
       .then(data => {
-        console.log(`2`);
         // res.json({ data })
         db.query(`
         SELECT * FROM maps order by id DESC;
@@ -65,7 +64,6 @@ module.exports = db => {
             `,
               values
             ).then(data => {
-              console.log('finish insert into database');
               res.render('homepage', { user: userID, error:'' });
               // res.json('get it');
             });
