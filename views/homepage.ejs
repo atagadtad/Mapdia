@@ -31,7 +31,7 @@
             <input id="searchtext" type="text" name="searchtext" placeholder="Search..." />
           </div>
           <i class="fas fa-search-location"></i>
-          <button id="searchbutton" class="ui basic button login">Search</button>
+          <button id="searchbutton" class="ui basic button">Search</button>
         </form>
       </div>
       <%if(!user) {%>
@@ -44,27 +44,27 @@
             <div>
               <a href="/newmap" class="ui basic">Create</a>
             </div>
-            <button class="ui basic button login">Logout</button>
+            <button class="ui basic button ">Logout</button>
 
           </div>
-          </form>
-          <%}%>
+        </form>
+        <%}%>
       </div>
 
     </nav>
   </header>
   <main>
     <%if(error) {%>
-          <div class="ui error message">
-            <i class="close icon"></i>
-            <div class="header">
-              There were some errors with your email or password
-            </div>
-            <ul class="list">
-              <li>Please check your email or password again</li>
-            </ul>
+        <div class="ui error message">
+          <i class="close icon"></i>
+          <div class="header">
+            There were some errors with your email or password
           </div>
-          <%}%>
+          <ul class="list">
+            <li>Please check your email or password again</li>
+          </ul>
+        </div>
+        <%}%>
     <div id="login-form" class="mainform">
       <form class="ui form" action="/login" method="POST">
         <div class="field">
@@ -102,7 +102,7 @@
     </div>
   </main>
 
-   
+
       <div class="mapsContainer">
 
       </div>
