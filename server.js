@@ -78,9 +78,7 @@ app.use("/search", searchRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
+
 
 app.get("/showmap/:mapID", (req, res) => {
   let mapID = req.params.mapID;
@@ -93,14 +91,7 @@ app.get("/newmap", (req, res) => {
   // let templateVars = {mapID};
   res.render("newmap", { data: [] });
 });
-app.get("/homepage", (req, res) => {
-  //check
-  user = null;
-  if (req.session["user_id"]) {
-    user = req.session["user_id"];
-  }
-  res.render("homepage", { user: user, error: '' });
-});
+
 
 // login
 // app.get("/login", (req, res) => {
