@@ -5,15 +5,35 @@ function insertAnchor(mapId, src) {
   let imgtag = insertImage(src);
   return `<a href="/showmap/${mapId}"><img src="${src}"></a>`
 }
-$(function($) {
+$(function ($) {
 
   $.ajax({
     url: '/maps',
     success: (data) => {
-      for (let map of data.maps){
-      console.log(data.maps[0].url);
-      $('.mapsContainer').append(insertAnchor(map.id, map.url));
-    }}
+      for (let map of data.maps) {
+        console.log(data.maps[0].url);
+        $('.mapsContainer').append(insertAnchor(map.id, map.url));
+      }
+    }
   });
-  
-});
+
+  $("#searchbutton").click(function (event) {
+    event.preventDefault();
+    alert("hai you clicked search!")
+    $('.mapsContainer').empty();
+    $.ajax({
+      type: "POST",
+      url: '/search',
+      success: (data) => {
+        for (let map of data.maps) {
+          console.log(data.maps[0].url);
+          $('.mapsContainer').append(insertAnchor(map.id, map.url));
+        }
+      }
+    })
+
+    // $('.mapsContainer').append(insertAnchor(map.id, map.url));
+
+
+  })
+})
