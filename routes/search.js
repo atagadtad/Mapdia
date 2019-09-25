@@ -9,13 +9,14 @@ module.exports = db => {
     const values = [`%${userSearch.search}%`];
     db.query(
       `
-    SELECT maps.id
+    SELECT maps
     FROM maps
-    WHERE lower(description) LIKE $1;
+    WHERE lower(description) LIKE $1 AND lower(category) LIKE $1;
     `,
       values
     )
       .then(data => {
+        console.log(data.rows)
         res.send(data.rows);
       })
       .catch(err => {
