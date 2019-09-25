@@ -18,7 +18,11 @@ module.exports = db => {
         // console.log(data)
         const maps = data.rows;
         // console.log(maps);
-        res.json({ maps });
+        if (req.session.user_id){
+        res.json({ maps, logined: true });
+        } else {
+          res.json({ maps, logined: '' });
+        }
       })
       .catch(err => {
         res.status(500).json({ error: err.message });

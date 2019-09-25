@@ -33,34 +33,37 @@
           <i class="fas fa-search-location"></i>
         </form>
       </div>
-
+      <%if(!user) {%>
       <div id="buttons ">
         <button class="ui basic button login">Login</button>
         <button class="ui basic button signup">Sign up</button>
-       
-        <div id="logout">Welcome Back
-          <div>
-            <a href="/newmap" class="ui basic">Create</a>
+        <%} else {%>
+        <form action="/logout" method="POST">
+          <div id="logout">Welcome Back <%=name%>
+            <div>
+              <a href="/newmap" class="ui basic">Create</a>
+            </div>
+            <button class="ui basic button login">Logout</button>
+
           </div>
-          <a href="/logout"><button class="ui basic button login">Logout</button></a>
-          
-        </div>
+          </form>
+          <%}%>
       </div>
 
     </nav>
   </header>
   <main>
     <%if(error) {%>
-    <div class="ui error message">
-      <i class="close icon"></i>
-      <div class="header">
-        There were some errors with your email or password
-      </div>
-      <ul class="list">
-        <li>Please check your email or password again</li>
-      </ul>
-    </div>
-    <%}%>
+          <div class="ui error message">
+            <i class="close icon"></i>
+            <div class="header">
+              There were some errors with your email or password
+            </div>
+            <ul class="list">
+              <li>Please check your email or password again</li>
+            </ul>
+          </div>
+          <%}%>
     <div id="login-form" class="mainform">
       <form class="ui form" action="/login" method="POST">
         <div class="field">
