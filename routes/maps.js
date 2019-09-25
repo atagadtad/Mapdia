@@ -14,7 +14,6 @@ module.exports = db => {
     values = [`camping`];
     db.query(`
     SELECT * FROM maps
-
     `)
       .then(data => {
         // console.log(data)
@@ -76,7 +75,5 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   })
-
-
   return router;
 };

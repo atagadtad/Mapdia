@@ -34,12 +34,25 @@
       </div>
 
       <div id="buttons ">
+        <%if(error) {%>
+          <div class="ui error message">
+              <i class="close icon"></i>
+              <div class="header">
+                There were some errors with your email or password
+              </div>
+              <ul class="list">
+                <li>Please check your email or password again</li>
+              </ul>
+            </div>
+            <%}%>
   <% if(!user) { %>
     <button class="ui basic button login">Login</button>
     <button class="ui basic button signup">Sign up</button>
     <% } else{%>
+      <div id = "logout">Welcome Back <%= name %>
       <a href="/logout"><button class="ui basic button login">Logout</button></a>
       <%}%>
+    </div>
       </div>
 
     </nav>
@@ -66,16 +79,15 @@
     </div>
 
     <div id="singup">
-      <form class="ui form">
+      <form class="ui form" action='/registeration' method="POST">
         <div class="field">
-          <label>Eamil</label>
-          <input type="text" name="first-name" placeholder="First Name" />
+          <label>Email</label>
+          <input type="text" name="email" placeholder="First Name" />
         </div>
         <div class="field">
           <label>password</label>
-          <input type="text" name="last-name" placeholder="Last Name" />
+          <input type="text" name="password" placeholder="Last Name" />
         </div>
-        <button class="ui basic button" type="submit">Submit</button>
         <button class="ui button" type="submit">Submit</button>
       </form>
     </div>

@@ -61,6 +61,7 @@ const loginRoutes = require("./routes/logins");
 const homePagePinsRoutes = require("./routes/homePagePins");
 const mapIDsRoutes = require("./routes/mapIDs");
 const registrationRoutes = require("./routes/registrations");
+const userRoutes = require("./routes/users");
 const logoutRoutes = require("./routes/logouts");
 const searchRoutes = require("./routes/search");
 
@@ -76,6 +77,7 @@ app.use("/login", loginRoutes(db));
 app.use("/", homePagePinsRoutes(db));
 app.use("/mapID", mapIDsRoutes(db));
 app.use("/registration", registrationRoutes(db));
+app.use("/user", userRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/search", searchRoutes(db));
 
@@ -104,7 +106,7 @@ app.get("/homepage", (req, res) => {
   if (req.session["user_id"]) {
     user = req.session["user_id"];
   }
-  res.render("homepage", { user: user });
+  res.render("homepage", { user: user, error:'' });
 });
 
 // login
