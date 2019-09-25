@@ -36,30 +36,30 @@
 
       <div id="buttons ">
 
-        <% if(!user) { %>
+
         <button class="ui basic button login">Login</button>
         <button class="ui basic button signup">Sign up</button>
-        <% } else{%>
-        <div id="logout">Welcome Back <%= name %>
+
+        <div id="logout">Welcome Back
           <a href="/logout"><button class="ui basic button login">Logout</button></a>
-          <%}%>
-    </div>
+
+        </div>
       </div>
 
     </nav>
   </header>
   <main>
-      <%if(error) {%>
-          <div class="ui error message">
-            <i class="close icon"></i>
-            <div class="header">
-              There were some errors with your email or password
-            </div>
-            <ul class="list">
-              <li>Please check your email or password again</li>
-            </ul>
-          </div>
-          <%}%>
+    <%if(error) {%>
+    <div class="ui error message">
+      <i class="close icon"></i>
+      <div class="header">
+        There were some errors with your email or password
+      </div>
+      <ul class="list">
+        <li>Please check your email or password again</li>
+      </ul>
+    </div>
+    <%}%>
     <div id="login-form" class="mainform">
       <form class="ui form" action="/login" method="POST">
         <div class="field">
