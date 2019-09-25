@@ -1,15 +1,35 @@
 function insertImage(src) {
   return `<img src="${src}">`;
-};
+}
 function insertAnchor(mapId, src) {
   let imgtag = insertImage(src);
+<<<<<<< HEAD
   return `<a class ='anchormap' href="/showmap/${mapId}"><img src="${src}"></a>`
 }
 
 
+=======
+  return `<a href="/showmap/${mapId}"><img src="${src}"></a>`;
+}
+<<<<<<< HEAD
+=======
+>>>>>>> cf9dbed29a08b6180434d10206706ec1459a23f1
 $(function ($) {
+>>>>>>> 6915723d5a354658da6a375f4b5c39fc169995f2
 
+$(function($) {
   $.ajax({
+<<<<<<< HEAD
+    url: "/maps",
+    success: data => {
+      for (let map of data.maps) {
+        console.log(data.maps[0].url);
+        $(".mapsContainer").append(insertAnchor(map.id, map.url));
+      }
+    }
+  });
+});
+=======
     url: '/maps',
     success: (data) => {
       if (data.logined) {
@@ -51,3 +71,4 @@ $(function ($) {
 
   })
 })
+>>>>>>> 6915723d5a354658da6a375f4b5c39fc169995f2
