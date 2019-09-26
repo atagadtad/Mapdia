@@ -10,17 +10,7 @@ function initMap() {
     zoom: 8,
     center: toronto
   });
-  // var marker = new google.maps.Marker({
-  //   position: toronto,
-  //   draggable: true
-  // });
-  // let marker1 = new google.maps.Marker({
-  //   position: { lat: 43.9, lng: -79.4 },
-  //   draggable: true
-  // });
-  // map1.push(marker);
-  // map1.push(marker1);
-  // map1.forEach(item => item.setMap(map));
+
   const placeService = new google.maps.places.PlacesService(map);
   const request = {
     query: "ottawa",
@@ -29,17 +19,11 @@ function initMap() {
   placeService.findPlaceFromQuery(request, (results, status) => {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       results.forEach(item => {
-        // console.log(item)
-        // place_id, name, formatted_address, geometry.location, icon
+
       });
     }
   });
-  //   google.maps.event.addListener(map, "rightclick", function(event) {
-  //     var lat = event.latLng.lat();
-  //     var lng = event.latLng.lng();
-  //     // populate yor box/field with lat, lng
-  //     alert("Lat=" + lat + "; Lng=" + lng);
-  // });
+
   google.maps.event.addListener(map, "click", function (event) {
     let marker = new google.maps.Marker({
       id: markers.length,
@@ -97,9 +81,18 @@ function setContentString(marker) {
   return contentString;
 }
 
+function myFunction() {
+  var element = document.getElementsByClassName("ui hidden message");
+  element.classList.toggle("ui visible message");
+}
+
 
 $(() => {
   console.log('loaded');
+  $("img").click(() => {
+    console.log('hai')
+  })
+
 
   //ajax request to GET
   $("#campingmap").click(() => {
@@ -110,11 +103,11 @@ $(() => {
         for (marker of data.coords) {
           // console.log(marker);
           let marker1 = new google.maps.Marker({
-            position: { lat: Number(marker.latitude), lng: Number(marker.longitude)},
+            position: { lat: Number(marker.latitude), lng: Number(marker.longitude) },
             draggable: true
           });
           pinMap.push(marker1);
-          console.log(marker1.position.lng() + " "+marker1.position.lat());
+          console.log(marker1.position.lng() + " " + marker1.position.lat());
           map.setCenter(marker1.getPosition());
           map.setZoom(6);
         }
