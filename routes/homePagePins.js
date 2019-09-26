@@ -98,7 +98,15 @@ module.exports = db => {
     )
       .then(data => {
         //res.render("homepage", { user: req.session["user_id"], error: '' });
-        res.json(data);
+        values = [req.session.user_id, parseInt(req.body.data)];
+        console.log(values);
+        db.query(`
+        INSERT into favorites (user_id, map_id)
+        VALUES ($1, $2)
+        RETURNING *;
+        `, values).then(data => {
+          res.json(data);
+        })
       })
       .catch(err => {
         res.status(500).json({ error: err.message });

@@ -40,11 +40,16 @@
         <button class="ui basic button signup">Sign up</button>
         <%} else {%>
         <form action="/logout" method="POST">
-          <div id="logout">Welcome Back <%=name%>
-            <div>
-              <a href="/newmap" class="ui basic">Create</a>
+          <h5>
+          <div id="logout">Welcome Back! <%=name%>
+          </h5>
+
+            <div id="create-map">
+
+              <a href="/newmap"  class="ui basic button">Create Map</a>
             </div>
-            <button class="ui basic button ">Logout</button>
+
+            <button class="ui basic button logout">Logout</button>
 
           </div>
         </form>
@@ -101,12 +106,15 @@
       </form>
     </div>
   </main>
+  <div>I am fovorites
+<div class=favorites>
 
-
+</div>
+</div>
+<div>I am normal maps
       <div  class="mapsContainer">
-
-
         </div>
+      </div>
         </div>
       </div>
 

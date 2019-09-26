@@ -16,6 +16,27 @@ module.exports = db => {
     order by id DESC;
     `)
       .then(data => {
+        console.log(data)
+        const maps = data.rows;
+        // console.log(maps);
+        if (req.session.user_id) {
+          res.json({ maps, logined: true });
+        } else {
+          res.json({ maps, logined: '' });
+        }
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+  router.get("/getfavorites", (req, res) => {
+    values = [req.session.user_id];
+    db.query(`
+    SELECT maps.* FROM maps join favorites on maps.id = favorites.map_id
+    join users on favorites.user_id = users.id 
+    where favorites.user_id =$1;
+    `,values)
+      .then(data => {
         // console.log(data)
         const maps = data.rows;
         // console.log(maps);
@@ -29,7 +50,7 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   });
-
+  
   router.post("/mapsupdate", (req, res) => {
     console.log(req.body);
     let mapID = req.body.mapID;
