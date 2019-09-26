@@ -171,32 +171,8 @@ nav #buttons {
     justify-content: space-between;
     margin: 6em;
   }
-
-  #map-collections {
-    // margin: 2em;
-    .line1 {
-      display: flex;
-      justify-content: space-around;
-      margin: 2em;
-    }
-
-    .line2 {
-      display: flex;
-      justify-content: space-around;
-      margin: 2em;
-    }
-
-    .line3 {
-      display: flex;
-      justify-content: space-around;
-      margin: 2em;
-    }
-
-    .line4 {
-      display: flex;
-      justify-content: space-around;
-      margin: 2em;
-    }
+  #create-map {
+    margin: 1em 0;
   }
 }
 .ui.error.message {
