@@ -275,9 +275,8 @@ nav #buttons {
 /* ----- v CAN BE DELETED v ----- */
 
 .demo {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 5em;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .btn-demo:focus {
@@ -296,6 +295,9 @@ nav #buttons {
   flex-wrap: wrap;
   width: 100%;
   padding-top: 1em;
+  a {
+    margin: 2em;
+  }
 }
 
 .column {
@@ -305,13 +307,8 @@ nav #buttons {
   padding: 5px;
   flex: 1;
 }
-.anchormap {
-  border: 2px lightgrey solid;
-}
 
-.anchormap:hover {
-  color: grey;
-}
+
 
 #mapdescription {
   font-size: 32px;
@@ -356,32 +353,25 @@ nav #buttons {
     animation-name: fade;
     animation-duration: 1.5s;
   }
+
 }
+
 
 #showmap-buttons {
   text-align: center;
   margin: 3em;
   display: flex;
   justify-content: space-evenly;
-}
-
-#showmap-buttons {
-  text-align: center;
-  margin: 3em;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.rowContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  padding-top: 1em;
-  a {
-    margin: 2em;
   }
-<<<<<<< HEAD
+
+
+
+  #showmap-buttons {
+    text-align: center;
+    margin: 3em;
+    display: flex;
+    justify-content: space-evenly;
+  }
 
   .rowContainer {
     display: flex;
@@ -406,9 +396,13 @@ nav #buttons {
 #modalbutton {
   position: relative;
   font-size: 12pt;
-  // right: 50%;
   bottom: 100%;
   box-shadow: 0px 1px 3px 0px black;
-=======
->>>>>>> 84d77ab2e9f09993ee9c3a58f0c74365922aa166
 }
+
+img {
+  box-shadow:4px 9px 2px 0px #bbbaba;
+}
+
+
+
