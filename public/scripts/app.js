@@ -37,7 +37,6 @@ $(function($) {
     method: "GET",
     url: "/api/users"
   }).done(users => {
-    console.log("getting users");
     for (user of users) {
       $("<div>")
         .text(user.name)

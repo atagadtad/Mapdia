@@ -42,35 +42,35 @@
         <%} else {%>
         <form action="/logout" method="POST">
           <h5>
-          <div id="logout">Welcome Back! <%=name%>
+            <div id="logout">Welcome Back! <%=name%>
           </h5>
 
-            <div id="create-map">
+          <div id="create-map">
 
-              <a href="/newmap"  class="ui basic button">Create Map</a>
-            </div>
-
-            <button class="ui basic button logout">Logout</button>
-
+            <a href="/newmap" class="ui basic button">Create Map</a>
           </div>
-        </form>
-        <%}%>
+
+          <button class="ui basic button logout">Logout</button>
+
+      </div>
+      </form>
+      <%}%>
       </div>
 
     </nav>
   </header>
   <main>
     <%if(error) {%>
-        <div class="ui error message">
-          <i class="close icon"></i>
-          <div class="header">
-            There were some errors with your email or password
-          </div>
-          <ul class="list">
-            <li>Please check your email or password again</li>
-          </ul>
+      <div class="ui error message">
+        <i class="close icon"></i>
+        <div class="header">
+          There were some errors with your email or password
         </div>
-        <%}%>
+        <ul class="list">
+          <li>Please check your email or password again</li>
+        </ul>
+      </div>
+      <%}%>
     <div id="login-form" class="mainform">
       <form class="ui form" action="/login" method="POST">
         <div class="field">
@@ -107,13 +107,12 @@
       </form>
     </div>
   </main>
-  <div>I am fovorites
-<div class=favorites>
 
-</div>
-</div>
-<div>I am normal maps
+<div id="normalmaps">All Maps
       <div  class="mapsContainer">
+        <div class="rowContainer">
+
+        </div>
         </div>
       </div>
         </div>

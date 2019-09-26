@@ -210,8 +210,8 @@ $(() => {
     const mapString = generateMapString(markers)[0];
     const coordsString = generateMapString(newMarkers)[1];
     console.log(mapString + " " + coordsString);
-    $('form').append(`<input id = "mapStr" name = "mapString" value = ${mapString} hidden>`);
-    $('form').append(`<input name = "coordsString" value = ${coordsString} hidden>`);
+    $('form').append(`<input id = "mapStr" name = "mapString" value = "${mapString}" hidden>`);
+    $('form').append(`<input name = "coordsString" value = "${coordsString}" hidden>`);
   });
 });
 

@@ -60,6 +60,7 @@
       </div>
     </section>
 
+    <div id="showmap-buttons">
     <form
       name="submit"
       class="form-group"
@@ -67,15 +68,15 @@
       method="POST"
     >
       <input id="mapID" name="mapID" value="<%= mapID %>" hidden />
-    </form>
-
-    <div id="showmap-buttons">
       <input
         id="updatemap"
         type="submit"
         class="ui basic blue button"
         value="Update"
       />
+    </form>
+
+      
       <button id="like" class="ui green basic button">Like</button>
       <button id="unlike" class="ui red basic button">Unlike</button>
       <a href="/"><button class="ui black basic button">Back</button></a>
