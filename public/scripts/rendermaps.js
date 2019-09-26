@@ -9,17 +9,34 @@ function insertAnchor(mapId, src) {
 
 $(function ($) {
   $.ajax({
-    url: '/maps',
+    url: '/maps/getfavorites',
     success: (data) => {
+      console.log(data);
       if (data.logined) {
         for (let map of data.maps) {
           console.log(data.maps[0].url);
-          $('.mapsContainer').append(insertAnchor(map.id, map.url));
+          $('.favorites').append(insertAnchor(map.id, map.url));
         }
       }
       else {
         for (let map of data.maps) {
           console.log(data.maps[0].url);
+          $('.favorites').append(insertImage(map.url));
+        }
+      }
+    }
+  });
+
+  $.ajax({
+    url: '/maps',
+    success: (data) => {
+      if (data.logined) {
+        for (let map of data.maps) {
+          $('.mapsContainer').append(insertAnchor(map.id, map.url));
+        }
+      }
+      else {
+        for (let map of data.maps) {
           $('.mapsContainer').append(insertImage(map.url));
         }
       }

@@ -21,13 +21,6 @@ $(function ($) {
     }
   });
 
-
-
-  //check checkBox to show map collection sections
-  checkMapCollections("favorite");
-  checkMapCollections("foody");
-  checkMapCollections("camping");
-
   $.ajax({
     method: "GET",
     url: "/api/users"
