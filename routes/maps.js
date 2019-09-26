@@ -33,9 +33,9 @@ module.exports = db => {
     values = [req.session.user_id];
     db.query(`
     SELECT maps.* FROM maps join favorites on maps.id = favorites.map_id
-    join users on favorites.user_id = users.id 
+    join users on favorites.user_id = users.id
     where favorites.user_id =$1;
-    `,values)
+    `, values)
       .then(data => {
         // console.log(data)
         const maps = data.rows;
@@ -50,13 +50,13 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   });
-  
+
   router.post("/mapsupdate", (req, res) => {
     console.log(req.body);
     let mapID = req.body.mapID;
     let url = req.body.mapString;
     let coordsString = req.body.coordsString;
-    console.log("coordstring:"+coordsString);
+    console.log("coordstring:" + coordsString);
     if (coordsString) {
       let coordsArray = coordsString.split(',');
       let coords = [];
@@ -127,7 +127,7 @@ module.exports = db => {
             `,
               values
             ).then(data => {
-              res.render('homepage', { name: "fixmeinsubmission", user: userID, error: '' });
+              res.redirect("/");
               // res.json('get it');
             });
           }
