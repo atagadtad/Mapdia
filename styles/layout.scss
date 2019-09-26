@@ -260,14 +260,13 @@ nav #buttons {
   padding-bottom: 10px;
 }
 
-.btn-demo {
+#modalbutton {
   text-align: center;
   margin: 0 auto;
 
   border-radius: 0;
   font-size: 16px;
   color: #eee;
-  background-color: rgb(17, 16, 16);
 }
 
 .btn-demo:focus {
@@ -283,4 +282,8 @@ nav #buttons {
 }
 #mapdescription {
   font-size: 32px;
+}
+
+#hideText {
+  color: white;
 }
