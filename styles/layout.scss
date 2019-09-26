@@ -185,16 +185,6 @@ nav #buttons {
   width: 80%;
   margin: 0 auto;
 }
-
-#arrow {
-  .fa-angle-double-up {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 1em;
-    font-size: 3em;
-  }
-}
-
 /*******************************
 * MODAL AS LEFT/RIGHT SIDEBAR
 * Add "left" or "right" in modal parent div, after class="modal".
