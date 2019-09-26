@@ -9,9 +9,12 @@ body {
   }
 
   #normalmaps {
+    margin-top:1em;
     font-weight: bold;
-    size: 30;
+    font-size: 32px;
     text-align: center;
+    font-family: "Fredoka One", cursive;
+    font-weight: bold;
   }
 
   nav {
@@ -63,23 +66,7 @@ body {
 .mapCollection > img:hover {
   cursor: grab;
 }
-// #newmap {
-//   height: 600px;
-//   width: 70%;
-//   margin: 2%;
 
-//   #search-input {
-//     width: 90%;
-//     height: 10%;
-//   }
-
-//   #searchPlace {
-//     z-index: 100;
-//     position: fixed;
-//     left:0;
-//     top:0;
-//   }
-// }
 #map {
   height: 95%;
   width: 96%;
@@ -320,42 +307,6 @@ nav #buttons {
   font-size: 32px;
 }
 
-.favorites {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-
-  .favSlides {
-    display: none;
-  }
-
-  // /* Next & previous buttons */
-  .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-
-}
 
 
 #showmap-buttons {
@@ -401,7 +352,86 @@ nav #buttons {
   box-shadow: 0px 1px 3px 0px black;
 }
 
-img {
-  box-shadow:4px 9px 2px 0px #bbbaba;
+// img {
+//   box-shadow:4px 9px 2px 0px #bbbaba;
+// }
+
+#favContainer {
+
+  font-family: "Fredoka One", cursive;
+  font-weight: bold;
+  width: 90%;
+  margin:0 auto;
+  text-align: center;
+  font-size: 32px;
+
 }
+.favorites {
+  padding-top: 1em;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+
+  .favSlides {
+    display: none;
+  .anchormap {
+    border: 0;
+  }
+  }
+
+  // /* Next & previous buttons */
+  .next {
+    cursor: pointer;
+    position: absolute;
+    z-index:1000;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    color:white;
+    background-color: black;
+  }
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .next:hover{
+    background-color: burlywood
+  }
+  .prev {
+    cursor: pointer;
+    position: absolute;
+    z-index:1000;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    color:white;
+    background-color: black;
+  }
+  .prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .prev:hover{
+    background-color: burlywood
+  }
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+}
+
 
