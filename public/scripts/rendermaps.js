@@ -10,13 +10,9 @@ $(function ($) {
   $.ajax({
     url: '/maps',
     success: (data) => {
-      console.log(data);
       if (data.logined) {
-        for (let i = 0; i < data.maps.length - 1; i++) {
-          $('.rowContainer').append(`<div class="column"`).append(`</div>`)
-            .append(insertAnchor(data.maps[i].id, data.maps[i].url))
-            .append(insertAnchor(data.maps[i + 1].id, data.maps[i + 1].url))
-
+        for (let map of data.maps) {
+          $('.mapsContainer').append(insertAnchor(map.id, map.url));
         }
       }
       else {
@@ -33,12 +29,12 @@ $(function ($) {
       if (data.logined) {
         for (let map of data.maps) {
           console.log(data.maps[0].url);
-          $('.favorites').append(insertAnchor(map.id, map.url));
+          $('#favSlides').append(insertAnchor(map.id, map.url));
         }
       } else {
         for (let map of data.maps) {
           console.log(data.maps[0].url);
-          $('.favorites').append(insertImage(map.url));
+          $('#favSlides').append(insertImage(map.url));
         }
       }
     }
