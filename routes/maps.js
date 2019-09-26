@@ -56,7 +56,7 @@ module.exports = db => {
     let mapID = req.body.mapID;
     let url = req.body.mapString;
     let coordsString = req.body.coordsString;
-    console.log(mapID);
+    console.log("coordstring:"+coordsString);
     if (coordsString) {
       let coordsArray = coordsString.split(',');
       let coords = [];
