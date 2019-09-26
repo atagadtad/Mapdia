@@ -12,12 +12,24 @@ router.use(
 
 module.exports = db => {
   router.get("/", (req, res) => {
-    user = null;
-    if (req.session["user_id"]) {
-      user = req.session["user_id"];
+    let user = null;
+    if (req.session.user_id) {
+      db.query(
+        `
+      SELECT email
+      FROM users
+      WHERE users.id = ${req.session.user_id}
+      `
+      ).then(data => {
+        let userEmail = data.rows[0].email;
+        let user = req.session.user_id;
+        res.render("homepage", { name: userEmail, user: user, error: "" });
+      });
+    } else {
+      res.render("homepage", { name: "", user: user, error: "" });
     }
-    res.render("homepage", { name:"",user: user, error: '' });
   });
+
   router.get("/pins", (req, res) => {
     db.query(
       `
@@ -34,6 +46,7 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   });
+
   router.post("/pinsCollection", (req, res) => {
     for (coord of req.body.data) {
       console.log("coord: ", coord);
@@ -71,7 +84,8 @@ module.exports = db => {
         res.status(500).json({ error: err.message });
       });
   });
-//like
+  //like
+
   router.post("/likemap", (req, res) => {
     console.log(req.body.data);
     let values = [`${req.body.data}`];
@@ -89,29 +103,39 @@ module.exports = db => {
       .catch(err => {
         res.status(500).json({ error: err.message });
       });
-  })
-//unlike
-router.post("/unlikemap", (req, res) => {
-  console.log(req.body.data);
-  let values = [`${req.body.data}`];
-  db.query(
-    `
+  });
+  //unlike
+
+  router.post("/unlikemap", (req, res) => {
+    console.log(req.body.data);
+    let values = [`${req.body.data}`];
+    db.query(
+      `
   UPDATE maps SET liked = liked - 1
   WHERE id = $1;
   `,
-    values
-  )
-    .then(data => {
-      //res.render("homepage", { user: req.session["user_id"], error: '' });
-      res.json(data);
-    })
-    .catch(err => {
-      res.status(500).json({ error: err.message });
-    });
-})
+      values
+    )
+      .then(data => {
+        //res.render("homepage", { user: req.session["user_id"], error: '' });
+        res.json(data);
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+  router.post("/showmap/:mapID", (req, res) => {
+    let mapID = req.params.mapID;
+    delete mapID;
+    res.redirect("/");
+  });
+
   router.get("/showmap/:mapID", (req, res) => {
     let mapID = req.params.mapID;
+
     let templateVars = { mapID };
+
     res.render("showmap", templateVars);
   });
 

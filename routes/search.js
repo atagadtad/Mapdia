@@ -13,7 +13,7 @@ module.exports = db => {
       `
     SELECT *
     FROM maps
-    WHERE lower(description) LIKE $1 AND lower(category) LIKE $1;
+    WHERE lower(description) LIKE $1 OR lower(category) LIKE $1;
     `,
       values
     )
