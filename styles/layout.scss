@@ -283,5 +283,13 @@ nav #buttons {
   font-size: 32px;
 }
 #mapdescription {
+  text-align: center;
   font-size: 32px;
+}
+
+#showmap-buttons {
+  text-align: center;
+  margin: 3em;
+  display: flex;
+  justify-content: space-evenly;
 }
