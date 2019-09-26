@@ -189,7 +189,7 @@ $(() => {
     })
   })
   //Create new map
-  $('#modalbutton').click(() => {
+  $('#newmap').click(() => {
     const mapString = generateMapString(markers)[0];
     const coordsString = generateMapString(markers)[1];
     console.log(coordsString);
