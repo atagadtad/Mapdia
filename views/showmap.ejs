@@ -43,11 +43,15 @@
     </div>
   </section>
   </main>
-  <input id="mapID" value="<%= mapID %> " hidden>
+  <form name="submit" class="form-group" action="/maps/mapsupdate" method="POST">
+    <input id="mapID" name="mapID" value="<%= mapID %>" hidden>
+    <input id="updatemap" type="submit" class="ui basic button" value="Update">
+  </form>
   <button id="like" class="ui basic button">Like</button>
   <button id="unlike" class="ui basic button">Unlike</button>
   <a href="/"><button class="ui basic button">Back</button></a>
   <button id="delete" class="ui basic button">Delete</button>
+  <p id="mapdescription"></p>
 </body>
 
 </html>
