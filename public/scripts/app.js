@@ -21,7 +21,6 @@ $(function ($) {
     }
   });
 
-<<<<<<< HEAD
 
 
   //check checkBox to show map collection sections
@@ -40,19 +39,6 @@ $(function ($) {
   //       .appendTo($("body"));
   //   }
   // });
-=======
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done(users => {
-    console.log("getting users");
-    for (user of users) {
-      $("<div>")
-        .text(user.name)
-        .appendTo($("body"));
-    }
-  });
->>>>>>> 8deb5d4b78164f4220196d10880fe2f7c6e9aef2
 
 
   // $.ajax({
