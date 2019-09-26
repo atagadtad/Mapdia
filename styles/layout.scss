@@ -335,10 +335,7 @@ nav #buttons {
   justify-content: space-evenly;
   }
 
-#normalmaps {
-  position: relative;
-  left: 12%;
-}
+
 
   #showmap-buttons {
     text-align: center;
@@ -346,4 +343,14 @@ nav #buttons {
     display: flex;
     justify-content: space-evenly;
   }
-}
+
+  .rowContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 1em;
+    a {
+      margin: 2em;
+    }
+   }
