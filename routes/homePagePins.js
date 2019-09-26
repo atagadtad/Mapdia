@@ -138,9 +138,18 @@ module.exports = db => {
     res.render("newmap", { data: [] });
   });
 
-  router.get("/delete", (req, res) => {
-    console.log('hai2')
-  })
+  router.post("/delete", (req, res) => {
+    let mapIdDelete = req.body.delete;
+    const values = [mapIdDelete]
+    console.log('server: ', values);
+    db.query(`
+    DELETE FROM maps
+    WHERE maps.id = $1;
+    `, values)
+      .then(data => {
+
+      })
+  });
 
   return router;
 };
