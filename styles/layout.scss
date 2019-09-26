@@ -242,15 +242,7 @@ nav #buttons {
   padding-bottom: 10px;
 }
 
-.btn-demo {
-  text-align: center;
-  margin: 0 auto;
 
-  border-radius: 0;
-  font-size: 16px;
-  color: #eee;
-  background-color: rgb(17, 16, 16);
-}
 
 .btn-demo:focus {
   outline: 0;
@@ -284,6 +276,7 @@ padding-top: 1em
   font-size: 32px;
 }
 #mapdescription {
+  font-family: "Fredoka One", cursive;
   text-align: center;
   font-size: 32px;
 }
