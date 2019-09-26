@@ -28,30 +28,30 @@ $(function ($) {
   checkMapCollections("foody");
   checkMapCollections("camping");
 
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done(users => {
-    console.log("getting users");
-    for (user of users) {
-      $("<div>")
-        .text(user.name)
-        .appendTo($("body"));
-    }
-  });
+  // $.ajax({
+  //   method: "GET",
+  //   url: "/api/users"
+  // }).done(users => {
+  //   console.log("getting users");
+  //   for (user of users) {
+  //     $("<div>")
+  //       .text(user.name)
+  //       .appendTo($("body"));
+  //   }
+  // });
 
 
-  $.ajax({
-    method: "GET",
-    url: "/map"
-  }).done(() => {
-    $("#right").append(appendMap());
+  // $.ajax({
+  //   method: "GET",
+  //   url: "/map"
+  // }).done(() => {
+  //   $("#right").append(appendMap());
 
-    $("#searchPlace").click(function () {
-      appendSearch();
+  //   $("#searchPlace").click(function () {
+  //     appendSearch();
 
-    });
-  });
+  //   });
+  // });
 
   $.ajax({
     method: "GET",
