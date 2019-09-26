@@ -2,6 +2,7 @@ let map;
 let markers = [];
 let pinMap = [];
 let testMarkers = [];
+let newMarkers = [];
 // Initialize and add the map
 function initMap() {
   var toronto = { lat: 43.7, lng: -79.4 };
@@ -34,11 +35,10 @@ function initMap() {
       position: event["latLng"],
       label: markers.length.toString(),
       map: map,
-      // title: "Hello World!"
       draggable: true
     });
     markers.push({ lat: marker.position.lat(), lng: marker.position.lng() });
-    testMarkers.push(marker);
+    newMarkers.push({ lat: marker.position.lat(), lng: marker.position.lng() });
     // marker.setMap(map);
     console.log(marker.position);
     //    const contentString = setContentString(markers.length);
@@ -57,7 +57,7 @@ function initMap() {
       //   }
       // }
 
-      //    markers.push(marker);
+      markers.push(marker);
     });
   });
   let divMap = document.getElementById("map");
@@ -101,9 +101,10 @@ function generateMapString(markers) {
     coordsString += `${marker.lat},${marker.lng},`
   }
   mapString += `key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA`;
-  console.log(mapString);
+  console.log(coordsString);
   return [mapString, coordsString];
 };
+
 $(() => {
   //ajax request to GET
   let mapID = $('#mapID').val();
@@ -123,6 +124,7 @@ $(() => {
           draggable: true
         });
         pinMap.push(marker1);
+        markers.push({ lat: marker1.position.lat(), lng: marker1.position.lng() });
         console.log(marker1.position.lng() + " " + marker1.position.lat());
         map.setCenter(marker1.getPosition());
         map.setZoom(6);
@@ -133,8 +135,15 @@ $(() => {
         bounds.extend(item.getPosition());
       });
       map.fitBounds(bounds);
-    }
-  });
+      //try to delete marker
+      // for (let marker of markers) {
+      //   google.maps.event.addListener(marker, "rightclick", function () {
+      //     marker.setMap(null);
+      //     console.log(markers.length);
+      //   })
+      // }
+    }});
+    
 
   $("#map_submission").on("submit", evt => {
     evt.preventDefault();
@@ -168,11 +177,22 @@ $(() => {
       }
     })
   })
-
+//Create new map
   $('#modalbutton').click(() => {
     const mapString = generateMapString(markers)[0];
     const coordsString = generateMapString(markers)[1];
+    console.log(coordsString);
     $('form').append(`<input id = "mapStr" name = "mapString" value = ${mapString} hidden>`);
     $('form').append(`<input name = "coordsString" value = ${coordsString} hidden>`);
   })
+  $('#updatemap').click(() => {
+    //console.log(pinMap.length + "  "+markers.length);
+    const mapString = generateMapString(markers)[0];
+    const coordsString = generateMapString(newMarkers)[1];
+    console.log(mapString +" " +coordsString);
+    $('form').append(`<input id = "mapStr" name = "mapString" value = ${mapString} hidden>`);
+    $('form').append(`<input name = "coordsString" value = ${coordsString} hidden>`);
+  });
 });
+
+
