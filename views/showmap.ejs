@@ -42,18 +42,16 @@
         </script>
     </div>
   </section>
-  <form action="/showmap/34" method="post">
-    <button class="ui red button">DELETE</button>
-  </form>
+
   </main>
   <form name="submit" class="form-group" action="/maps/mapsupdate" method="POST">
-  <input id="mapID" name="mapID" value="<%= mapID %>" hidden >
-  <input id="updatemap" type="submit" class="ui blue basic button" value="Update">
-</form>
-  <button id="like" class="ui basic green button">Like</button>
-  <button id="unlike" class="ui basic red button">Unlike</button>
-
-  <a href="/"><button class="ui basic black button">Back</button></a>
+    <input id="mapID" name="mapID" value="<%= mapID %>" hidden>
+    <input id="updatemap" type="submit" class="ui basic button" value="Update">
+  </form>
+  <button id="like" class="ui green basic button">Like</button>
+  <button id="unlike" class="ui red basic button">Unlike</button>
+  <a href="/"><button class="ui black basic button">Back</button></a>
+  <a href="/"><button id="delete" class="ui red button">Delete</button></a>
   <p id="mapdescription"></p>
 </body>
 
