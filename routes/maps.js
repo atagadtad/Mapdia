@@ -13,6 +13,7 @@ module.exports = db => {
   router.get("/", (req, res) => {
     db.query(`
     SELECT * FROM maps
+    order by id DESC;
     `)
       .then(data => {
         // console.log(data)
@@ -35,33 +36,34 @@ module.exports = db => {
     let url = req.body.mapString;
     let coordsString = req.body.coordsString;
     console.log(mapID);
+    if (coordsString) {
+      let coordsArray = coordsString.split(',');
+      let coords = [];
+      for (let i = 0; i < coordsArray.length - 1; i++) {
+        coords.push({ latitude: Number(coordsArray[i]), longitude: Number(coordsArray[i + 1]) });
+        i++;
+      }
 
-    let coordsArray = coordsString.split(',');
-    let coords = [];
-    for (let i = 0; i < coordsArray.length - 1; i++) {
-      coords.push({ latitude: Number(coordsArray[i]), longitude: Number(coordsArray[i + 1]) });
-      i++;
-    }
-
-    db.query(`
+      db.query(`
         UPDATE maps SET url = $1 where id = $2
         `, [`${url}`, `${mapID}`]).then(data => {
-      for (coord of coords) {
-        console.log("coord: ", coord);
-        const values = [`${coord.latitude}`, `${coord.longitude}`, mapID];
-        db.query(
-          `
+        for (coord of coords) {
+          const values = [`${coord.latitude}`, `${coord.longitude}`, mapID];
+          db.query(
+            `
             INSERT INTO pins (latitude, longitude, map_id)
             VALUES ($1, $2, $3)
             RETURNING *;
           `,
-          values
-        ).then(data => {
-          res.render('homepage', { name: "fixmeinsubmission", user: req.session.user_id, error: '' });
-          // res.json('get it');
-        });
-      }
-    })
+            values
+          ).then(data => {
+            res.render('homepage', { name: "fixmeinsubmission", user: req.session.user_id, error: '' });
+            // res.json('get it');
+          });
+        }
+      })
+    }
+    res.redirect("/");
   })
 
   router.post("/mapsubmission", (req, res) => {

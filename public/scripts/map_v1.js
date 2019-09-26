@@ -1,10 +1,10 @@
 let map;
 let markers = [];
 let pinMap = [];
-let testMarkers = [];
 let newMarkers = [];
 // Initialize and add the map
 function initMap() {
+  console.log(pinMap.length);
   var toronto = { lat: 43.7, lng: -79.4 };
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 8,
@@ -49,16 +49,21 @@ function initMap() {
       infowindow.open(map, this);
     });
     google.maps.event.addListener(marker, "rightclick", function () {
-      // for (let itemmarker of markers) {
-      //   if (itemmarker === marker) {
-      console.log('are you here');
       marker.setMap(null);
-      console.log(markers.length);
-      //   }
-      // }
-
-      markers.push(marker);
+      // markers.push(marker);
+      //Delete this marker form markers
+      for (let targerMarker of markers) {
+        if (targerMarker.lat === marker.position.lat() && targerMarker.lng === marker.position.lng()) {
+          markers.splice(markers.indexOf(targerMarker),1);
+          newMarkers.splice(markers.indexOf(targerMarker),1);
+        }
+      }
     });
+    google.maps.event.addListener(marker,'dragend',function(event) 
+        {
+   console.log(event.latLng.lat());
+    console.log(event.latLng.lng());
+        })
   });
   let divMap = document.getElementById("map");
   divMap.gMap = map;
@@ -128,6 +133,7 @@ $(() => {
         console.log(marker1.position.lng() + " " + marker1.position.lat());
         map.setCenter(marker1.getPosition());
         map.setZoom(6);
+        $('#mapdescription').html(marker.description)
       }
       var bounds = new google.maps.LatLngBounds();
       pinMap.forEach(item => {
@@ -135,6 +141,11 @@ $(() => {
         bounds.extend(item.getPosition());
       });
       map.fitBounds(bounds);
+      google.maps.event.addListener(marker,'dragend',function(event) 
+      {
+ console.log(event.latLng.lat());
+  console.log(event.latLng.lng());
+      })
       //try to delete marker
       // for (let marker of markers) {
       //   google.maps.event.addListener(marker, "rightclick", function () {
@@ -142,6 +153,7 @@ $(() => {
       //     console.log(markers.length);
       //   })
       // }
+
     }});
     
 

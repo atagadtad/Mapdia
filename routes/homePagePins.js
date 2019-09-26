@@ -71,7 +71,7 @@ module.exports = db => {
     let values = [`${req.body.data}`];
     db.query(
       `
-    SELECT latitude, longitude
+    SELECT latitude, longitude, description
     FROM pins
     JOIN maps ON map_id = maps.id
     WHERE map_id = $1;
