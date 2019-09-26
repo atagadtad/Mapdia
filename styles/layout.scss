@@ -11,7 +11,7 @@ body {
     font-weight: bold;
     size: 30;
     text-align: center;
-   }
+  }
 
   nav {
     display: flex;
@@ -242,8 +242,6 @@ nav #buttons {
   padding-bottom: 10px;
 }
 
-
-
 .btn-demo:focus {
   outline: 0;
 }
@@ -251,14 +249,18 @@ nav #buttons {
 .mapsContainer {
   margin-left: 2%;
   margin-right: 2%;
-  margin-bottom: 2%
+  margin-bottom: 2%;
 }
 .rowContainer {
   display: flex;
+
   flex-direction: row;
-  flex-wrap :wrap;
+  flex-wrap: wrap;
   width: 100%;
-padding-top: 1em
+  padding-top: 1em;
+  a {
+    margin: 2em;
+  }
 }
 
 .column {
@@ -267,11 +269,9 @@ padding-top: 1em
   flex-basis: 100%;
   padding: 5px;
   flex: 1;
-
 }
-.anchormap{
-  // background-color:  powderblue;
-  transition: background-color .5s;
+.anchormap {
+  border: 2px lightgrey solid;
 }
 
 .anchormap:hover {
@@ -288,7 +288,7 @@ padding-top: 1em
   font-size: 32px;
 }
 
-.favorites{
+.favorites {
   max-width: 1000px;
   position: relative;
   margin: auto;
@@ -340,3 +340,10 @@ padding-top: 1em
   left: 12%;
 }
 
+  #showmap-buttons {
+    text-align: center;
+    margin: 3em;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
