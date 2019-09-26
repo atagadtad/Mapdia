@@ -34,13 +34,15 @@
 
 <body>
   <p id="mapdescription"></p>
-  <section id="map">
-    <div>
-      <script type="text/javascript" src="/scripts/map_v1.js"></script>
-      <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA&libraries=places&callback=initMap"></script>
-    </div>
-  </section>
+  <div id="mapV2">
+    <section id="map">
+      <div>
+        <script type="text/javascript" src="/scripts/map_v1.js"></script>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZImsQ1Qw68YIf_tHVOoMhs5wz5-F4JHA&libraries=places&callback=initMap"></script>
+      </div>
+    </section>
+  </div>
 
   <div id="showmap-buttons">
     <form name="submit" class="form-group" action="/maps/mapsupdate" method="POST">
