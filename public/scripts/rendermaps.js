@@ -11,6 +11,7 @@ $(function ($) {
     url: '/maps',
     success: (data) => {
       if (data.logined) {
+        console.log(data);
         for (let map of data.maps) {
           $('.mapsContainer').append(insertAnchor(map.id, map.url));
         }
