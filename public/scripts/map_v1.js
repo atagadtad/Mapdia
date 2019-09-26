@@ -54,16 +54,15 @@ function initMap() {
       //Delete this marker form markers
       for (let targerMarker of markers) {
         if (targerMarker.lat === marker.position.lat() && targerMarker.lng === marker.position.lng()) {
-          markers.splice(markers.indexOf(targerMarker),1);
-          newMarkers.splice(markers.indexOf(targerMarker),1);
+          markers.splice(markers.indexOf(targerMarker), 1);
+          newMarkers.splice(markers.indexOf(targerMarker), 1);
         }
       }
     });
-    google.maps.event.addListener(marker,'dragend',function(event) 
-        {
-   console.log(event.latLng.lat());
-    console.log(event.latLng.lng());
-        })
+    google.maps.event.addListener(marker, 'dragend', function (event) {
+      console.log(event.latLng.lat());
+      console.log(event.latLng.lng());
+    })
   });
   let divMap = document.getElementById("map");
   divMap.gMap = map;
@@ -141,10 +140,9 @@ $(() => {
         bounds.extend(item.getPosition());
       });
       map.fitBounds(bounds);
-      google.maps.event.addListener(marker,'dragend',function(event) 
-      {
- console.log(event.latLng.lat());
-  console.log(event.latLng.lng());
+      google.maps.event.addListener(marker, 'dragend', function (event) {
+        console.log(event.latLng.lat());
+        console.log(event.latLng.lng());
       })
       //try to delete marker
       // for (let marker of markers) {
@@ -154,8 +152,9 @@ $(() => {
       //   })
       // }
 
-    }});
-    
+    }
+  });
+
 
   $("#map_submission").on("submit", evt => {
     evt.preventDefault();
@@ -189,7 +188,7 @@ $(() => {
       }
     })
   })
-//Create new map
+  //Create new map
   $('#modalbutton').click(() => {
     const mapString = generateMapString(markers)[0];
     const coordsString = generateMapString(markers)[1];
@@ -197,11 +196,20 @@ $(() => {
     $('form').append(`<input id = "mapStr" name = "mapString" value = ${mapString} hidden>`);
     $('form').append(`<input name = "coordsString" value = ${coordsString} hidden>`);
   })
+
+  $('#delete').click(() => {
+    console.log('hai')
+    $.ajax({
+      url: '/delete',
+      method: 'POST',
+      data: { delete: mapID }
+    })
+  })
   $('#updatemap').click(() => {
     //console.log(pinMap.length + "  "+markers.length);
     const mapString = generateMapString(markers)[0];
     const coordsString = generateMapString(newMarkers)[1];
-    console.log(mapString +" " +coordsString);
+    console.log(mapString + " " + coordsString);
     $('form').append(`<input id = "mapStr" name = "mapString" value = ${mapString} hidden>`);
     $('form').append(`<input name = "coordsString" value = ${coordsString} hidden>`);
   });

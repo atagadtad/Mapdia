@@ -21,10 +21,7 @@ $(function ($) {
     }
   });
 
-  // $("#map-collections .disabled").click(function() {
-  //   alert("hiiii1");
-  //   $("#login-form").css("display", "block");
-  // });
+
 
   //check checkBox to show map collection sections
   checkMapCollections("favorite");
@@ -43,17 +40,6 @@ $(function ($) {
     }
   });
 
-  // let $map = document.getElementById("map");
-  // let map = document.getElementById("map").gMap;
-  // //showing user page
-  // $.ajax({
-  //   method: "GET",
-  //   url: "/login"
-  // }).done(() => {
-  //   // $("#right").append(appendMap());
-  //   // $("#searchPlace").click(function() {
-  //   //   appendSearch();
-  // });
 
   $.ajax({
     method: "GET",
@@ -63,16 +49,10 @@ $(function ($) {
 
     $("#searchPlace").click(function () {
       appendSearch();
-      // $("#map").append(appendMap());
-      // $("#searchPlace").click(function() {
-      //   appendSearch();
-      // });
+
     });
   });
-  // $("#map").append(appendMap());
-  // $("#searchPlace").click(function() {
-  //   appendSearch();
-  // });
+
   $.ajax({
     method: "GET",
     url: "/"
@@ -83,7 +63,6 @@ $(function ($) {
     });
   });
 
-  // });
   $(".item").click(function () {
     let url = $(this).attr("href");
     alert(url);
