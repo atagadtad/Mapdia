@@ -138,5 +138,9 @@ module.exports = db => {
     res.render("newmap", { data: [] });
   });
 
+  router.get("/delete", (req, res) => {
+    console.log('hai2')
+  })
+
   return router;
 };

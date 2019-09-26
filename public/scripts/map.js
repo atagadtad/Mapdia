@@ -81,17 +81,12 @@ function setContentString(marker) {
   return contentString;
 }
 
-function myFunction() {
-  var element = document.getElementsByClassName("ui hidden message");
-  element.classList.toggle("ui visible message");
-}
+
 
 
 $(() => {
   console.log('loaded');
-  $("img").click(() => {
-    console.log('hai')
-  })
+
 
 
   //ajax request to GET

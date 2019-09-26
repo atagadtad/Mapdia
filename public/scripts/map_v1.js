@@ -196,4 +196,11 @@ $(() => {
     $('form').append(`<input id = "mapStr" name = "mapString" value = ${mapString} hidden>`);
     $('form').append(`<input name = "coordsString" value = ${coordsString} hidden>`);
   })
+
+  $('#delete').click(() => {
+    $.ajax({
+      url: '/delete',
+      method: 'POST'
+    })
+  })
 });
