@@ -185,16 +185,6 @@ nav #buttons {
   width: 80%;
   margin: 0 auto;
 }
-
-#arrow {
-  .fa-angle-double-up {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 1em;
-    font-size: 3em;
-  }
-}
-
 /*******************************
 * MODAL AS LEFT/RIGHT SIDEBAR
 * Add "left" or "right" in modal parent div, after class="modal".
@@ -280,6 +270,12 @@ nav #buttons {
 .anchormap {
   border: 2px lightgrey solid;
 }
+
+.anchormap:hover {
+  color: grey;
+}
+
+
 #mapdescription {
   font-size: 32px;
 }
@@ -323,10 +319,36 @@ nav #buttons {
     animation-name: fade;
     animation-duration: 1.5s;
   }
+
 }
+#modalbutton {
+  font-size: 12pt;
+}
+
+
 #showmap-buttons {
   text-align: center;
   margin: 3em;
   display: flex;
   justify-content: space-evenly;
-}
+  }
+
+
+
+  #showmap-buttons {
+    text-align: center;
+    margin: 3em;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .rowContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 1em;
+    a {
+      margin: 2em;
+    }
+   }
