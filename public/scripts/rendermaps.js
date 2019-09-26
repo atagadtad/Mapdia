@@ -6,6 +6,7 @@ function insertAnchor(mapId, src) {
   return `<a class ='anchormap' href="/showmap/${mapId}"><img src="${src}"></a>`
 }
 
+
 $(function ($) {
   $.ajax({
     url: '/maps',
@@ -44,6 +45,7 @@ $(function ($) {
       }
     })
   })
+
 
 })
 
