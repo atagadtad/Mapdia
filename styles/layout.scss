@@ -1,11 +1,17 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: lightgray;
+  background-color: #eee;
 
   h1 {
     color: #244751;
   }
+
+  #normalmaps {
+    font-weight: bold;
+    size: 30;
+    text-align: center;
+   }
 
   nav {
     display: flex;
@@ -74,7 +80,7 @@ body {
 //   }
 // }
 #map {
-  height: 600px;
+  height: 500px;
   width: 96%;
   margin: 2%;
 
@@ -171,32 +177,8 @@ nav #buttons {
     justify-content: space-between;
     margin: 6em;
   }
-
-  #map-collections {
-    // margin: 2em;
-    .line1 {
-      display: flex;
-      justify-content: space-around;
-      margin: 2em;
-    }
-
-    .line2 {
-      display: flex;
-      justify-content: space-around;
-      margin: 2em;
-    }
-
-    .line3 {
-      display: flex;
-      justify-content: space-around;
-      margin: 2em;
-    }
-
-    .line4 {
-      display: flex;
-      justify-content: space-around;
-      margin: 2em;
-    }
+  #create-map {
+    margin: 1em 0;
   }
 }
 .ui.error.message {
@@ -275,7 +257,9 @@ nav #buttons {
 }
 
 .mapsContainer {
-  margin: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%
 }
 .rowContainer {
   display: flex;
@@ -300,6 +284,7 @@ padding-top: 1em
   font-size: 32px;
 }
 #mapdescription {
+  text-align: center;
   font-size: 32px;
 }
 
@@ -337,4 +322,10 @@ padding-top: 1em
     animation-name: fade;
     animation-duration: 1.5s;
   }
+#showmap-buttons {
+  text-align: center;
+  margin: 3em;
+  display: flex;
+  justify-content: space-evenly;
+}
 }
