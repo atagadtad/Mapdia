@@ -200,8 +200,8 @@ nav #buttons {
   }
 }
 .ui.error.message {
-width: 80%;
-margin:0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 /*******************************
 * MODAL AS LEFT/RIGHT SIDEBAR
@@ -262,7 +262,7 @@ margin:0 auto;
 
 .btn-demo {
   text-align: center;
-  margin:0 auto;
+  margin: 0 auto;
 
   border-radius: 0;
   font-size: 16px;
@@ -273,6 +273,15 @@ margin:0 auto;
 .btn-demo:focus {
   outline: 0;
 }
- #mapdescription {
-  font-size: 32px ;
- }
+
+.mapsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#mapdescription {
+  font-size: 32px;
+}
+#mapdescription {
+  font-size: 32px;
+}

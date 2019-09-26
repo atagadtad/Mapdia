@@ -16,7 +16,7 @@ module.exports = db => {
     order by id DESC;
     `)
       .then(data => {
-        // console.log(data)
+        console.log(data)
         const maps = data.rows;
         // console.log(maps);
         if (req.session.user_id) {

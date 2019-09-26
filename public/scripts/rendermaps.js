@@ -3,7 +3,7 @@ function insertImage(src) {
 }
 function insertAnchor(mapId, src) {
   let imgtag = insertImage(src);
-  return `<a class ='anchormap' href="/showmap/${mapId}"><img src="${src}"></a>`
+  return `<a class ='anchormap' href="/showmap/${mapId}"><img src="${src}"></a>`;
 }
 
 
@@ -17,8 +17,7 @@ $(function ($) {
           console.log(data.maps[0].url);
           $('.favorites').append(insertAnchor(map.id, map.url));
         }
-      }
-      else {
+      } else {
         for (let map of data.maps) {
           console.log(data.maps[0].url);
           $('.favorites').append(insertImage(map.url));
@@ -30,6 +29,7 @@ $(function ($) {
   $.ajax({
     url: '/maps',
     success: (data) => {
+      console.log(data);
       if (data.logined) {
         for (let map of data.maps) {
           $('.mapsContainer').append(insertAnchor(map.id, map.url));
@@ -43,26 +43,25 @@ $(function ($) {
     }
   });
 
-  $("#searchbutton").click(function (event) {
+  $("#searchbutton").click(function(event) {
     event.preventDefault();
-    $('.mapsContainer').empty();
-    let text = $("#searchtext").val()
-    console.log('text: ', text)
+    $(".mapsContainer").empty();
+    let text = $("#searchtext").val();
+    console.log("text: ", text);
     $.ajax({
       type: "GET",
-      url: '/search',
+      url: "/search",
       data: { search: text },
-      success: (data) => {
-        console.log(data)
+      success: data => {
+        console.log(data);
         // console.log(data.maps[0].maps)
         for (let map of data.maps) {
           // console.log(data.maps[0].url);
-          $('.mapsContainer').append(insertAnchor(map.id, map.url));
+          $(".mapsContainer").append(insertAnchor(map.id, map.url));
         }
       }
-    })
-  })
+    });
 
-
-})
-
+    // $('.mapsContainer').append(insertAnchor(map.id, map.url));
+  });
+});
