@@ -125,44 +125,67 @@ module.exports = db => {
       values
     )
       .then(data => {
-        //res.render("homepage", { user: req.session["user_id"], error: '' });
-        res.json(data);
+        let map_id = parseInt(req.body.data);
+        let values = [map_id, req.session.user_id];
+        console.log(values);
+        db.query(
+          `
+      DELETE from favorites 
+      WHERE map_id = $1 and user_id = $2
+      returning*;
+      `, values).then(data => {
+            res.json(data);
+          })
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
       });
+
   });
+  router.get("/checkliked", (req, res) => {
+    let map_id = parseInt(req.query.data);
+    let values = [map_id, req.session.user_id];
+      db.query(
+        `
+    select id from favorites
+    WHERE map_id = $1 and user_id = $2;
+    `,
+        values
+      )
+        .then(data => {
+          res.json(data.rows.length);
+  })
+})
+router.post("/showmap/:mapID", (req, res) => {
+  let mapID = req.params.mapID;
+  delete mapID;
+  res.redirect("/");
+});
 
-  router.post("/showmap/:mapID", (req, res) => {
-    let mapID = req.params.mapID;
-    delete mapID;
-    res.redirect("/");
-  });
+router.get("/showmap/:mapID", (req, res) => {
+  let mapID = req.params.mapID;
 
-  router.get("/showmap/:mapID", (req, res) => {
-    let mapID = req.params.mapID;
+  let templateVars = { mapID };
 
-    let templateVars = { mapID };
+  res.render("showmap", templateVars);
+});
 
-    res.render("showmap", templateVars);
-  });
+router.get("/newmap", (req, res) => {
+  res.render("newmap", { data: [] });
+});
 
-  router.get("/newmap", (req, res) => {
-    res.render("newmap", { data: [] });
-  });
-
-  router.post("/delete", (req, res) => {
-    let mapIdDelete = req.body.delete;
-    const values = [mapIdDelete]
-    console.log('server: ', values);
-    db.query(`
+router.post("/delete", (req, res) => {
+  let mapIdDelete = req.body.delete;
+  const values = [mapIdDelete]
+  console.log('server: ', values);
+  db.query(`
     DELETE FROM maps
     WHERE maps.id = $1;
     `, values)
-      .then(data => {
+    .then(data => {
 
-      })
-  });
+    })
+});
 
-  return router;
-};
+return router;
+  };

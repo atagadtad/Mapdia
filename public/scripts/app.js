@@ -17,35 +17,7 @@ $(function($) {
     }
   });
 
-  //check checkBox to show map collection sections
-  checkMapCollections("favorite");
-  checkMapCollections("foody");
-  checkMapCollections("camping");
-
-  // $.ajax({
-  //   method: "GET",
-  //   url: "/api/users"
-  // }).done(users => {
-  //   console.log("getting users");
-  //   for (user of users) {
-  //     $("<div>")
-  //       .text(user.name)
-  //       .appendTo($("body"));
-  //   }
-  // });
-
-  // $.ajax({
-  //   method: "GET",
-  //   url: "/map"
-  // }).done(() => {
-  //   $("#right").append(appendMap());
-
-  //   $("#searchPlace").click(function () {
-  //     appendSearch();
-
-  //   });
-  // });
-
+  
   $.ajax({
     method: "GET",
     url: "/"

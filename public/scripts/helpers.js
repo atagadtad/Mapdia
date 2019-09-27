@@ -81,12 +81,5 @@ function checkMapCollections(id) {
     });
   });
 }
-const scrollTop = function () {
-  let y = window.scrollY;
-  if (y > 0) {
-      $("#arrow").css('visibility', 'visible');
-  } else {
-      $("#arrow").css('visibility', 'hidden');
-  }
-}
-export { appendMap, appendSearch, checkMapCollections, scrollTop };
+
+export { appendMap, appendSearch, checkMapCollections };

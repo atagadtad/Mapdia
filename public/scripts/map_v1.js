@@ -113,6 +113,20 @@ $(() => {
   //ajax request to GET
   let mapID = $('#mapID').val();
 
+  //check liked or not 
+  $.ajax({
+    url:'/checkliked',
+    data: {data: mapID},
+    success: (data) => {
+      if (!data) {
+        $("#unlike").attr("disabled", true);
+        $("#like").attr("disabled", false);
+      } else {
+        $("#unlike").attr("disabled", false);
+        $("#like").attr("disabled", true);
+      }
+    }
+  })
   $.ajax({
     url: '/getmap',
     method: 'POST',
@@ -192,13 +206,11 @@ $(() => {
   $('#newmap').click(() => {
     const mapString = generateMapString(markers)[0];
     const coordsString = generateMapString(markers)[1];
-    console.log(coordsString);
     $('form').append(`<input id = "mapStr" name = "mapString" value = ${mapString} hidden>`);
     $('form').append(`<input name = "coordsString" value = ${coordsString} hidden>`);
   })
 
   $('#delete').click(() => {
-    console.log('hai')
     $.ajax({
       url: '/delete',
       method: 'POST',
