@@ -81,5 +81,12 @@ function checkMapCollections(id) {
     });
   });
 }
-
-export { appendMap, appendSearch, checkMapCollections };
+const scrollTop = function () {
+  let y = window.scrollY;
+  if (y > 0) {
+      $("#arrow").css('visibility', 'visible');
+  } else {
+      $("#arrow").css('visibility', 'hidden');
+  }
+}
+export { appendMap, appendSearch, checkMapCollections, scrollTop };

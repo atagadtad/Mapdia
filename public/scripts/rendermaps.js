@@ -11,7 +11,6 @@ $(function ($) {
     url: '/maps',
     success: (data) => {
       if (data.logined) {
-        console.log(data);
         for (let map of data.maps) {
           $('.mapsContainer').append(insertAnchor(map.id, map.url));
         }
@@ -26,15 +25,12 @@ $(function ($) {
   $.ajax({
     url: '/maps/getfavorites',
     success: (data) => {
-      console.log(data);
       if (data.logined) {
         for (let map of data.maps) {
-          console.log(data.maps[0].url);
           $('#favSlides').append(insertAnchor(map.id, map.url));
         }
       } else {
         for (let map of data.maps) {
-          console.log(data.maps[0].url);
           $('#favSlides').append(insertImage(map.url));
         }
       }

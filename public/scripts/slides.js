@@ -1,5 +1,5 @@
 var slideIndex = 1;
-//showSlides(slideIndex);
+// showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
@@ -13,10 +13,9 @@ function currentSlide(n) {
 
 function showSlides(n) {
   let i;
-  document.getElementById("favSlides").style.display = 'block';
+  // document.getElementById("favSlides").style.display = 'block';
   let slides = document.getElementById("favSlides").children;
-  console.log(slides);
-  console.log(slides[1]);
+  document.getElementById("favSlides").style.visibility = "visible";
   // var dots = document.getElementsByClassName("dot");
   if (n > slides.length) { slideIndex = 1 }
   if (n < 1) { slideIndex = slides.length }
@@ -30,6 +29,7 @@ function showSlides(n) {
   // dots[slideIndex - 1].className += " active";
 }
 $(()=>{
+
   $('.next').click(()=>{
     plusSlides(1);
   })
@@ -37,3 +37,7 @@ $(()=>{
     plusSlides(-1);
   })
 })
+
+$('body').on('DOMNodeInserted', 'a', function () {
+  plusSlides(1);
+});
