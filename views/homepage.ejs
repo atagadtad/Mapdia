@@ -2,16 +2,19 @@
 <html lang="en">
 
 <head>
-  <title>Homepage</title>
+  <title>Mapdia</title>
   <!-- CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" /> 
   <!-- SEMANTIC UI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css" />
+  <link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+
 
   <!-- JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -21,10 +24,14 @@
 
   <script type="module" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/rendermaps.js"></script>
-  <script type="text/javascript" src="/scripts/slides.js"></script>
+
 </head>
 
 <body id="homepage">
+    <h1>
+        Mapdia <br>
+        <div>- Way to see the world</div>
+</h1>
   <header>
     <nav>
       <div class="search">
@@ -80,14 +87,9 @@
         </div>
         <div class="field">
           <label>Password</label>
-          <input type="text" name="password" placeholder="Password" />
+          <input type="password" name="password" placeholder="Password" />
         </div>
-        <div class="field">
-          <div class="ui checkbox">
-            <input type="checkbox" tabindex="0" class="hidden" />
-            <label>I agree to the Terms and Conditions</label>
-          </div>
-        </div>
+
         <button class="ui basic button" type="submit">Submit</button>
       </form>
     </div>
@@ -96,17 +98,18 @@
       <form class="ui form" action='/registration' method="POST">
         <div class="field">
           <label>Email</label>
-          <input type="text" name="email" placeholder="First Name" />
+          <input type="text" name="email" placeholder="Email" />
         </div>
         <div class="field">
           <label>password</label>
-          <input type="text" name="password" placeholder="Last Name" />
+          <input type="password" name="password" placeholder="Password" />
         </div>
 
         <button class="ui button" type="submit">Submit</button>
 
       </form>
     </div>
+    <%if(user) {%>
     <div id='favContainer'>Favorite Maps
         <div class="favorites">
             <div class="favSlides fade" id ="favSlides">
@@ -116,6 +119,7 @@
         <a class="next">&#10095;</a>
         </div>
         </div>
+        <%} %>
     <div id="normalmaps">All Maps
         <div  class="mapsContainer">
           <div class="rowContainer">
@@ -130,8 +134,16 @@
 
     </div>
   </div>
-  <div id="arrow">
-  <a href="#"><i class="fas fa-angle-double-up"></i></a>
+  <div >
+  <a  id="arrow" href="#"><i class="fas fa-angle-double-up"></i></a>
 </div>
+<script type="text/javascript" src="/scripts/slides.js"></script>
+<script type="text.jsvascript" src="/scripts/composer.js"></script>
+
+<div class="earth">
+    <div></div>
+  </div>
+</body>
+
 </body>
 </html>

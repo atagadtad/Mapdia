@@ -1,20 +1,29 @@
 
 // See: https://sass-lang.com/
 
+
 body {
   background-color: #eee;
-
   h1 {
-    color: #244751;
+    color: black;
+    font-family: "Fredoka One", cursive;
+    font-size: 40px;
+    text-align: center;
+padding-top: 5%;
+    div {
+      font-size: 25px;
+      text-align: center;
+      padding-left: 30%;
+    }
   }
+
 
   #normalmaps {
     margin-top:1em;
-    font-weight: bold;
     font-size: 32px;
     text-align: center;
     font-family: "Fredoka One", cursive;
-    font-weight: bold;
+
   }
 
   nav {
@@ -272,9 +281,16 @@ nav #buttons {
 }
 
 .mapsContainer {
+  margin-top: 5px;
   margin-left: 2%;
   margin-right: 2%;
   margin-bottom: 2%;
+  a {
+    margin: 5px;
+  }
+  img {
+    padding-top: 5px;
+  }
 }
 .rowContainer {
   display: flex;
@@ -359,7 +375,6 @@ nav #buttons {
 #favContainer {
 
   font-family: "Fredoka One", cursive;
-  font-weight: bold;
   width: 90%;
   margin:0 auto;
   text-align: center;
@@ -368,12 +383,13 @@ nav #buttons {
 }
 .favorites {
   padding-top: 1em;
+  height: 350px;
   max-width: 1000px;
   position: relative;
   margin: auto;
 
   .favSlides {
-    display: none;
+    visibility: hidden;
   .anchormap {
     border: 0;
   }
@@ -434,5 +450,46 @@ nav #buttons {
   }
 }
 
+.earth {
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  top: 5%;
+  left:20%;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 20px #000 inset, 0 0 20px 2px #000;
+}
 
+.earth:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: -20px -20px 50px 2px rgb(27, 32, 32) inset;
+  border-radius: 30%;
+}
 
+.earth > div {
+  width: 200%;
+  height: 110%;
+  animation: spin 10s linear alternate infinite;
+  background: url(https://web.opendrive.com/api/v1/download/file.json/NTlfMTQ1MTkzNDhf?inline=1);
+  background-size: cover;
+}
+@keyframes spin {
+  to {
+    transform: translateX(-50%);
+  }
+}
+#arrow {
+  font-size:40px;
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  text-align: right;
+  opacity: 0.6;
+}
